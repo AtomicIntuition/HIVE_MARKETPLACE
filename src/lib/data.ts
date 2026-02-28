@@ -52,10 +52,15 @@ function mapDbToolToTool(row: Record<string, unknown>): Tool {
 export async function getAllTools(): Promise<Tool[]> {
   if (!isDbAvailable()) return getToolsFromJson();
 
-  const db = await getDb();
-  const { tools } = await import("@/db/schema");
-  const rows = await db.select().from(tools);
-  return rows.map(mapDbToolToTool);
+  try {
+    const db = await getDb();
+    const { tools } = await import("@/db/schema");
+    const rows = await db.select().from(tools);
+    return rows.map(mapDbToolToTool);
+  } catch (e) {
+    console.error("getAllTools DB error, falling back to JSON:", e);
+    return getToolsFromJson();
+  }
 }
 
 export async function getToolBySlug(slug: string): Promise<Tool | undefined> {
@@ -64,12 +69,18 @@ export async function getToolBySlug(slug: string): Promise<Tool | undefined> {
     return all.find((t) => t.slug === slug);
   }
 
-  const db = await getDb();
-  const { tools } = await import("@/db/schema");
-  const { eq } = await import("drizzle-orm");
-  const rows = await db.select().from(tools).where(eq(tools.slug, slug)).limit(1);
-  if (rows.length === 0) return undefined;
-  return mapDbToolToTool(rows[0]);
+  try {
+    const db = await getDb();
+    const { tools } = await import("@/db/schema");
+    const { eq } = await import("drizzle-orm");
+    const rows = await db.select().from(tools).where(eq(tools.slug, slug)).limit(1);
+    if (rows.length === 0) return undefined;
+    return mapDbToolToTool(rows[0]);
+  } catch (e) {
+    console.error("getToolBySlug DB error, falling back to JSON:", e);
+    const all = await getToolsFromJson();
+    return all.find((t) => t.slug === slug);
+  }
 }
 
 export async function getToolsByCategory(category: CategorySlug): Promise<Tool[]> {
@@ -78,11 +89,17 @@ export async function getToolsByCategory(category: CategorySlug): Promise<Tool[]
     return all.filter((t) => t.category === category);
   }
 
-  const db = await getDb();
-  const { tools } = await import("@/db/schema");
-  const { eq } = await import("drizzle-orm");
-  const rows = await db.select().from(tools).where(eq(tools.category, category));
-  return rows.map(mapDbToolToTool);
+  try {
+    const db = await getDb();
+    const { tools } = await import("@/db/schema");
+    const { eq } = await import("drizzle-orm");
+    const rows = await db.select().from(tools).where(eq(tools.category, category));
+    return rows.map(mapDbToolToTool);
+  } catch (e) {
+    console.error("getToolsByCategory DB error, falling back to JSON:", e);
+    const all = await getToolsFromJson();
+    return all.filter((t) => t.category === category);
+  }
 }
 
 export async function getFeaturedTools(): Promise<Tool[]> {
@@ -91,11 +108,17 @@ export async function getFeaturedTools(): Promise<Tool[]> {
     return all.filter((t) => t.featured);
   }
 
-  const db = await getDb();
-  const { tools } = await import("@/db/schema");
-  const { eq } = await import("drizzle-orm");
-  const rows = await db.select().from(tools).where(eq(tools.featured, true));
-  return rows.map(mapDbToolToTool);
+  try {
+    const db = await getDb();
+    const { tools } = await import("@/db/schema");
+    const { eq } = await import("drizzle-orm");
+    const rows = await db.select().from(tools).where(eq(tools.featured, true));
+    return rows.map(mapDbToolToTool);
+  } catch (e) {
+    console.error("getFeaturedTools DB error, falling back to JSON:", e);
+    const all = await getToolsFromJson();
+    return all.filter((t) => t.featured);
+  }
 }
 
 export async function getTrendingTools(): Promise<Tool[]> {
@@ -104,15 +127,21 @@ export async function getTrendingTools(): Promise<Tool[]> {
     return all.filter((t) => t.trending);
   }
 
-  const db = await getDb();
-  const { tools } = await import("@/db/schema");
-  const { eq } = await import("drizzle-orm");
-  const rows = await db.select().from(tools).where(eq(tools.trending, true));
-  return rows.map(mapDbToolToTool);
+  try {
+    const db = await getDb();
+    const { tools } = await import("@/db/schema");
+    const { eq } = await import("drizzle-orm");
+    const rows = await db.select().from(tools).where(eq(tools.trending, true));
+    return rows.map(mapDbToolToTool);
+  } catch (e) {
+    console.error("getTrendingTools DB error, falling back to JSON:", e);
+    const all = await getToolsFromJson();
+    return all.filter((t) => t.trending);
+  }
 }
 
 export async function searchTools(query: string): Promise<Tool[]> {
-  if (!isDbAvailable()) {
+  const jsonFallback = async () => {
     const all = await getToolsFromJson();
     const q = query.toLowerCase();
     return all.filter(
@@ -122,89 +151,117 @@ export async function searchTools(query: string): Promise<Tool[]> {
         t.tags.some((tag) => tag.toLowerCase().includes(q)) ||
         t.category.toLowerCase().includes(q)
     );
-  }
+  };
 
-  const db = await getDb();
-  const { tools } = await import("@/db/schema");
-  const { or, ilike } = await import("drizzle-orm");
-  const pattern = `%${query}%`;
-  const rows = await db
-    .select()
-    .from(tools)
-    .where(
-      or(
-        ilike(tools.name, pattern),
-        ilike(tools.description, pattern),
-        ilike(tools.category, pattern)
-      )
-    );
-  return rows.map(mapDbToolToTool);
+  if (!isDbAvailable()) return jsonFallback();
+
+  try {
+    const db = await getDb();
+    const { tools } = await import("@/db/schema");
+    const { or, ilike } = await import("drizzle-orm");
+    const pattern = `%${query}%`;
+    const rows = await db
+      .select()
+      .from(tools)
+      .where(
+        or(
+          ilike(tools.name, pattern),
+          ilike(tools.description, pattern),
+          ilike(tools.category, pattern)
+        )
+      );
+    return rows.map(mapDbToolToTool);
+  } catch (e) {
+    console.error("searchTools DB error, falling back to JSON:", e);
+    return jsonFallback();
+  }
 }
 
 export async function getRelatedTools(tool: Tool, limit = 4): Promise<Tool[]> {
-  if (!isDbAvailable()) {
+  const jsonFallback = async () => {
     const all = await getToolsFromJson();
     return all
       .filter((t) => t.id !== tool.id && t.category === tool.category)
       .sort((a, b) => b.installCount - a.installCount)
       .slice(0, limit);
-  }
+  };
 
-  const db = await getDb();
-  const { tools } = await import("@/db/schema");
-  const { eq, ne, and, desc } = await import("drizzle-orm");
-  const rows = await db
-    .select()
-    .from(tools)
-    .where(and(eq(tools.category, tool.category), ne(tools.id, tool.id)))
-    .orderBy(desc(tools.installCount))
-    .limit(limit);
-  return rows.map(mapDbToolToTool);
+  if (!isDbAvailable()) return jsonFallback();
+
+  try {
+    const db = await getDb();
+    const { tools } = await import("@/db/schema");
+    const { eq, ne, and, desc } = await import("drizzle-orm");
+    const rows = await db
+      .select()
+      .from(tools)
+      .where(and(eq(tools.category, tool.category), ne(tools.id, tool.id)))
+      .orderBy(desc(tools.installCount))
+      .limit(limit);
+    return rows.map(mapDbToolToTool);
+  } catch (e) {
+    console.error("getRelatedTools DB error, falling back to JSON:", e);
+    return jsonFallback();
+  }
 }
 
 export async function getCategoryWithCount(slug: CategorySlug) {
   const category = CATEGORIES.find((c) => c.slug === slug);
   if (!category) return undefined;
 
-  if (!isDbAvailable()) {
+  const jsonFallback = async () => {
     const all = await getToolsFromJson();
     const count = all.filter((t) => t.category === slug).length;
     return { ...category, toolCount: count };
-  }
+  };
 
-  const db = await getDb();
-  const { tools } = await import("@/db/schema");
-  const { eq, count } = await import("drizzle-orm");
-  const result = await db
-    .select({ count: count() })
-    .from(tools)
-    .where(eq(tools.category, slug));
-  return { ...category, toolCount: result[0].count };
+  if (!isDbAvailable()) return jsonFallback();
+
+  try {
+    const db = await getDb();
+    const { tools } = await import("@/db/schema");
+    const { eq, count } = await import("drizzle-orm");
+    const result = await db
+      .select({ count: count() })
+      .from(tools)
+      .where(eq(tools.category, slug));
+    return { ...category, toolCount: result[0].count };
+  } catch (e) {
+    console.error("getCategoryWithCount DB error, falling back to JSON:", e);
+    return jsonFallback();
+  }
 }
 
 export async function getAllCategoriesWithCounts() {
-  if (!isDbAvailable()) {
+  const jsonFallback = async () => {
     const all = await getToolsFromJson();
     return CATEGORIES.map((cat) => ({
       ...cat,
       toolCount: all.filter((t) => t.category === cat.slug).length,
     }));
+  };
+
+  if (!isDbAvailable()) return jsonFallback();
+
+  try {
+    const db = await getDb();
+    const { tools } = await import("@/db/schema");
+    const { eq, count } = await import("drizzle-orm");
+
+    const counts = await Promise.all(
+      CATEGORIES.map(async (cat) => {
+        const result = await db
+          .select({ count: count() })
+          .from(tools)
+          .where(eq(tools.category, cat.slug));
+        return { ...cat, toolCount: result[0].count };
+      })
+    );
+    return counts;
+  } catch (e) {
+    console.error("getAllCategoriesWithCounts DB error, falling back to JSON:", e);
+    return jsonFallback();
   }
-
-  const db = await getDb();
-  const { tools } = await import("@/db/schema");
-  const { eq, count } = await import("drizzle-orm");
-
-  const counts = await Promise.all(
-    CATEGORIES.map(async (cat) => {
-      const result = await db
-        .select({ count: count() })
-        .from(tools)
-        .where(eq(tools.category, cat.slug));
-      return { ...cat, toolCount: result[0].count };
-    })
-  );
-  return counts;
 }
 
 // sortTools and filterTools moved to @/lib/tool-utils.ts for client component compatibility
