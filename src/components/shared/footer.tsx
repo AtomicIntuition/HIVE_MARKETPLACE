@@ -10,16 +10,16 @@ const FOOTER_LINKS = {
     { href: "/tools?sort=newest", label: "New Tools" },
   ],
   Creators: [
-    { href: "/docs", label: "Publish a Tool" },
-    { href: "/docs", label: "Creator Dashboard" },
+    { href: "/docs/publishing", label: "Publish a Tool" },
+    { href: "/docs/account", label: "Creator Dashboard" },
     { href: "/pricing", label: "Pricing" },
-    { href: "/docs", label: "MCP Spec" },
+    { href: "/docs/mcp-basics", label: "MCP Spec" },
   ],
   Platform: [
     { href: "https://hive.sh", label: "Hive Deploy", external: true },
     { href: "/docs", label: "Documentation" },
-    { href: "/docs", label: "API Reference" },
-    { href: "/docs", label: "CLI Reference" },
+    { href: "/docs/connecting-tools", label: "Setup Guide" },
+    { href: "/docs/faq", label: "FAQ" },
   ],
   Company: [
     { href: "/", label: "About" },

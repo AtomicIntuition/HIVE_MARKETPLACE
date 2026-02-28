@@ -1,6 +1,9 @@
 import { Metadata } from "next";
-import { Terminal, BookOpen, Package, Zap } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, Search, Cable, Upload, BookOpen } from "lucide-react";
 import { createMetadata } from "@/lib/metadata";
+import { DocsHeader } from "@/components/docs/docs-header";
+import { Callout } from "@/components/docs/callout";
 
 export const metadata: Metadata = createMetadata({
   title: "Documentation",
@@ -9,97 +12,162 @@ export const metadata: Metadata = createMetadata({
   path: "/docs",
 });
 
-const SECTIONS = [
+const QUICK_LINKS = [
   {
-    icon: Zap,
-    title: "Quick Start",
-    description: "Connect an MCP tool to your AI agent in under 2 minutes",
-    content: [
-      "1. Browse or search for a tool on Hive Market",
-      "2. Click \"Connect to Agent\" on the tool page",
-      "3. Choose your client (Claude Desktop, Cursor, Windsurf)",
-      "4. Copy the JSON config into your client's config file",
-      "5. Restart your client — the tool is now available",
-    ],
+    icon: Cable,
+    title: "Connecting Tools",
+    description: "Set up MCP tools in Claude Desktop, Cursor, or Windsurf",
+    href: "/docs/connecting-tools",
   },
   {
-    icon: Terminal,
-    title: "Claude Desktop Setup",
-    description: "Add MCP tools to Claude Desktop",
-    content: [
-      "1. Open Claude Desktop → Settings → Developer",
-      "2. Click \"Edit Config\" to open claude_desktop_config.json",
-      "3. Paste the MCP server config from Hive Market",
-      "4. Save the file and restart Claude Desktop",
-      "5. The tool will appear in Claude's tool list",
-    ],
-  },
-  {
-    icon: Package,
-    title: "Publishing a Tool",
-    description: "Share your MCP server with the community",
-    content: [
-      "1. Build an MCP-compatible server (stdio or SSE transport)",
-      "2. Publish it to npm or host on GitHub",
-      "3. Go to Hive Market → Publish",
-      "4. Fill in metadata (name, description, npm package, pricing)",
-      "5. Your tool goes live on the marketplace",
-    ],
+    icon: Upload,
+    title: "Publishing",
+    description: "Submit your MCP server to the marketplace",
+    href: "/docs/publishing",
   },
   {
     icon: BookOpen,
-    title: "MCP Spec",
-    description: "Model Context Protocol reference",
-    content: [
-      "MCP is an open protocol for AI agent tools",
-      "Servers expose tools, resources, and prompts",
-      "Clients (agents) connect and invoke tools",
-      "JSON-RPC based communication",
-      "Supports stdio and SSE transports",
-    ],
+    title: "MCP Basics",
+    description: "Learn what the Model Context Protocol is and how it works",
+    href: "/docs/mcp-basics",
   },
 ];
 
 export default function DocsPage() {
   return (
-    <div className="py-12">
-      <div className="mx-auto max-w-4xl px-6">
-        <div className="mb-12">
-          <h1 className="text-3xl font-bold text-foreground">Documentation</h1>
-          <p className="mt-2 text-muted-foreground">
-            Everything you need to discover, connect, and publish MCP tools
-          </p>
-        </div>
+    <>
+      <DocsHeader
+        title="Getting Started"
+        description="Everything you need to discover, connect, and publish MCP tools on Hive Market."
+      />
 
-        <div className="space-y-12">
-          {SECTIONS.map((section) => (
-            <div key={section.title}>
-              <div className="mb-4 flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-violet-500/10">
-                  <section.icon className="h-5 w-5 text-violet-400" />
-                </div>
-                <div>
-                  <h2 className="text-xl font-semibold text-foreground">
-                    {section.title}
-                  </h2>
-                  <p className="text-sm text-muted-foreground">
-                    {section.description}
-                  </p>
-                </div>
+      {/* What is Hive Market */}
+      <section className="mb-12">
+        <h2 className="mb-4 text-xl font-semibold text-foreground">
+          What is Hive Market?
+        </h2>
+        <p className="mb-4 text-muted-foreground">
+          Hive Market is the marketplace for MCP-compatible tools — think of it as
+          an app store for AI agent integrations. Developers discover tools that
+          give their AI clients (like Claude Desktop, Cursor, or Windsurf) new
+          capabilities: reading files, querying databases, calling APIs, managing
+          infrastructure, and more.
+        </p>
+        <p className="text-muted-foreground">
+          Creators publish their MCP servers to the marketplace where thousands
+          of developers can find and connect them. Each tool listing includes
+          documentation, install counts, user reviews, and a one-click
+          configuration snippet for every major AI client.
+        </p>
+      </section>
+
+      {/* Quick Start */}
+      <section className="mb-12">
+        <h2 className="mb-4 text-xl font-semibold text-foreground">
+          Quick Start
+        </h2>
+        <p className="mb-6 text-muted-foreground">
+          Connect an MCP tool to your AI agent in under two minutes:
+        </p>
+        <ol className="mb-6 space-y-4">
+          {[
+            {
+              step: "Browse or search",
+              detail:
+                "Find a tool on Hive Market by name, category, or keyword. Use the search bar or browse the 8 categories.",
+            },
+            {
+              step: "Click Connect",
+              detail:
+                'Open the tool page and click "Connect to Agent." Choose your AI client from the tabs.',
+            },
+            {
+              step: "Copy the config",
+              detail:
+                "Copy the JSON configuration snippet shown for your client. It contains the server command and any required arguments.",
+            },
+            {
+              step: "Paste into your client",
+              detail:
+                "Open your client's MCP config file and paste the snippet into the mcpServers object.",
+            },
+            {
+              step: "Restart your client",
+              detail:
+                "Restart your AI client. The tool's capabilities will appear in your tool list, ready to use.",
+            },
+          ].map((item, i) => (
+            <li key={i} className="flex gap-4">
+              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-violet-500/10 text-sm font-medium text-violet-400">
+                {i + 1}
+              </span>
+              <div>
+                <p className="font-medium text-foreground">{item.step}</p>
+                <p className="mt-0.5 text-sm text-muted-foreground">
+                  {item.detail}
+                </p>
               </div>
-              <div className="rounded-xl border border-border/50 bg-gray-950 p-4">
-                <div className="font-mono text-sm">
-                  {section.content.map((line, i) => (
-                    <p key={i} className="py-0.5 text-muted-foreground">
-                      {line}
-                    </p>
-                  ))}
-                </div>
-              </div>
-            </div>
+            </li>
+          ))}
+        </ol>
+        <Callout variant="tip" title="Need detailed setup instructions?">
+          <p>
+            See the{" "}
+            <Link href="/docs/connecting-tools">Connecting Tools</Link> page for
+            step-by-step instructions with exact config file paths and JSON
+            examples for each AI client.
+          </p>
+        </Callout>
+      </section>
+
+      {/* Browsing & Search */}
+      <section className="mb-12">
+        <h2 className="mb-4 text-xl font-semibold text-foreground">
+          Browsing & Search
+        </h2>
+        <p className="mb-4 text-muted-foreground">
+          Hive Market organizes tools into 8 categories: Payments, Communication,
+          Data, DevTools, Productivity, AI/ML, Content, and Analytics. You can
+          browse by category or use the global search to find tools by name,
+          description, or keyword.
+        </p>
+        <div className="flex items-start gap-3 rounded-xl border border-border/50 bg-gray-950 p-4">
+          <Search className="mt-0.5 h-5 w-5 shrink-0 text-violet-400" />
+          <div>
+            <p className="font-medium text-foreground">Search tips</p>
+            <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
+              <li>Search by tool name: &ldquo;filesystem&rdquo;, &ldquo;slack&rdquo;, &ldquo;postgres&rdquo;</li>
+              <li>Search by capability: &ldquo;send email&rdquo;, &ldquo;read files&rdquo;, &ldquo;query database&rdquo;</li>
+              <li>Filter by category and sort by popularity, rating, or newest</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* Quick Links */}
+      <section>
+        <h2 className="mb-6 text-xl font-semibold text-foreground">
+          Explore the Docs
+        </h2>
+        <div className="grid gap-4 sm:grid-cols-3">
+          {QUICK_LINKS.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="group rounded-xl border border-border/50 bg-gray-950 p-5 transition-colors hover:border-violet-500/30 hover:bg-gray-950/80"
+            >
+              <link.icon className="mb-3 h-5 w-5 text-violet-400" />
+              <p className="font-medium text-foreground">{link.title}</p>
+              <p className="mt-1 text-sm text-muted-foreground">
+                {link.description}
+              </p>
+              <span className="mt-3 flex items-center gap-1 text-sm text-violet-400 opacity-0 transition-opacity group-hover:opacity-100">
+                Read more <ArrowRight className="h-3.5 w-3.5" />
+              </span>
+            </Link>
           ))}
         </div>
-      </div>
-    </div>
+      </section>
+    </>
   );
 }
