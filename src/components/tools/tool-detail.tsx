@@ -36,9 +36,12 @@ export function ToolDetail({ tool, relatedTools, reviewsSection }: ToolDetailPro
   const category = CATEGORIES.find((c) => c.slug === tool.category);
   const categoryColor =
     COLORS.categories[tool.category as keyof typeof COLORS.categories];
-  const installCmd = `npx hive-market connect ${tool.slug}`;
+  const installCmd = tool.npmPackage
+    ? `npx -y ${tool.npmPackage}`
+    : null;
 
   const handleCopy = () => {
+    if (!installCmd) return;
     navigator.clipboard.writeText(installCmd);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
@@ -113,32 +116,34 @@ export function ToolDetail({ tool, relatedTools, reviewsSection }: ToolDetailPro
               </div>
 
               {/* Install command */}
-              <div className="mt-8 overflow-hidden rounded-xl border border-border/50 bg-gray-950">
-                <div className="flex items-center justify-between border-b border-border/50 px-4 py-2">
-                  <span className="text-xs text-muted-foreground">
-                    Install
-                  </span>
-                  <button
-                    onClick={handleCopy}
-                    className="flex items-center gap-1 text-xs text-muted-foreground transition-colors hover:text-foreground"
-                  >
-                    {copied ? (
-                      <>
-                        <Check className="h-3 w-3 text-emerald-400" />
-                        Copied
-                      </>
-                    ) : (
-                      <>
-                        <Copy className="h-3 w-3" />
-                        Copy
-                      </>
-                    )}
-                  </button>
+              {installCmd && (
+                <div className="mt-8 overflow-hidden rounded-xl border border-border/50 bg-gray-950">
+                  <div className="flex items-center justify-between border-b border-border/50 px-4 py-2">
+                    <span className="text-xs text-muted-foreground">
+                      Quick Install
+                    </span>
+                    <button
+                      onClick={handleCopy}
+                      className="flex items-center gap-1 text-xs text-muted-foreground transition-colors hover:text-foreground"
+                    >
+                      {copied ? (
+                        <>
+                          <Check className="h-3 w-3 text-emerald-400" />
+                          Copied
+                        </>
+                      ) : (
+                        <>
+                          <Copy className="h-3 w-3" />
+                          Copy
+                        </>
+                      )}
+                    </button>
+                  </div>
+                  <div className="p-4 font-mono text-sm">
+                    <span className="text-violet-400">$</span> {installCmd}
+                  </div>
                 </div>
-                <div className="p-4 font-mono text-sm">
-                  <span className="text-violet-400">$</span> {installCmd}
-                </div>
-              </div>
+              )}
 
               {/* Description */}
               <div className="mt-8">
