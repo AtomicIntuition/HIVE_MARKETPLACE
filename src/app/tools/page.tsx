@@ -4,6 +4,8 @@ import { ToolSearch } from "@/components/tools/tool-search";
 import { createMetadata } from "@/lib/metadata";
 import { getAllTools } from "@/lib/data";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = createMetadata({
   title: "Browse Tools",
   description:

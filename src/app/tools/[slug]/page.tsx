@@ -1,19 +1,16 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getAllTools, getToolBySlug, getRelatedTools } from "@/lib/data";
+import { getToolBySlug, getRelatedTools } from "@/lib/data";
 import { createMetadata } from "@/lib/metadata";
 import { CATEGORIES, SITE_CONFIG } from "@/lib/constants";
 import { ToolDetail } from "@/components/tools/tool-detail";
 import { ToolReviews } from "@/components/tools/tool-reviews";
 import { createClient } from "@/lib/supabase/server";
 
+export const dynamic = "force-dynamic";
+
 interface Props {
   params: Promise<{ slug: string }>;
-}
-
-export async function generateStaticParams() {
-  const allTools = await getAllTools();
-  return allTools.map((tool) => ({ slug: tool.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

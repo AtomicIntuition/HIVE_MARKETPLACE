@@ -14,6 +14,8 @@ import {
 import { getAllCategoriesWithCounts } from "@/lib/data";
 import { createMetadata } from "@/lib/metadata";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = createMetadata({
   title: "Categories",
   description:

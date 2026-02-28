@@ -31,12 +31,10 @@ const ICON_MAP: Record<string, React.ElementType> = {
   BarChart3,
 };
 
+export const dynamic = "force-dynamic";
+
 interface Props {
   params: Promise<{ slug: string }>;
-}
-
-export async function generateStaticParams() {
-  return CATEGORIES.map((cat) => ({ slug: cat.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
