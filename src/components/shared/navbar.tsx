@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Menu, X, Search, ExternalLink, LogOut, Settings, LayoutDashboard, User as UserIcon } from "lucide-react";
+import { Menu, X, Search, LogOut, Settings, LayoutDashboard, User as UserIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { HiveMarketLogo } from "@/components/icons/hive-market-logo";
 import { cn } from "@/lib/utils";
@@ -54,15 +54,6 @@ export function Navbar() {
               {link.label}
             </Link>
           ))}
-          <a
-            href="https://hive.sh"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1 rounded-md px-3 py-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
-          >
-            Hive Platform
-            <ExternalLink className="h-3 w-3" />
-          </a>
         </nav>
 
         {/* Desktop actions */}
@@ -170,7 +161,7 @@ export function Navbar() {
       <div
         className={cn(
           "overflow-hidden border-b border-border/50 bg-background transition-all duration-200 md:hidden",
-          mobileOpen ? "max-h-[500px]" : "max-h-0 border-b-0"
+          mobileOpen ? "max-h-[calc(100vh-4rem)]" : "max-h-0 border-b-0"
         )}
       >
         <nav className="flex flex-col gap-1 px-6 py-4">
@@ -184,16 +175,6 @@ export function Navbar() {
               {link.label}
             </Link>
           ))}
-          <a
-            href="https://hive.sh"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1 rounded-md px-3 py-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
-          >
-            Hive Platform
-            <ExternalLink className="h-3 w-3" />
-          </a>
-
           {user ? (
             <div className="mt-3 space-y-2 border-t border-border/50 pt-3">
               <div className="flex items-center gap-2 px-3 py-1">

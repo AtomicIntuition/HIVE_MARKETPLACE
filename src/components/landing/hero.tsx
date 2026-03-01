@@ -11,8 +11,8 @@ export function Hero() {
     <section className="relative overflow-hidden py-24 md:py-32">
       {/* Background gradient effects */}
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute left-1/2 top-0 h-[600px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-violet-600/10 blur-3xl" />
-        <div className="absolute bottom-0 right-0 h-[400px] w-[600px] translate-x-1/4 translate-y-1/4 rounded-full bg-amber-500/5 blur-3xl" />
+        <div className="absolute left-1/2 top-0 h-[300px] w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-violet-600/10 blur-3xl md:h-[600px] md:w-[800px]" />
+        <div className="absolute bottom-0 right-0 h-[200px] w-[300px] translate-x-1/4 translate-y-1/4 rounded-full bg-amber-500/5 blur-3xl md:h-[400px] md:w-[600px]" />
       </div>
 
       <div className="relative mx-auto max-w-7xl px-6">
@@ -31,7 +31,7 @@ export function Hero() {
 
           {/* Headline */}
           <motion.h1
-            className="text-4xl font-bold tracking-tight text-foreground md:text-6xl lg:text-7xl"
+            className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl lg:text-6xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
@@ -103,7 +103,7 @@ export function Hero() {
                 terminal
               </span>
             </div>
-            <div className="p-4 text-left font-mono text-sm">
+            <div className="overflow-x-auto p-4 text-left font-mono text-sm">
               <p className="text-muted-foreground">
                 <span className="text-violet-400">$</span> npx hive-market
                 connect stripe-mcp

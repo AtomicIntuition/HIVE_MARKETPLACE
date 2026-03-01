@@ -6,28 +6,59 @@
     "description": "Full Stripe API access — payments, invoices, subscriptions, and customer management for AI agents.",
     "longDescription": "The Stripe MCP server provides comprehensive access to the Stripe API, enabling AI agents to process payments, create and manage subscriptions, generate invoices, handle refunds, and manage customer data. Built for production use with proper error handling, idempotency support, and PCI compliance considerations.\n\n## Key Capabilities\n- Create and process payments (one-time and recurring)\n- Manage subscriptions and billing cycles\n- Generate and send invoices\n- Handle refunds and disputes\n- Customer CRUD operations\n- Webhook event processing\n- Connect account management\n\n## Security\n- API keys are never exposed to the AI model\n- All operations use scoped permissions\n- PCI-compliant data handling",
     "category": "payments",
-    "author": { "name": "Stripe", "username": "stripe", "verified": true },
-    "pricing": { "model": "per-call", "price": 0.002, "unit": "call" },
-    "rating": 4.9,
-    "reviewCount": 2341,
-    "installCount": 45200,
-    "weeklyInstalls": 1230,
+    "author": {
+      "name": "Stripe",
+      "username": "stripe",
+      "verified": true
+    },
+    "pricing": {
+      "model": "per-call",
+      "price": 0.002,
+      "unit": "call"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "installCount": 0,
+    "weeklyInstalls": 0,
     "version": "2.4.1",
     "lastUpdated": "2025-12-15",
     "createdAt": "2024-06-01",
-    "tags": ["payments", "billing", "subscriptions", "invoices", "e-commerce"],
-    "features": ["Payment processing", "Subscription management", "Invoice generation", "Refund handling", "Customer management", "Webhook processing"],
+    "tags": [
+      "payments",
+      "billing",
+      "subscriptions",
+      "invoices",
+      "e-commerce"
+    ],
+    "features": [
+      "Payment processing",
+      "Subscription management",
+      "Invoice generation",
+      "Refund handling",
+      "Customer management",
+      "Webhook processing"
+    ],
     "githubUrl": "https://github.com/stripe/agent-toolkit",
     "docsUrl": "https://docs.stripe.com/mcp",
     "iconBg": "#635BFF",
     "verified": true,
     "trending": true,
     "featured": true,
-    "compatibility": ["Claude", "GPT", "Gemini", "Open Source"],
+    "compatibility": [
+      "Claude",
+      "GPT",
+      "Gemini",
+      "Open Source"
+    ],
     "npmPackage": "@stripe/agent-toolkit",
     "installCommand": "npx",
     "envVars": [
-      { "name": "STRIPE_SECRET_KEY", "description": "Your Stripe secret API key", "required": true, "placeholder": "sk_live_..." }
+      {
+        "name": "STRIPE_SECRET_KEY",
+        "description": "Your Stripe secret API key",
+        "required": true,
+        "placeholder": "sk_live_..."
+      }
     ]
   },
   {
@@ -37,28 +68,63 @@
     "description": "Manage your Shopify store — products, orders, inventory, and customers through AI agents.",
     "longDescription": "The Shopify MCP server connects your AI agents to Shopify's Admin API, enabling full store management capabilities. Create products, process orders, track inventory, manage customers, and handle fulfillment — all through natural language commands.\n\n## Key Capabilities\n- Product CRUD with variants and images\n- Order management and fulfillment\n- Inventory tracking across locations\n- Customer management and segmentation\n- Discount and promotion creation\n- Analytics and reporting",
     "category": "payments",
-    "author": { "name": "Shopify", "username": "shopify", "verified": true },
-    "pricing": { "model": "per-call", "price": 0.003, "unit": "call" },
-    "rating": 4.7,
-    "reviewCount": 891,
-    "installCount": 18400,
-    "weeklyInstalls": 520,
+    "author": {
+      "name": "Shopify",
+      "username": "shopify",
+      "verified": true
+    },
+    "pricing": {
+      "model": "per-call",
+      "price": 0.003,
+      "unit": "call"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "installCount": 0,
+    "weeklyInstalls": 0,
     "version": "1.8.0",
     "lastUpdated": "2025-11-28",
     "createdAt": "2024-08-15",
-    "tags": ["e-commerce", "store", "products", "orders", "inventory"],
-    "features": ["Product management", "Order processing", "Inventory tracking", "Customer management", "Discount creation", "Analytics"],
+    "tags": [
+      "e-commerce",
+      "store",
+      "products",
+      "orders",
+      "inventory"
+    ],
+    "features": [
+      "Product management",
+      "Order processing",
+      "Inventory tracking",
+      "Customer management",
+      "Discount creation",
+      "Analytics"
+    ],
     "githubUrl": "https://github.com/shopify/shopify-mcp",
     "iconBg": "#96BF48",
     "verified": true,
     "trending": false,
     "featured": true,
-    "compatibility": ["Claude", "GPT", "Gemini"],
+    "compatibility": [
+      "Claude",
+      "GPT",
+      "Gemini"
+    ],
     "npmPackage": "@shopify/mcp-server-shopify",
     "installCommand": "npx",
     "envVars": [
-      { "name": "SHOPIFY_ACCESS_TOKEN", "description": "Shopify Admin API access token", "required": true, "placeholder": "shpat_..." },
-      { "name": "SHOPIFY_STORE_URL", "description": "Your Shopify store URL", "required": true, "placeholder": "mystore.myshopify.com" }
+      {
+        "name": "SHOPIFY_ACCESS_TOKEN",
+        "description": "Shopify Admin API access token",
+        "required": true,
+        "placeholder": "shpat_..."
+      },
+      {
+        "name": "SHOPIFY_STORE_URL",
+        "description": "Your Shopify store URL",
+        "required": true,
+        "placeholder": "mystore.myshopify.com"
+      }
     ]
   },
   {
@@ -68,28 +134,57 @@
     "description": "PayPal checkout, invoicing, and payment processing for AI-powered workflows.",
     "longDescription": "Integrate PayPal payment processing into your AI agent workflows. Handle checkouts, send invoices, process refunds, and manage disputes — all through the MCP protocol.\n\n## Key Capabilities\n- Create and capture payments\n- Send professional invoices\n- Process refunds\n- Manage disputes and chargebacks\n- Payout to sellers and partners",
     "category": "payments",
-    "author": { "name": "PayPal Dev", "username": "paypal-dev", "verified": true },
-    "pricing": { "model": "free" },
-    "rating": 4.3,
-    "reviewCount": 654,
-    "installCount": 12100,
-    "weeklyInstalls": 310,
+    "author": {
+      "name": "PayPal Dev",
+      "username": "paypal-dev",
+      "verified": true
+    },
+    "pricing": {
+      "model": "free"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "installCount": 0,
+    "weeklyInstalls": 0,
     "version": "1.2.0",
     "lastUpdated": "2025-10-20",
     "createdAt": "2024-09-10",
-    "tags": ["payments", "checkout", "invoices", "refunds"],
-    "features": ["Payment processing", "Invoice sending", "Refund management", "Dispute handling", "Payouts"],
+    "tags": [
+      "payments",
+      "checkout",
+      "invoices",
+      "refunds"
+    ],
+    "features": [
+      "Payment processing",
+      "Invoice sending",
+      "Refund management",
+      "Dispute handling",
+      "Payouts"
+    ],
     "githubUrl": "https://github.com/paypal/paypal-mcp",
     "iconBg": "#003087",
     "verified": true,
     "trending": false,
     "featured": false,
-    "compatibility": ["Claude", "GPT", "Open Source"],
+    "compatibility": [
+      "Claude",
+      "GPT",
+      "Open Source"
+    ],
     "npmPackage": "mcp-server-paypal",
     "installCommand": "npx",
     "envVars": [
-      { "name": "PAYPAL_CLIENT_ID", "description": "PayPal REST API client ID", "required": true },
-      { "name": "PAYPAL_CLIENT_SECRET", "description": "PayPal REST API client secret", "required": true }
+      {
+        "name": "PAYPAL_CLIENT_ID",
+        "description": "PayPal REST API client ID",
+        "required": true
+      },
+      {
+        "name": "PAYPAL_CLIENT_SECRET",
+        "description": "PayPal REST API client secret",
+        "required": true
+      }
     ]
   },
   {
@@ -99,26 +194,52 @@
     "description": "Square payments, POS integration, and business management tools for AI agents.",
     "longDescription": "Connect your AI agents to Square's ecosystem for payment processing, point-of-sale operations, inventory management, and customer engagement.\n\n## Key Capabilities\n- Process in-person and online payments\n- Manage catalog and inventory\n- Customer directory and loyalty programs\n- Team management\n- Reporting and analytics",
     "category": "payments",
-    "author": { "name": "Square Dev", "username": "square-dev", "verified": true },
-    "pricing": { "model": "per-call", "price": 0.001, "unit": "call" },
-    "rating": 4.5,
-    "reviewCount": 423,
-    "installCount": 8900,
-    "weeklyInstalls": 210,
+    "author": {
+      "name": "Square Dev",
+      "username": "square-dev",
+      "verified": true
+    },
+    "pricing": {
+      "model": "per-call",
+      "price": 0.001,
+      "unit": "call"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "installCount": 0,
+    "weeklyInstalls": 0,
     "version": "1.5.2",
     "lastUpdated": "2025-11-05",
     "createdAt": "2024-10-01",
-    "tags": ["payments", "pos", "inventory", "loyalty"],
-    "features": ["Payment processing", "POS integration", "Catalog management", "Customer loyalty", "Team management"],
+    "tags": [
+      "payments",
+      "pos",
+      "inventory",
+      "loyalty"
+    ],
+    "features": [
+      "Payment processing",
+      "POS integration",
+      "Catalog management",
+      "Customer loyalty",
+      "Team management"
+    ],
     "iconBg": "#006AFF",
     "verified": true,
     "trending": false,
     "featured": false,
-    "compatibility": ["Claude", "GPT"],
+    "compatibility": [
+      "Claude",
+      "GPT"
+    ],
     "npmPackage": "mcp-server-square",
     "installCommand": "npx",
     "envVars": [
-      { "name": "SQUARE_ACCESS_TOKEN", "description": "Square API access token", "required": true }
+      {
+        "name": "SQUARE_ACCESS_TOKEN",
+        "description": "Square API access token",
+        "required": true
+      }
     ]
   },
   {
@@ -128,29 +249,63 @@
     "description": "Send messages, manage channels, and automate Slack workflows from your AI agents.",
     "longDescription": "The Slack MCP server gives your AI agents full access to Slack workspaces. Post messages, create channels, manage users, set up automated workflows, and react to events in real-time.\n\n## Key Capabilities\n- Send and read messages in channels and DMs\n- Create and manage channels\n- User and group management\n- File uploads and sharing\n- Workflow builder integration\n- Slash command handling\n- Event subscription and real-time updates",
     "category": "communication",
-    "author": { "name": "Slack", "username": "slackapi", "verified": true },
-    "pricing": { "model": "free", "freeTier": "1000 calls/month" },
-    "rating": 4.8,
-    "reviewCount": 1876,
-    "installCount": 52300,
-    "weeklyInstalls": 1450,
+    "author": {
+      "name": "Slack",
+      "username": "slackapi",
+      "verified": true
+    },
+    "pricing": {
+      "model": "free",
+      "freeTier": "1000 calls/month"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "installCount": 0,
+    "weeklyInstalls": 0,
     "version": "3.1.0",
     "lastUpdated": "2025-12-01",
     "createdAt": "2024-05-15",
-    "tags": ["messaging", "channels", "workflows", "team", "notifications"],
-    "features": ["Message management", "Channel operations", "User management", "File sharing", "Workflow automation", "Real-time events"],
+    "tags": [
+      "messaging",
+      "channels",
+      "workflows",
+      "team",
+      "notifications"
+    ],
+    "features": [
+      "Message management",
+      "Channel operations",
+      "User management",
+      "File sharing",
+      "Workflow automation",
+      "Real-time events"
+    ],
     "githubUrl": "https://github.com/slackapi/slack-mcp",
     "docsUrl": "https://api.slack.com/mcp",
     "iconBg": "#4A154B",
     "verified": true,
     "trending": true,
     "featured": true,
-    "compatibility": ["Claude", "GPT", "Gemini", "Open Source"],
+    "compatibility": [
+      "Claude",
+      "GPT",
+      "Gemini",
+      "Open Source"
+    ],
     "npmPackage": "@anthropic/mcp-server-slack",
     "installCommand": "npx",
     "envVars": [
-      { "name": "SLACK_BOT_TOKEN", "description": "Slack bot OAuth token", "required": true, "placeholder": "xoxb-..." },
-      { "name": "SLACK_TEAM_ID", "description": "Slack workspace team ID", "required": false }
+      {
+        "name": "SLACK_BOT_TOKEN",
+        "description": "Slack bot OAuth token",
+        "required": true,
+        "placeholder": "xoxb-..."
+      },
+      {
+        "name": "SLACK_TEAM_ID",
+        "description": "Slack workspace team ID",
+        "required": false
+      }
     ]
   },
   {
@@ -160,27 +315,53 @@
     "description": "Read, compose, send, and manage email through Gmail — AI-powered email automation.",
     "longDescription": "Give your AI agents the ability to manage email through Gmail. Read incoming messages, compose and send emails, manage labels, search through mail, and handle attachments.\n\n## Key Capabilities\n- Read and search emails\n- Compose and send messages\n- Reply and forward\n- Label and organize\n- Attachment handling\n- Draft management\n- Thread operations",
     "category": "communication",
-    "author": { "name": "Google Cloud", "username": "google-cloud", "verified": true },
-    "pricing": { "model": "free" },
-    "rating": 4.6,
-    "reviewCount": 1245,
-    "installCount": 38700,
-    "weeklyInstalls": 980,
+    "author": {
+      "name": "Google Cloud",
+      "username": "google-cloud",
+      "verified": true
+    },
+    "pricing": {
+      "model": "free"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "installCount": 0,
+    "weeklyInstalls": 0,
     "version": "2.0.3",
     "lastUpdated": "2025-11-20",
     "createdAt": "2024-07-01",
-    "tags": ["email", "gmail", "automation", "messaging"],
-    "features": ["Read emails", "Send emails", "Label management", "Search", "Attachment handling", "Draft management"],
+    "tags": [
+      "email",
+      "gmail",
+      "automation",
+      "messaging"
+    ],
+    "features": [
+      "Read emails",
+      "Send emails",
+      "Label management",
+      "Search",
+      "Attachment handling",
+      "Draft management"
+    ],
     "githubUrl": "https://github.com/google/gmail-mcp",
     "iconBg": "#EA4335",
     "verified": true,
     "trending": true,
     "featured": false,
-    "compatibility": ["Claude", "GPT", "Gemini"],
+    "compatibility": [
+      "Claude",
+      "GPT",
+      "Gemini"
+    ],
     "npmPackage": "mcp-server-gmail",
     "installCommand": "npx",
     "envVars": [
-      { "name": "GMAIL_CREDENTIALS_PATH", "description": "Path to Google OAuth credentials JSON", "required": true }
+      {
+        "name": "GMAIL_CREDENTIALS_PATH",
+        "description": "Path to Google OAuth credentials JSON",
+        "required": true
+      }
     ]
   },
   {
@@ -190,27 +371,53 @@
     "description": "Manage Discord servers, send messages, moderate communities, and automate bot actions.",
     "longDescription": "The Discord MCP server enables AI agents to interact with Discord servers. Send messages, manage channels, moderate users, create events, and build automated community management workflows.\n\n## Key Capabilities\n- Send and manage messages\n- Channel and category management\n- User moderation (kick, ban, timeout)\n- Role management\n- Event creation\n- Voice channel operations",
     "category": "communication",
-    "author": { "name": "Discord Community", "username": "discord-mcp", "verified": false },
-    "pricing": { "model": "free" },
-    "rating": 4.4,
-    "reviewCount": 567,
-    "installCount": 15600,
-    "weeklyInstalls": 420,
+    "author": {
+      "name": "Discord Community",
+      "username": "discord-mcp",
+      "verified": false
+    },
+    "pricing": {
+      "model": "free"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "installCount": 0,
+    "weeklyInstalls": 0,
     "version": "1.6.1",
     "lastUpdated": "2025-10-15",
     "createdAt": "2024-08-20",
-    "tags": ["discord", "bot", "moderation", "community"],
-    "features": ["Messaging", "Channel management", "Moderation", "Role management", "Events", "Voice channels"],
+    "tags": [
+      "discord",
+      "bot",
+      "moderation",
+      "community"
+    ],
+    "features": [
+      "Messaging",
+      "Channel management",
+      "Moderation",
+      "Role management",
+      "Events",
+      "Voice channels"
+    ],
     "githubUrl": "https://github.com/discord-mcp/discord-mcp",
     "iconBg": "#5865F2",
     "verified": false,
     "trending": false,
     "featured": false,
-    "compatibility": ["Claude", "GPT", "Open Source"],
+    "compatibility": [
+      "Claude",
+      "GPT",
+      "Open Source"
+    ],
     "npmPackage": "mcp-server-discord",
     "installCommand": "npx",
     "envVars": [
-      { "name": "DISCORD_BOT_TOKEN", "description": "Discord bot token", "required": true }
+      {
+        "name": "DISCORD_BOT_TOKEN",
+        "description": "Discord bot token",
+        "required": true
+      }
     ]
   },
   {
@@ -220,29 +427,62 @@
     "description": "SMS, voice calls, WhatsApp messaging, and communication APIs for AI agents.",
     "longDescription": "Integrate Twilio's communication platform with your AI agents. Send SMS messages, make voice calls, connect via WhatsApp, and manage phone numbers.\n\n## Key Capabilities\n- Send and receive SMS\n- Make and manage voice calls\n- WhatsApp messaging\n- Phone number management\n- Call recording and transcription\n- Programmable messaging",
     "category": "communication",
-    "author": { "name": "Twilio", "username": "twilio", "verified": true },
-    "pricing": { "model": "per-call", "price": 0.005, "unit": "call" },
-    "rating": 4.7,
-    "reviewCount": 934,
-    "installCount": 21800,
-    "weeklyInstalls": 640,
+    "author": {
+      "name": "Twilio",
+      "username": "twilio",
+      "verified": true
+    },
+    "pricing": {
+      "model": "per-call",
+      "price": 0.005,
+      "unit": "call"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "installCount": 0,
+    "weeklyInstalls": 0,
     "version": "2.2.0",
     "lastUpdated": "2025-11-10",
     "createdAt": "2024-06-20",
-    "tags": ["sms", "voice", "whatsapp", "messaging", "phone"],
-    "features": ["SMS messaging", "Voice calls", "WhatsApp", "Phone numbers", "Call recording", "Programmable messaging"],
+    "tags": [
+      "sms",
+      "voice",
+      "whatsapp",
+      "messaging",
+      "phone"
+    ],
+    "features": [
+      "SMS messaging",
+      "Voice calls",
+      "WhatsApp",
+      "Phone numbers",
+      "Call recording",
+      "Programmable messaging"
+    ],
     "githubUrl": "https://github.com/twilio/twilio-mcp",
     "docsUrl": "https://www.twilio.com/docs/mcp",
     "iconBg": "#F22F46",
     "verified": true,
     "trending": false,
     "featured": true,
-    "compatibility": ["Claude", "GPT", "Gemini"],
+    "compatibility": [
+      "Claude",
+      "GPT",
+      "Gemini"
+    ],
     "npmPackage": "mcp-server-twilio",
     "installCommand": "npx",
     "envVars": [
-      { "name": "TWILIO_ACCOUNT_SID", "description": "Twilio account SID", "required": true },
-      { "name": "TWILIO_AUTH_TOKEN", "description": "Twilio auth token", "required": true }
+      {
+        "name": "TWILIO_ACCOUNT_SID",
+        "description": "Twilio account SID",
+        "required": true
+      },
+      {
+        "name": "TWILIO_AUTH_TOKEN",
+        "description": "Twilio auth token",
+        "required": true
+      }
     ]
   },
   {
@@ -252,26 +492,54 @@
     "description": "Transactional and marketing email at scale — templates, campaigns, and deliverability.",
     "longDescription": "Send transactional emails, manage marketing campaigns, handle email templates, and track deliverability through AI agents connected to SendGrid.\n\n## Key Capabilities\n- Send transactional emails\n- Marketing campaign management\n- Template creation and management\n- Contact list management\n- Deliverability analytics\n- Bounce and spam management",
     "category": "communication",
-    "author": { "name": "Twilio SendGrid", "username": "sendgrid", "verified": true },
-    "pricing": { "model": "per-call", "price": 0.001, "unit": "call" },
-    "rating": 4.5,
-    "reviewCount": 412,
-    "installCount": 11200,
-    "weeklyInstalls": 290,
+    "author": {
+      "name": "Twilio SendGrid",
+      "username": "sendgrid",
+      "verified": true
+    },
+    "pricing": {
+      "model": "per-call",
+      "price": 0.001,
+      "unit": "call"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "installCount": 0,
+    "weeklyInstalls": 0,
     "version": "1.4.0",
     "lastUpdated": "2025-09-30",
     "createdAt": "2024-10-15",
-    "tags": ["email", "marketing", "templates", "transactional"],
-    "features": ["Transactional email", "Marketing campaigns", "Templates", "Contact lists", "Analytics", "Deliverability"],
+    "tags": [
+      "email",
+      "marketing",
+      "templates",
+      "transactional"
+    ],
+    "features": [
+      "Transactional email",
+      "Marketing campaigns",
+      "Templates",
+      "Contact lists",
+      "Analytics",
+      "Deliverability"
+    ],
     "iconBg": "#1A82E2",
     "verified": true,
     "trending": false,
     "featured": false,
-    "compatibility": ["Claude", "GPT"],
+    "compatibility": [
+      "Claude",
+      "GPT"
+    ],
     "npmPackage": "mcp-server-sendgrid",
     "installCommand": "npx",
     "envVars": [
-      { "name": "SENDGRID_API_KEY", "description": "SendGrid API key", "required": true, "placeholder": "SG...." }
+      {
+        "name": "SENDGRID_API_KEY",
+        "description": "SendGrid API key",
+        "required": true,
+        "placeholder": "SG...."
+      }
     ]
   },
   {
@@ -281,30 +549,70 @@
     "description": "Send emails via any SMTP server — Gmail, Outlook, custom mail servers, and more.",
     "longDescription": "A universal email MCP server that works with any SMTP provider. Send emails through Gmail, Outlook, Amazon SES, or your own mail server.\n\n## Key Capabilities\n- Send emails via SMTP\n- HTML and plain text support\n- Attachment handling\n- Multiple recipient types (to, cc, bcc)\n- Template rendering\n- Connection pooling",
     "category": "communication",
-    "author": { "name": "MCP Community", "username": "mcp-servers", "verified": true },
-    "pricing": { "model": "free" },
-    "rating": 4.3,
-    "reviewCount": 234,
-    "installCount": 8400,
-    "weeklyInstalls": 220,
+    "author": {
+      "name": "MCP Community",
+      "username": "mcp-servers",
+      "verified": true
+    },
+    "pricing": {
+      "model": "free"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "installCount": 0,
+    "weeklyInstalls": 0,
     "version": "1.1.0",
     "lastUpdated": "2025-09-15",
     "createdAt": "2024-11-01",
-    "tags": ["email", "smtp", "notifications", "messaging"],
-    "features": ["SMTP sending", "HTML emails", "Attachments", "Multiple recipients", "Templates", "Connection pooling"],
+    "tags": [
+      "email",
+      "smtp",
+      "notifications",
+      "messaging"
+    ],
+    "features": [
+      "SMTP sending",
+      "HTML emails",
+      "Attachments",
+      "Multiple recipients",
+      "Templates",
+      "Connection pooling"
+    ],
     "githubUrl": "https://github.com/mcp-servers/email-smtp-mcp",
     "iconBg": "#2563EB",
     "verified": true,
     "trending": false,
     "featured": false,
-    "compatibility": ["Claude", "GPT", "Open Source"],
+    "compatibility": [
+      "Claude",
+      "GPT",
+      "Open Source"
+    ],
     "npmPackage": "mcp-server-email-smtp",
     "installCommand": "npx",
     "envVars": [
-      { "name": "SMTP_HOST", "description": "SMTP server hostname", "required": true, "placeholder": "smtp.gmail.com" },
-      { "name": "SMTP_PORT", "description": "SMTP server port", "required": false, "placeholder": "587" },
-      { "name": "SMTP_USER", "description": "SMTP username", "required": true },
-      { "name": "SMTP_PASS", "description": "SMTP password or app password", "required": true }
+      {
+        "name": "SMTP_HOST",
+        "description": "SMTP server hostname",
+        "required": true,
+        "placeholder": "smtp.gmail.com"
+      },
+      {
+        "name": "SMTP_PORT",
+        "description": "SMTP server port",
+        "required": false,
+        "placeholder": "587"
+      },
+      {
+        "name": "SMTP_USER",
+        "description": "SMTP username",
+        "required": true
+      },
+      {
+        "name": "SMTP_PASS",
+        "description": "SMTP password or app password",
+        "required": true
+      }
     ]
   },
   {
@@ -314,27 +622,56 @@
     "description": "Query, manage, and automate PostgreSQL databases with natural language through AI agents.",
     "longDescription": "Connect your AI agents directly to PostgreSQL databases. Execute queries, manage schemas, handle migrations, monitor performance, and automate database operations.\n\n## Key Capabilities\n- Execute SQL queries (SELECT, INSERT, UPDATE, DELETE)\n- Schema management and migrations\n- Table and index operations\n- Performance monitoring and query optimization\n- Backup and restore operations\n- Connection pool management\n\n## Security\n- Read-only mode available\n- Query parameterization to prevent injection\n- Role-based access control",
     "category": "data",
-    "author": { "name": "MCP Community", "username": "mcp-servers", "verified": true },
-    "pricing": { "model": "free" },
-    "rating": 4.8,
-    "reviewCount": 1567,
-    "installCount": 41200,
-    "weeklyInstalls": 1100,
+    "author": {
+      "name": "MCP Community",
+      "username": "mcp-servers",
+      "verified": true
+    },
+    "pricing": {
+      "model": "free"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "installCount": 0,
+    "weeklyInstalls": 0,
     "version": "3.0.1",
     "lastUpdated": "2025-12-10",
     "createdAt": "2024-05-01",
-    "tags": ["database", "sql", "postgresql", "queries", "migrations"],
-    "features": ["SQL execution", "Schema management", "Migrations", "Performance monitoring", "Backup/restore", "Connection pooling"],
+    "tags": [
+      "database",
+      "sql",
+      "postgresql",
+      "queries",
+      "migrations"
+    ],
+    "features": [
+      "SQL execution",
+      "Schema management",
+      "Migrations",
+      "Performance monitoring",
+      "Backup/restore",
+      "Connection pooling"
+    ],
     "githubUrl": "https://github.com/modelcontextprotocol/servers",
     "iconBg": "#336791",
     "verified": true,
     "trending": true,
     "featured": true,
-    "compatibility": ["Claude", "GPT", "Gemini", "Open Source"],
+    "compatibility": [
+      "Claude",
+      "GPT",
+      "Gemini",
+      "Open Source"
+    ],
     "npmPackage": "@modelcontextprotocol/server-postgres",
     "installCommand": "npx",
     "envVars": [
-      { "name": "POSTGRESQL_URL", "description": "PostgreSQL connection string", "required": true, "placeholder": "postgresql://user:pass@host:5432/db" }
+      {
+        "name": "POSTGRESQL_URL",
+        "description": "PostgreSQL connection string",
+        "required": true,
+        "placeholder": "postgresql://user:pass@host:5432/db"
+      }
     ]
   },
   {
@@ -344,29 +681,63 @@
     "description": "Full Supabase backend access — database, auth, storage, and edge functions from AI agents.",
     "longDescription": "The Supabase MCP server provides complete access to Supabase projects. Manage your database, handle authentication, upload files to storage, and invoke edge functions.\n\n## Key Capabilities\n- Database operations (CRUD, RPC, realtime)\n- Authentication management\n- Storage file operations\n- Edge function invocation\n- Row-level security management\n- Realtime subscriptions",
     "category": "data",
-    "author": { "name": "Supabase", "username": "supabase", "verified": true },
-    "pricing": { "model": "free", "freeTier": "Unlimited for self-hosted" },
-    "rating": 4.7,
-    "reviewCount": 1023,
-    "installCount": 29800,
-    "weeklyInstalls": 870,
+    "author": {
+      "name": "Supabase",
+      "username": "supabase",
+      "verified": true
+    },
+    "pricing": {
+      "model": "free",
+      "freeTier": "Unlimited for self-hosted"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "installCount": 0,
+    "weeklyInstalls": 0,
     "version": "2.1.0",
     "lastUpdated": "2025-11-25",
     "createdAt": "2024-06-15",
-    "tags": ["database", "auth", "storage", "backend", "realtime"],
-    "features": ["Database CRUD", "Authentication", "File storage", "Edge functions", "Row-level security", "Realtime"],
+    "tags": [
+      "database",
+      "auth",
+      "storage",
+      "backend",
+      "realtime"
+    ],
+    "features": [
+      "Database CRUD",
+      "Authentication",
+      "File storage",
+      "Edge functions",
+      "Row-level security",
+      "Realtime"
+    ],
     "githubUrl": "https://github.com/supabase-community/supabase-mcp",
     "docsUrl": "https://supabase.com/docs/mcp",
     "iconBg": "#3ECF8E",
     "verified": true,
     "trending": true,
     "featured": false,
-    "compatibility": ["Claude", "GPT", "Gemini", "Open Source"],
+    "compatibility": [
+      "Claude",
+      "GPT",
+      "Gemini",
+      "Open Source"
+    ],
     "npmPackage": "@supabase/mcp-server-supabase",
     "installCommand": "npx",
     "envVars": [
-      { "name": "SUPABASE_URL", "description": "Supabase project URL", "required": true, "placeholder": "https://xxx.supabase.co" },
-      { "name": "SUPABASE_SERVICE_ROLE_KEY", "description": "Supabase service role key", "required": true }
+      {
+        "name": "SUPABASE_URL",
+        "description": "Supabase project URL",
+        "required": true,
+        "placeholder": "https://xxx.supabase.co"
+      },
+      {
+        "name": "SUPABASE_SERVICE_ROLE_KEY",
+        "description": "Supabase service role key",
+        "required": true
+      }
     ]
   },
   {
@@ -376,23 +747,46 @@
     "description": "Document database operations — CRUD, aggregation, indexing for MongoDB through AI agents.",
     "longDescription": "Connect your AI agents to MongoDB for document database operations. Insert, query, update, and delete documents, run aggregation pipelines, manage indexes, and monitor performance.\n\n## Key Capabilities\n- CRUD operations on documents\n- Aggregation pipeline execution\n- Index management\n- Collection operations\n- Change streams\n- Atlas search integration",
     "category": "data",
-    "author": { "name": "MongoDB", "username": "mongodb", "verified": true },
-    "pricing": { "model": "free" },
-    "rating": 4.5,
-    "reviewCount": 789,
-    "installCount": 22100,
-    "weeklyInstalls": 560,
+    "author": {
+      "name": "MongoDB",
+      "username": "mongodb",
+      "verified": true
+    },
+    "pricing": {
+      "model": "free"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "installCount": 0,
+    "weeklyInstalls": 0,
     "version": "1.9.0",
     "lastUpdated": "2025-10-30",
     "createdAt": "2024-07-20",
-    "tags": ["database", "nosql", "mongodb", "documents", "aggregation"],
-    "features": ["Document CRUD", "Aggregation pipelines", "Index management", "Change streams", "Atlas search", "Collection ops"],
+    "tags": [
+      "database",
+      "nosql",
+      "mongodb",
+      "documents",
+      "aggregation"
+    ],
+    "features": [
+      "Document CRUD",
+      "Aggregation pipelines",
+      "Index management",
+      "Change streams",
+      "Atlas search",
+      "Collection ops"
+    ],
     "githubUrl": "https://github.com/mongodb/mongodb-mcp",
     "iconBg": "#47A248",
     "verified": true,
     "trending": false,
     "featured": false,
-    "compatibility": ["Claude", "GPT", "Gemini"],
+    "compatibility": [
+      "Claude",
+      "GPT",
+      "Gemini"
+    ],
     "npmPackage": "mongodb-mcp-server",
     "installCommand": "npx"
   },
@@ -403,27 +797,55 @@
     "description": "In-memory data store operations — caching, pub/sub, queues, and key-value operations.",
     "longDescription": "Use Redis through your AI agents for caching, message queuing, real-time data processing, and key-value operations.\n\n## Key Capabilities\n- Key-value operations (GET, SET, DEL)\n- Hash, list, set, and sorted set operations\n- Pub/sub messaging\n- Stream processing\n- Cache management with TTL\n- Lua script execution",
     "category": "data",
-    "author": { "name": "Redis Community", "username": "redis-mcp", "verified": false },
-    "pricing": { "model": "free" },
-    "rating": 4.6,
-    "reviewCount": 534,
-    "installCount": 16700,
-    "weeklyInstalls": 430,
+    "author": {
+      "name": "Redis Community",
+      "username": "redis-mcp",
+      "verified": false
+    },
+    "pricing": {
+      "model": "free"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "installCount": 0,
+    "weeklyInstalls": 0,
     "version": "1.3.2",
     "lastUpdated": "2025-09-15",
     "createdAt": "2024-09-01",
-    "tags": ["cache", "redis", "key-value", "pub-sub", "queue"],
-    "features": ["Key-value ops", "Hash operations", "Pub/sub", "Streams", "Cache with TTL", "Lua scripts"],
+    "tags": [
+      "cache",
+      "redis",
+      "key-value",
+      "pub-sub",
+      "queue"
+    ],
+    "features": [
+      "Key-value ops",
+      "Hash operations",
+      "Pub/sub",
+      "Streams",
+      "Cache with TTL",
+      "Lua scripts"
+    ],
     "githubUrl": "https://github.com/redis-mcp/redis-mcp",
     "iconBg": "#DC382D",
     "verified": false,
     "trending": false,
     "featured": false,
-    "compatibility": ["Claude", "GPT", "Open Source"],
+    "compatibility": [
+      "Claude",
+      "GPT",
+      "Open Source"
+    ],
     "npmPackage": "mcp-server-redis",
     "installCommand": "npx",
     "envVars": [
-      { "name": "REDIS_URL", "description": "Redis connection URL", "required": true, "placeholder": "redis://localhost:6379" }
+      {
+        "name": "REDIS_URL",
+        "description": "Redis connection URL",
+        "required": true,
+        "placeholder": "redis://localhost:6379"
+      }
     ]
   },
   {
@@ -433,23 +855,46 @@
     "description": "Lightweight embedded SQL database — query, manage, and analyze local SQLite databases.",
     "longDescription": "Connect your AI agents to SQLite databases for lightweight data operations. Perfect for local development, prototyping, and embedded applications.\n\n## Key Capabilities\n- Execute SQL queries\n- Schema management\n- Data import/export\n- In-memory databases\n- WAL mode support\n- Full-text search",
     "category": "data",
-    "author": { "name": "MCP Community", "username": "mcp-servers", "verified": true },
-    "pricing": { "model": "free" },
-    "rating": 4.5,
-    "reviewCount": 345,
-    "installCount": 14200,
-    "weeklyInstalls": 380,
+    "author": {
+      "name": "MCP Community",
+      "username": "mcp-servers",
+      "verified": true
+    },
+    "pricing": {
+      "model": "free"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "installCount": 0,
+    "weeklyInstalls": 0,
     "version": "1.2.0",
     "lastUpdated": "2025-10-01",
     "createdAt": "2024-09-20",
-    "tags": ["database", "sql", "sqlite", "embedded", "lightweight"],
-    "features": ["SQL execution", "Schema management", "Import/export", "In-memory DB", "WAL mode", "Full-text search"],
+    "tags": [
+      "database",
+      "sql",
+      "sqlite",
+      "embedded",
+      "lightweight"
+    ],
+    "features": [
+      "SQL execution",
+      "Schema management",
+      "Import/export",
+      "In-memory DB",
+      "WAL mode",
+      "Full-text search"
+    ],
     "githubUrl": "https://github.com/modelcontextprotocol/servers",
     "iconBg": "#003B57",
     "verified": true,
     "trending": false,
     "featured": false,
-    "compatibility": ["Claude", "GPT", "Open Source"],
+    "compatibility": [
+      "Claude",
+      "GPT",
+      "Open Source"
+    ],
     "npmPackage": "@modelcontextprotocol/server-sqlite",
     "installCommand": "uvx"
   },
@@ -460,28 +905,56 @@
     "description": "Serverless Postgres — branch databases, autoscale, and manage Neon projects from AI agents.",
     "longDescription": "Connect your AI agents to Neon's serverless Postgres platform. Create database branches, manage projects, run queries, and leverage Neon's unique branching model.\n\n## Key Capabilities\n- Create and manage projects\n- Database branching\n- SQL query execution\n- Autoscaling configuration\n- Connection pooling\n- Compute endpoint management",
     "category": "data",
-    "author": { "name": "Neon", "username": "neondatabase", "verified": true },
-    "pricing": { "model": "free", "freeTier": "Free tier available" },
-    "rating": 4.6,
-    "reviewCount": 412,
-    "installCount": 12800,
-    "weeklyInstalls": 340,
+    "author": {
+      "name": "Neon",
+      "username": "neondatabase",
+      "verified": true
+    },
+    "pricing": {
+      "model": "free",
+      "freeTier": "Free tier available"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "installCount": 0,
+    "weeklyInstalls": 0,
     "version": "1.3.0",
     "lastUpdated": "2025-11-10",
     "createdAt": "2024-09-15",
-    "tags": ["database", "postgres", "serverless", "branching", "cloud"],
-    "features": ["Project management", "Database branching", "SQL execution", "Autoscaling", "Connection pooling", "Compute management"],
+    "tags": [
+      "database",
+      "postgres",
+      "serverless",
+      "branching",
+      "cloud"
+    ],
+    "features": [
+      "Project management",
+      "Database branching",
+      "SQL execution",
+      "Autoscaling",
+      "Connection pooling",
+      "Compute management"
+    ],
     "githubUrl": "https://github.com/neondatabase/mcp-server-neon",
     "docsUrl": "https://neon.tech/docs/mcp",
     "iconBg": "#00E5A0",
     "verified": true,
     "trending": false,
     "featured": false,
-    "compatibility": ["Claude", "GPT", "Open Source"],
+    "compatibility": [
+      "Claude",
+      "GPT",
+      "Open Source"
+    ],
     "npmPackage": "mcp-server-neon",
     "installCommand": "npx",
     "envVars": [
-      { "name": "NEON_API_KEY", "description": "Neon API key", "required": true }
+      {
+        "name": "NEON_API_KEY",
+        "description": "Neon API key",
+        "required": true
+      }
     ]
   },
   {
@@ -491,27 +964,54 @@
     "description": "Real-time analytics APIs — ingest events, query data, and build analytics endpoints.",
     "longDescription": "Connect your AI agents to Tinybird for real-time analytics. Ingest events at scale, query data with SQL, and manage analytics API endpoints.\n\n## Key Capabilities\n- Event ingestion\n- SQL query execution\n- API endpoint management\n- Data source operations\n- Pipe management\n- Real-time dashboards",
     "category": "data",
-    "author": { "name": "Tinybird", "username": "tinybirdco", "verified": true },
-    "pricing": { "model": "free", "freeTier": "100GB/month free" },
-    "rating": 4.5,
-    "reviewCount": 289,
-    "installCount": 9800,
-    "weeklyInstalls": 260,
+    "author": {
+      "name": "Tinybird",
+      "username": "tinybirdco",
+      "verified": true
+    },
+    "pricing": {
+      "model": "free",
+      "freeTier": "100GB/month free"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "installCount": 0,
+    "weeklyInstalls": 0,
     "version": "1.1.0",
     "lastUpdated": "2025-10-20",
     "createdAt": "2024-10-01",
-    "tags": ["analytics", "real-time", "sql", "events", "api"],
-    "features": ["Event ingestion", "SQL queries", "API endpoints", "Data sources", "Pipes", "Real-time data"],
+    "tags": [
+      "analytics",
+      "real-time",
+      "sql",
+      "events",
+      "api"
+    ],
+    "features": [
+      "Event ingestion",
+      "SQL queries",
+      "API endpoints",
+      "Data sources",
+      "Pipes",
+      "Real-time data"
+    ],
     "githubUrl": "https://github.com/tinybirdco/mcp-tinybird",
     "iconBg": "#1DB954",
     "verified": true,
     "trending": false,
     "featured": false,
-    "compatibility": ["Claude", "GPT"],
+    "compatibility": [
+      "Claude",
+      "GPT"
+    ],
     "npmPackage": "mcp-server-tinybird",
     "installCommand": "npx",
     "envVars": [
-      { "name": "TINYBIRD_TOKEN", "description": "Tinybird admin token", "required": true }
+      {
+        "name": "TINYBIRD_TOKEN",
+        "description": "Tinybird admin token",
+        "required": true
+      }
     ]
   },
   {
@@ -521,28 +1021,60 @@
     "description": "Full GitHub access — repos, issues, pull requests, actions, and code search for AI agents.",
     "longDescription": "The GitHub MCP server provides comprehensive access to GitHub's platform. Manage repositories, create and review pull requests, handle issues, trigger workflows, search code, and manage releases.\n\n## Key Capabilities\n- Repository management (create, clone, fork)\n- Pull request operations (create, review, merge)\n- Issue tracking (create, label, assign, close)\n- GitHub Actions (trigger, monitor workflows)\n- Code search across repositories\n- Release and tag management\n- Gist operations\n- Organization and team management",
     "category": "devtools",
-    "author": { "name": "GitHub", "username": "github", "verified": true },
-    "pricing": { "model": "free" },
-    "rating": 4.9,
-    "reviewCount": 3210,
-    "installCount": 67800,
-    "weeklyInstalls": 2100,
+    "author": {
+      "name": "GitHub",
+      "username": "github",
+      "verified": true
+    },
+    "pricing": {
+      "model": "free"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "installCount": 0,
+    "weeklyInstalls": 0,
     "version": "3.2.0",
     "lastUpdated": "2025-12-18",
     "createdAt": "2024-04-01",
-    "tags": ["git", "repos", "pull-requests", "issues", "ci-cd", "code-search"],
-    "features": ["Repo management", "Pull requests", "Issue tracking", "Actions/CI", "Code search", "Release management", "Gists", "Org management"],
+    "tags": [
+      "git",
+      "repos",
+      "pull-requests",
+      "issues",
+      "ci-cd",
+      "code-search"
+    ],
+    "features": [
+      "Repo management",
+      "Pull requests",
+      "Issue tracking",
+      "Actions/CI",
+      "Code search",
+      "Release management",
+      "Gists",
+      "Org management"
+    ],
     "githubUrl": "https://github.com/modelcontextprotocol/servers",
     "docsUrl": "https://docs.github.com/mcp",
     "iconBg": "#24292E",
     "verified": true,
     "trending": true,
     "featured": true,
-    "compatibility": ["Claude", "GPT", "Gemini", "Open Source"],
+    "compatibility": [
+      "Claude",
+      "GPT",
+      "Gemini",
+      "Open Source"
+    ],
     "npmPackage": "@modelcontextprotocol/server-github",
     "installCommand": "npx",
     "envVars": [
-      { "name": "GITHUB_PERSONAL_ACCESS_TOKEN", "description": "GitHub personal access token", "required": true, "placeholder": "ghp_..." }
+      {
+        "name": "GITHUB_PERSONAL_ACCESS_TOKEN",
+        "description": "GitHub personal access token",
+        "required": true,
+        "placeholder": "ghp_..."
+      }
     ]
   },
   {
@@ -552,27 +1084,54 @@
     "description": "Project management with Linear — create issues, manage sprints, and track progress via AI agents.",
     "longDescription": "Connect your AI agents to Linear for streamlined project management. Create and update issues, manage cycles and projects, track team progress, and automate workflow transitions.\n\n## Key Capabilities\n- Issue CRUD with rich metadata\n- Cycle and project management\n- Team workload visibility\n- Label and priority management\n- Workflow state transitions\n- Comment and attachment operations",
     "category": "devtools",
-    "author": { "name": "Linear", "username": "linear", "verified": true },
-    "pricing": { "model": "free" },
-    "rating": 4.8,
-    "reviewCount": 1123,
-    "installCount": 28900,
-    "weeklyInstalls": 780,
+    "author": {
+      "name": "Linear",
+      "username": "linear",
+      "verified": true
+    },
+    "pricing": {
+      "model": "free"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "installCount": 0,
+    "weeklyInstalls": 0,
     "version": "2.0.1",
     "lastUpdated": "2025-11-30",
     "createdAt": "2024-06-10",
-    "tags": ["project-management", "issues", "sprints", "agile", "tracking"],
-    "features": ["Issue management", "Cycle planning", "Project tracking", "Workflow automation", "Team management", "Comments"],
+    "tags": [
+      "project-management",
+      "issues",
+      "sprints",
+      "agile",
+      "tracking"
+    ],
+    "features": [
+      "Issue management",
+      "Cycle planning",
+      "Project tracking",
+      "Workflow automation",
+      "Team management",
+      "Comments"
+    ],
     "githubUrl": "https://github.com/linear/linear-mcp",
     "iconBg": "#5E6AD2",
     "verified": true,
     "trending": false,
     "featured": true,
-    "compatibility": ["Claude", "GPT", "Gemini"],
+    "compatibility": [
+      "Claude",
+      "GPT",
+      "Gemini"
+    ],
     "npmPackage": "mcp-server-linear",
     "installCommand": "npx",
     "envVars": [
-      { "name": "LINEAR_API_KEY", "description": "Linear API key", "required": true }
+      {
+        "name": "LINEAR_API_KEY",
+        "description": "Linear API key",
+        "required": true
+      }
     ]
   },
   {
@@ -582,28 +1141,59 @@
     "description": "Error tracking and performance monitoring — investigate and resolve issues with AI agents.",
     "longDescription": "Give your AI agents access to Sentry for intelligent error tracking and performance monitoring. Query errors, analyze stack traces, investigate performance bottlenecks, and manage issue resolution.\n\n## Key Capabilities\n- Query and filter error events\n- Stack trace analysis\n- Performance transaction monitoring\n- Issue assignment and resolution\n- Release tracking\n- Alert management",
     "category": "devtools",
-    "author": { "name": "Sentry", "username": "getsentry", "verified": true },
-    "pricing": { "model": "free", "freeTier": "5000 events/month" },
-    "rating": 4.6,
-    "reviewCount": 678,
-    "installCount": 19200,
-    "weeklyInstalls": 510,
+    "author": {
+      "name": "Sentry",
+      "username": "getsentry",
+      "verified": true
+    },
+    "pricing": {
+      "model": "free",
+      "freeTier": "5000 events/month"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "installCount": 0,
+    "weeklyInstalls": 0,
     "version": "1.7.0",
     "lastUpdated": "2025-10-25",
     "createdAt": "2024-08-01",
-    "tags": ["errors", "monitoring", "performance", "debugging", "stack-traces"],
-    "features": ["Error tracking", "Stack trace analysis", "Performance monitoring", "Issue management", "Release tracking", "Alerts"],
+    "tags": [
+      "errors",
+      "monitoring",
+      "performance",
+      "debugging",
+      "stack-traces"
+    ],
+    "features": [
+      "Error tracking",
+      "Stack trace analysis",
+      "Performance monitoring",
+      "Issue management",
+      "Release tracking",
+      "Alerts"
+    ],
     "githubUrl": "https://github.com/getsentry/sentry-mcp",
     "iconBg": "#362D59",
     "verified": true,
     "trending": false,
     "featured": false,
-    "compatibility": ["Claude", "GPT"],
+    "compatibility": [
+      "Claude",
+      "GPT"
+    ],
     "npmPackage": "mcp-server-sentry",
     "installCommand": "npx",
     "envVars": [
-      { "name": "SENTRY_AUTH_TOKEN", "description": "Sentry auth token", "required": true },
-      { "name": "SENTRY_ORG", "description": "Sentry organization slug", "required": true }
+      {
+        "name": "SENTRY_AUTH_TOKEN",
+        "description": "Sentry auth token",
+        "required": true
+      },
+      {
+        "name": "SENTRY_ORG",
+        "description": "Sentry organization slug",
+        "required": true
+      }
     ]
   },
   {
@@ -613,27 +1203,54 @@
     "description": "Manage deployments, domains, environment variables, and projects on Vercel via AI agents.",
     "longDescription": "The Vercel MCP server connects your AI agents to the Vercel platform. Deploy projects, manage domains, configure environment variables, monitor builds, and handle team settings.\n\n## Key Capabilities\n- Trigger and manage deployments\n- Domain configuration\n- Environment variable management\n- Build log access\n- Project settings\n- Team and access management",
     "category": "devtools",
-    "author": { "name": "Vercel", "username": "vercel", "verified": true },
-    "pricing": { "model": "free" },
-    "rating": 4.7,
-    "reviewCount": 892,
-    "installCount": 24500,
-    "weeklyInstalls": 670,
+    "author": {
+      "name": "Vercel",
+      "username": "vercel",
+      "verified": true
+    },
+    "pricing": {
+      "model": "free"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "installCount": 0,
+    "weeklyInstalls": 0,
     "version": "2.3.0",
     "lastUpdated": "2025-12-05",
     "createdAt": "2024-05-20",
-    "tags": ["deployment", "hosting", "domains", "ci-cd", "serverless"],
-    "features": ["Deployments", "Domain management", "Env variables", "Build logs", "Project settings", "Team management"],
+    "tags": [
+      "deployment",
+      "hosting",
+      "domains",
+      "ci-cd",
+      "serverless"
+    ],
+    "features": [
+      "Deployments",
+      "Domain management",
+      "Env variables",
+      "Build logs",
+      "Project settings",
+      "Team management"
+    ],
     "githubUrl": "https://github.com/vercel/vercel-mcp",
     "iconBg": "#000000",
     "verified": true,
     "trending": false,
     "featured": false,
-    "compatibility": ["Claude", "GPT", "Gemini"],
+    "compatibility": [
+      "Claude",
+      "GPT",
+      "Gemini"
+    ],
     "npmPackage": "mcp-server-vercel",
     "installCommand": "npx",
     "envVars": [
-      { "name": "VERCEL_TOKEN", "description": "Vercel API token", "required": true }
+      {
+        "name": "VERCEL_TOKEN",
+        "description": "Vercel API token",
+        "required": true
+      }
     ]
   },
   {
@@ -643,23 +1260,45 @@
     "description": "Container management — build, run, stop, and orchestrate Docker containers from AI agents.",
     "longDescription": "Manage Docker containers through your AI agents. Build images, run containers, manage volumes and networks, and orchestrate multi-container applications.\n\n## Key Capabilities\n- Container lifecycle management\n- Image build and management\n- Volume and network operations\n- Docker Compose support\n- Container logs and exec\n- Registry operations",
     "category": "devtools",
-    "author": { "name": "Docker Community", "username": "docker-mcp", "verified": false },
-    "pricing": { "model": "free" },
-    "rating": 4.4,
-    "reviewCount": 456,
-    "installCount": 13400,
-    "weeklyInstalls": 350,
+    "author": {
+      "name": "Docker Community",
+      "username": "docker-mcp",
+      "verified": false
+    },
+    "pricing": {
+      "model": "free"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "installCount": 0,
+    "weeklyInstalls": 0,
     "version": "1.5.0",
     "lastUpdated": "2025-09-20",
     "createdAt": "2024-10-10",
-    "tags": ["docker", "containers", "devops", "orchestration"],
-    "features": ["Container management", "Image builds", "Volume ops", "Network ops", "Docker Compose", "Registry ops"],
+    "tags": [
+      "docker",
+      "containers",
+      "devops",
+      "orchestration"
+    ],
+    "features": [
+      "Container management",
+      "Image builds",
+      "Volume ops",
+      "Network ops",
+      "Docker Compose",
+      "Registry ops"
+    ],
     "githubUrl": "https://github.com/docker-mcp/docker-mcp",
     "iconBg": "#2496ED",
     "verified": false,
     "trending": false,
     "featured": false,
-    "compatibility": ["Claude", "GPT", "Open Source"],
+    "compatibility": [
+      "Claude",
+      "GPT",
+      "Open Source"
+    ],
     "npmPackage": "mcp-server-docker",
     "installCommand": "npx"
   },
@@ -670,23 +1309,47 @@
     "description": "Read, write, and manage local files and directories — essential for any AI coding workflow.",
     "longDescription": "The Filesystem MCP server gives your AI agent safe, controlled access to your local filesystem. Read and write files, create directories, search for files, and manage project structures.\n\n## Key Capabilities\n- Read and write files\n- Create and delete directories\n- Move and copy files\n- Search files by pattern\n- Get file metadata\n- Directory tree listing\n\n## Security\n- Configurable allowed directories\n- No access outside allowed paths",
     "category": "devtools",
-    "author": { "name": "Anthropic", "username": "anthropic", "verified": true },
-    "pricing": { "model": "free" },
-    "rating": 4.8,
-    "reviewCount": 2100,
-    "installCount": 58000,
-    "weeklyInstalls": 1800,
+    "author": {
+      "name": "Anthropic",
+      "username": "anthropic",
+      "verified": true
+    },
+    "pricing": {
+      "model": "free"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "installCount": 0,
+    "weeklyInstalls": 0,
     "version": "2.0.0",
     "lastUpdated": "2025-12-10",
     "createdAt": "2024-04-01",
-    "tags": ["filesystem", "files", "directories", "io", "local"],
-    "features": ["File read/write", "Directory management", "File search", "Metadata", "Tree listing", "Safe access"],
+    "tags": [
+      "filesystem",
+      "files",
+      "directories",
+      "io",
+      "local"
+    ],
+    "features": [
+      "File read/write",
+      "Directory management",
+      "File search",
+      "Metadata",
+      "Tree listing",
+      "Safe access"
+    ],
     "githubUrl": "https://github.com/modelcontextprotocol/servers",
     "iconBg": "#6366F1",
     "verified": true,
     "trending": false,
     "featured": false,
-    "compatibility": ["Claude", "GPT", "Gemini", "Open Source"],
+    "compatibility": [
+      "Claude",
+      "GPT",
+      "Gemini",
+      "Open Source"
+    ],
     "npmPackage": "@modelcontextprotocol/server-filesystem",
     "installCommand": "npx"
   },
@@ -697,23 +1360,46 @@
     "description": "Browser automation and testing — navigate pages, fill forms, take screenshots, and run E2E tests.",
     "longDescription": "Automate web browsers through your AI agents using Playwright. Navigate websites, interact with elements, take screenshots, and run end-to-end tests.\n\n## Key Capabilities\n- Browser navigation and interaction\n- Form filling and submission\n- Screenshot and PDF capture\n- Element selection and clicking\n- Multi-browser support (Chromium, Firefox, WebKit)\n- Network interception",
     "category": "devtools",
-    "author": { "name": "Microsoft", "username": "microsoft", "verified": true },
-    "pricing": { "model": "free" },
-    "rating": 4.7,
-    "reviewCount": 890,
-    "installCount": 26500,
-    "weeklyInstalls": 720,
+    "author": {
+      "name": "Microsoft",
+      "username": "microsoft",
+      "verified": true
+    },
+    "pricing": {
+      "model": "free"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "installCount": 0,
+    "weeklyInstalls": 0,
     "version": "1.4.0",
     "lastUpdated": "2025-11-20",
     "createdAt": "2024-07-01",
-    "tags": ["testing", "browser", "automation", "e2e", "screenshots"],
-    "features": ["Browser automation", "Form filling", "Screenshots", "Multi-browser", "Network interception", "E2E testing"],
+    "tags": [
+      "testing",
+      "browser",
+      "automation",
+      "e2e",
+      "screenshots"
+    ],
+    "features": [
+      "Browser automation",
+      "Form filling",
+      "Screenshots",
+      "Multi-browser",
+      "Network interception",
+      "E2E testing"
+    ],
     "githubUrl": "https://github.com/microsoft/playwright-mcp",
     "iconBg": "#2EAD33",
     "verified": true,
     "trending": false,
     "featured": false,
-    "compatibility": ["Claude", "GPT", "Open Source"],
+    "compatibility": [
+      "Claude",
+      "GPT",
+      "Open Source"
+    ],
     "npmPackage": "@anthropic/mcp-server-playwright",
     "installCommand": "npx"
   },
@@ -724,23 +1410,47 @@
     "description": "Up-to-date library documentation — resolve packages, query docs, and get real code examples.",
     "longDescription": "Context7 gives your AI agent access to current, verified library documentation instead of hallucinated APIs. Resolve library IDs, query documentation, and get real code examples.\n\n## Key Capabilities\n- Resolve package names to library IDs\n- Query up-to-date documentation\n- Get real code examples\n- Version-specific docs\n- Multiple language support\n- Ranked by relevance",
     "category": "devtools",
-    "author": { "name": "Context7", "username": "context7", "verified": true },
-    "pricing": { "model": "free" },
-    "rating": 4.8,
-    "reviewCount": 1200,
-    "installCount": 35400,
-    "weeklyInstalls": 1100,
+    "author": {
+      "name": "Context7",
+      "username": "context7",
+      "verified": true
+    },
+    "pricing": {
+      "model": "free"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "installCount": 0,
+    "weeklyInstalls": 0,
     "version": "1.5.0",
     "lastUpdated": "2025-12-15",
     "createdAt": "2024-06-01",
-    "tags": ["documentation", "libraries", "code-examples", "reference", "devtools"],
-    "features": ["Library resolution", "Doc queries", "Code examples", "Version support", "Multi-language", "Relevance ranking"],
+    "tags": [
+      "documentation",
+      "libraries",
+      "code-examples",
+      "reference",
+      "devtools"
+    ],
+    "features": [
+      "Library resolution",
+      "Doc queries",
+      "Code examples",
+      "Version support",
+      "Multi-language",
+      "Relevance ranking"
+    ],
     "githubUrl": "https://github.com/context7/context7-mcp",
     "iconBg": "#FF6B35",
     "verified": true,
     "trending": true,
     "featured": false,
-    "compatibility": ["Claude", "GPT", "Gemini", "Open Source"],
+    "compatibility": [
+      "Claude",
+      "GPT",
+      "Gemini",
+      "Open Source"
+    ],
     "npmPackage": "context7-mcp",
     "installCommand": "npx"
   },
@@ -751,23 +1461,46 @@
     "description": "Structured reasoning — break down complex problems step by step with revision and branching.",
     "longDescription": "A thinking tool for AI agents that enables structured, multi-step reasoning. Break down problems, revise previous thoughts, branch into alternative approaches, and verify solutions.\n\n## Key Capabilities\n- Step-by-step problem decomposition\n- Thought revision and correction\n- Branch exploration\n- Hypothesis generation and verification\n- Adjustable depth\n- Solution synthesis",
     "category": "ai-ml",
-    "author": { "name": "Anthropic", "username": "anthropic", "verified": true },
-    "pricing": { "model": "free" },
-    "rating": 4.7,
-    "reviewCount": 890,
-    "installCount": 28900,
-    "weeklyInstalls": 780,
+    "author": {
+      "name": "Anthropic",
+      "username": "anthropic",
+      "verified": true
+    },
+    "pricing": {
+      "model": "free"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "installCount": 0,
+    "weeklyInstalls": 0,
     "version": "1.2.0",
     "lastUpdated": "2025-11-01",
     "createdAt": "2024-06-15",
-    "tags": ["reasoning", "thinking", "problem-solving", "analysis", "ai"],
-    "features": ["Step-by-step reasoning", "Thought revision", "Branching", "Hypothesis testing", "Adjustable depth", "Synthesis"],
+    "tags": [
+      "reasoning",
+      "thinking",
+      "problem-solving",
+      "analysis",
+      "ai"
+    ],
+    "features": [
+      "Step-by-step reasoning",
+      "Thought revision",
+      "Branching",
+      "Hypothesis testing",
+      "Adjustable depth",
+      "Synthesis"
+    ],
     "githubUrl": "https://github.com/modelcontextprotocol/servers",
     "iconBg": "#8B5CF6",
     "verified": true,
     "trending": false,
     "featured": false,
-    "compatibility": ["Claude", "GPT", "Open Source"],
+    "compatibility": [
+      "Claude",
+      "GPT",
+      "Open Source"
+    ],
     "npmPackage": "@modelcontextprotocol/server-sequential-thinking",
     "installCommand": "npx"
   },
@@ -778,23 +1511,46 @@
     "description": "Persistent knowledge graph — create entities, build relations, and remember context across sessions.",
     "longDescription": "The Memory MCP server provides a persistent knowledge graph for your AI agents. Create entities, define relationships, add observations, and search across your knowledge base.\n\n## Key Capabilities\n- Create and manage entities\n- Build relationships between entities\n- Add observations\n- Search by query\n- Persistent storage\n- Graph traversal",
     "category": "ai-ml",
-    "author": { "name": "Anthropic", "username": "anthropic", "verified": true },
-    "pricing": { "model": "free" },
-    "rating": 4.6,
-    "reviewCount": 670,
-    "installCount": 22400,
-    "weeklyInstalls": 610,
+    "author": {
+      "name": "Anthropic",
+      "username": "anthropic",
+      "verified": true
+    },
+    "pricing": {
+      "model": "free"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "installCount": 0,
+    "weeklyInstalls": 0,
     "version": "1.3.0",
     "lastUpdated": "2025-10-15",
     "createdAt": "2024-06-01",
-    "tags": ["memory", "knowledge-graph", "persistence", "context", "entities"],
-    "features": ["Entity management", "Relations", "Observations", "Search", "Persistence", "Graph traversal"],
+    "tags": [
+      "memory",
+      "knowledge-graph",
+      "persistence",
+      "context",
+      "entities"
+    ],
+    "features": [
+      "Entity management",
+      "Relations",
+      "Observations",
+      "Search",
+      "Persistence",
+      "Graph traversal"
+    ],
     "githubUrl": "https://github.com/modelcontextprotocol/servers",
     "iconBg": "#D946EF",
     "verified": true,
     "trending": false,
     "featured": false,
-    "compatibility": ["Claude", "GPT", "Open Source"],
+    "compatibility": [
+      "Claude",
+      "GPT",
+      "Open Source"
+    ],
     "npmPackage": "@modelcontextprotocol/server-memory",
     "installCommand": "npx"
   },
@@ -805,27 +1561,55 @@
     "description": "Web search and local search — query the web, find businesses, and get real-time results.",
     "longDescription": "Search the web and find local businesses through your AI agents using the Brave Search API. Get real-time search results, local business info, and more.\n\n## Key Capabilities\n- Web search with filters\n- Local business search\n- News search\n- Image search\n- Real-time results\n- Privacy-focused",
     "category": "devtools",
-    "author": { "name": "Anthropic", "username": "anthropic", "verified": true },
-    "pricing": { "model": "free", "freeTier": "2000 queries/month" },
-    "rating": 4.6,
-    "reviewCount": 780,
-    "installCount": 24100,
-    "weeklyInstalls": 650,
+    "author": {
+      "name": "Anthropic",
+      "username": "anthropic",
+      "verified": true
+    },
+    "pricing": {
+      "model": "free",
+      "freeTier": "2000 queries/month"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "installCount": 0,
+    "weeklyInstalls": 0,
     "version": "1.2.0",
     "lastUpdated": "2025-11-05",
     "createdAt": "2024-06-01",
-    "tags": ["search", "web", "local", "news", "privacy"],
-    "features": ["Web search", "Local search", "News search", "Image search", "Real-time results", "Privacy-focused"],
+    "tags": [
+      "search",
+      "web",
+      "local",
+      "news",
+      "privacy"
+    ],
+    "features": [
+      "Web search",
+      "Local search",
+      "News search",
+      "Image search",
+      "Real-time results",
+      "Privacy-focused"
+    ],
     "githubUrl": "https://github.com/modelcontextprotocol/servers",
     "iconBg": "#FB542B",
     "verified": true,
     "trending": false,
     "featured": false,
-    "compatibility": ["Claude", "GPT", "Open Source"],
+    "compatibility": [
+      "Claude",
+      "GPT",
+      "Open Source"
+    ],
     "npmPackage": "@modelcontextprotocol/server-brave-search",
     "installCommand": "npx",
     "envVars": [
-      { "name": "BRAVE_API_KEY", "description": "Brave Search API key", "required": true }
+      {
+        "name": "BRAVE_API_KEY",
+        "description": "Brave Search API key",
+        "required": true
+      }
     ]
   },
   {
@@ -835,23 +1619,46 @@
     "description": "HTTP client — fetch web pages, call APIs, and retrieve content from any URL.",
     "longDescription": "A simple HTTP client MCP server for fetching web content. Retrieve web pages, call REST APIs, and download content from any URL.\n\n## Key Capabilities\n- Fetch web pages as markdown\n- Call REST APIs\n- Handle redirects\n- Custom headers\n- Content type detection\n- Robots.txt compliance",
     "category": "devtools",
-    "author": { "name": "Anthropic", "username": "anthropic", "verified": true },
-    "pricing": { "model": "free" },
-    "rating": 4.5,
-    "reviewCount": 560,
-    "installCount": 19800,
-    "weeklyInstalls": 530,
+    "author": {
+      "name": "Anthropic",
+      "username": "anthropic",
+      "verified": true
+    },
+    "pricing": {
+      "model": "free"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "installCount": 0,
+    "weeklyInstalls": 0,
     "version": "1.1.0",
     "lastUpdated": "2025-10-10",
     "createdAt": "2024-06-01",
-    "tags": ["http", "fetch", "api", "web", "scraping"],
-    "features": ["Web fetching", "API calls", "Redirects", "Custom headers", "Content detection", "Robots.txt"],
+    "tags": [
+      "http",
+      "fetch",
+      "api",
+      "web",
+      "scraping"
+    ],
+    "features": [
+      "Web fetching",
+      "API calls",
+      "Redirects",
+      "Custom headers",
+      "Content detection",
+      "Robots.txt"
+    ],
     "githubUrl": "https://github.com/modelcontextprotocol/servers",
     "iconBg": "#3B82F6",
     "verified": true,
     "trending": false,
     "featured": false,
-    "compatibility": ["Claude", "GPT", "Open Source"],
+    "compatibility": [
+      "Claude",
+      "GPT",
+      "Open Source"
+    ],
     "npmPackage": "@modelcontextprotocol/server-fetch",
     "installCommand": "uvx"
   },
@@ -862,27 +1669,54 @@
     "description": "Manage events, check availability, schedule meetings, and automate calendar workflows.",
     "longDescription": "Give your AI agents the power to manage Google Calendar. Create and update events, check availability, send invitations, set reminders, and coordinate scheduling across multiple calendars.\n\n## Key Capabilities\n- Create, update, and delete events\n- Check free/busy availability\n- Send meeting invitations\n- Recurring event management\n- Calendar sharing and permissions\n- Reminder and notification setup",
     "category": "productivity",
-    "author": { "name": "Google Cloud", "username": "google-cloud", "verified": true },
-    "pricing": { "model": "free" },
-    "rating": 4.6,
-    "reviewCount": 1034,
-    "installCount": 31200,
-    "weeklyInstalls": 830,
+    "author": {
+      "name": "Google Cloud",
+      "username": "google-cloud",
+      "verified": true
+    },
+    "pricing": {
+      "model": "free"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "installCount": 0,
+    "weeklyInstalls": 0,
     "version": "2.1.0",
     "lastUpdated": "2025-11-15",
     "createdAt": "2024-06-25",
-    "tags": ["calendar", "scheduling", "events", "meetings", "availability"],
-    "features": ["Event management", "Availability check", "Meeting scheduling", "Recurring events", "Calendar sharing", "Reminders"],
+    "tags": [
+      "calendar",
+      "scheduling",
+      "events",
+      "meetings",
+      "availability"
+    ],
+    "features": [
+      "Event management",
+      "Availability check",
+      "Meeting scheduling",
+      "Recurring events",
+      "Calendar sharing",
+      "Reminders"
+    ],
     "githubUrl": "https://github.com/google/google-calendar-mcp",
     "iconBg": "#4285F4",
     "verified": true,
     "trending": false,
     "featured": true,
-    "compatibility": ["Claude", "GPT", "Gemini"],
+    "compatibility": [
+      "Claude",
+      "GPT",
+      "Gemini"
+    ],
     "npmPackage": "mcp-server-google-calendar",
     "installCommand": "npx",
     "envVars": [
-      { "name": "GOOGLE_CREDENTIALS_PATH", "description": "Path to Google OAuth credentials JSON", "required": true }
+      {
+        "name": "GOOGLE_CREDENTIALS_PATH",
+        "description": "Path to Google OAuth credentials JSON",
+        "required": true
+      }
     ]
   },
   {
@@ -892,28 +1726,57 @@
     "description": "Create pages, manage databases, search content, and automate Notion workflows via AI agents.",
     "longDescription": "The Notion MCP server enables AI agents to interact with Notion workspaces. Create and edit pages, query databases, manage content blocks, and build automated workflows.\n\n## Key Capabilities\n- Page creation and editing\n- Database queries and updates\n- Block-level content manipulation\n- Search across workspace\n- Comment management\n- User and permission operations",
     "category": "productivity",
-    "author": { "name": "Notion", "username": "notion", "verified": true },
-    "pricing": { "model": "free" },
-    "rating": 4.7,
-    "reviewCount": 1456,
-    "installCount": 35600,
-    "weeklyInstalls": 950,
+    "author": {
+      "name": "Notion",
+      "username": "notion",
+      "verified": true
+    },
+    "pricing": {
+      "model": "free"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "installCount": 0,
+    "weeklyInstalls": 0,
     "version": "2.4.0",
     "lastUpdated": "2025-12-08",
     "createdAt": "2024-05-10",
-    "tags": ["notes", "wiki", "databases", "documents", "workspace"],
-    "features": ["Page management", "Database queries", "Content blocks", "Search", "Comments", "Permissions"],
+    "tags": [
+      "notes",
+      "wiki",
+      "databases",
+      "documents",
+      "workspace"
+    ],
+    "features": [
+      "Page management",
+      "Database queries",
+      "Content blocks",
+      "Search",
+      "Comments",
+      "Permissions"
+    ],
     "githubUrl": "https://github.com/notion/notion-mcp",
     "docsUrl": "https://developers.notion.com/mcp",
     "iconBg": "#000000",
     "verified": true,
     "trending": true,
     "featured": true,
-    "compatibility": ["Claude", "GPT", "Gemini", "Open Source"],
+    "compatibility": [
+      "Claude",
+      "GPT",
+      "Gemini",
+      "Open Source"
+    ],
     "npmPackage": "mcp-server-notion",
     "installCommand": "npx",
     "envVars": [
-      { "name": "NOTION_API_KEY", "description": "Notion integration token", "required": true, "placeholder": "ntn_..." }
+      {
+        "name": "NOTION_API_KEY",
+        "description": "Notion integration token",
+        "required": true,
+        "placeholder": "ntn_..."
+      }
     ]
   },
   {
@@ -923,27 +1786,54 @@
     "description": "File management, sharing, and collaboration on Google Drive through AI agents.",
     "longDescription": "Manage Google Drive files and folders through your AI agents. Upload, download, share, organize, and search files across your Drive.\n\n## Key Capabilities\n- File upload and download\n- Folder management\n- Sharing and permissions\n- File search and filtering\n- Google Docs/Sheets/Slides operations\n- Trash and recovery",
     "category": "productivity",
-    "author": { "name": "Google Cloud", "username": "google-cloud", "verified": true },
-    "pricing": { "model": "free" },
-    "rating": 4.5,
-    "reviewCount": 756,
-    "installCount": 21400,
-    "weeklyInstalls": 560,
+    "author": {
+      "name": "Google Cloud",
+      "username": "google-cloud",
+      "verified": true
+    },
+    "pricing": {
+      "model": "free"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "installCount": 0,
+    "weeklyInstalls": 0,
     "version": "1.8.0",
     "lastUpdated": "2025-10-10",
     "createdAt": "2024-07-15",
-    "tags": ["files", "storage", "sharing", "collaboration", "documents"],
-    "features": ["File operations", "Folder management", "Sharing", "Search", "Google Docs ops", "Trash management"],
+    "tags": [
+      "files",
+      "storage",
+      "sharing",
+      "collaboration",
+      "documents"
+    ],
+    "features": [
+      "File operations",
+      "Folder management",
+      "Sharing",
+      "Search",
+      "Google Docs ops",
+      "Trash management"
+    ],
     "githubUrl": "https://github.com/modelcontextprotocol/servers",
     "iconBg": "#0F9D58",
     "verified": true,
     "trending": false,
     "featured": false,
-    "compatibility": ["Claude", "GPT", "Gemini"],
+    "compatibility": [
+      "Claude",
+      "GPT",
+      "Gemini"
+    ],
     "npmPackage": "@modelcontextprotocol/server-gdrive",
     "installCommand": "npx",
     "envVars": [
-      { "name": "GOOGLE_CREDENTIALS_PATH", "description": "Path to Google OAuth credentials JSON", "required": true }
+      {
+        "name": "GOOGLE_CREDENTIALS_PATH",
+        "description": "Path to Google OAuth credentials JSON",
+        "required": true
+      }
     ]
   },
   {
@@ -953,27 +1843,54 @@
     "description": "Spreadsheet-database hybrid — manage bases, records, and automations through AI agents.",
     "longDescription": "Connect your AI agents to Airtable for powerful spreadsheet-database operations. Create and query records, manage views, handle automations, and build data workflows.\n\n## Key Capabilities\n- Record CRUD operations\n- View and filter management\n- Field type handling\n- Automation triggers\n- Attachment management\n- Webhook configuration",
     "category": "productivity",
-    "author": { "name": "Airtable", "username": "airtable", "verified": true },
-    "pricing": { "model": "per-call", "price": 0.001, "unit": "call" },
-    "rating": 4.4,
-    "reviewCount": 523,
-    "installCount": 14200,
-    "weeklyInstalls": 380,
+    "author": {
+      "name": "Airtable",
+      "username": "airtable",
+      "verified": true
+    },
+    "pricing": {
+      "model": "per-call",
+      "price": 0.001,
+      "unit": "call"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "installCount": 0,
+    "weeklyInstalls": 0,
     "version": "1.5.1",
     "lastUpdated": "2025-09-25",
     "createdAt": "2024-09-15",
-    "tags": ["spreadsheet", "database", "records", "automation"],
-    "features": ["Record CRUD", "Views", "Field types", "Automations", "Attachments", "Webhooks"],
+    "tags": [
+      "spreadsheet",
+      "database",
+      "records",
+      "automation"
+    ],
+    "features": [
+      "Record CRUD",
+      "Views",
+      "Field types",
+      "Automations",
+      "Attachments",
+      "Webhooks"
+    ],
     "githubUrl": "https://github.com/airtable/airtable-mcp",
     "iconBg": "#FCBF49",
     "verified": true,
     "trending": false,
     "featured": false,
-    "compatibility": ["Claude", "GPT"],
+    "compatibility": [
+      "Claude",
+      "GPT"
+    ],
     "npmPackage": "mcp-server-airtable",
     "installCommand": "npx",
     "envVars": [
-      { "name": "AIRTABLE_API_KEY", "description": "Airtable API key or personal access token", "required": true }
+      {
+        "name": "AIRTABLE_API_KEY",
+        "description": "Airtable API key or personal access token",
+        "required": true
+      }
     ]
   },
   {
@@ -983,27 +1900,54 @@
     "description": "Manage your Obsidian vault — read, write, search notes, and navigate your knowledge graph.",
     "longDescription": "Connect your AI agents to your Obsidian vault. Read and write notes, search across your knowledge base, manage tags, and traverse note links.\n\n## Key Capabilities\n- Read and write notes\n- Search across vault\n- Tag management\n- Link traversal\n- Template rendering\n- Frontmatter operations",
     "category": "productivity",
-    "author": { "name": "Obsidian Community", "username": "obsidian-mcp", "verified": false },
-    "pricing": { "model": "free" },
-    "rating": 4.5,
-    "reviewCount": 456,
-    "installCount": 12600,
-    "weeklyInstalls": 340,
+    "author": {
+      "name": "Obsidian Community",
+      "username": "obsidian-mcp",
+      "verified": false
+    },
+    "pricing": {
+      "model": "free"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "installCount": 0,
+    "weeklyInstalls": 0,
     "version": "1.2.0",
     "lastUpdated": "2025-10-05",
     "createdAt": "2024-09-01",
-    "tags": ["notes", "knowledge-base", "markdown", "vault", "wiki"],
-    "features": ["Note read/write", "Search", "Tags", "Link traversal", "Templates", "Frontmatter"],
+    "tags": [
+      "notes",
+      "knowledge-base",
+      "markdown",
+      "vault",
+      "wiki"
+    ],
+    "features": [
+      "Note read/write",
+      "Search",
+      "Tags",
+      "Link traversal",
+      "Templates",
+      "Frontmatter"
+    ],
     "githubUrl": "https://github.com/obsidian-mcp/obsidian-mcp",
     "iconBg": "#7C3AED",
     "verified": false,
     "trending": false,
     "featured": false,
-    "compatibility": ["Claude", "GPT", "Open Source"],
+    "compatibility": [
+      "Claude",
+      "GPT",
+      "Open Source"
+    ],
     "npmPackage": "mcp-server-obsidian",
     "installCommand": "npx",
     "envVars": [
-      { "name": "OBSIDIAN_VAULT_PATH", "description": "Path to your Obsidian vault directory", "required": true }
+      {
+        "name": "OBSIDIAN_VAULT_PATH",
+        "description": "Path to your Obsidian vault directory",
+        "required": true
+      }
     ]
   },
   {
@@ -1013,28 +1957,60 @@
     "description": "Access GPT models, DALL-E, Whisper, and embeddings — AI capabilities for your agents.",
     "longDescription": "Give your AI agents access to OpenAI's suite of models. Generate text with GPT, create images with DALL-E, transcribe audio with Whisper, and compute embeddings.\n\n## Key Capabilities\n- Text generation (GPT-4, GPT-3.5)\n- Image generation (DALL-E 3)\n- Audio transcription (Whisper)\n- Text embeddings\n- Fine-tuning management\n- Moderation API",
     "category": "ai-ml",
-    "author": { "name": "OpenAI", "username": "openai", "verified": true },
-    "pricing": { "model": "per-call", "price": 0.01, "unit": "call" },
-    "rating": 4.8,
-    "reviewCount": 2100,
-    "installCount": 43500,
-    "weeklyInstalls": 1200,
+    "author": {
+      "name": "OpenAI",
+      "username": "openai",
+      "verified": true
+    },
+    "pricing": {
+      "model": "per-call",
+      "price": 0.01,
+      "unit": "call"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "installCount": 0,
+    "weeklyInstalls": 0,
     "version": "2.5.0",
     "lastUpdated": "2025-12-12",
     "createdAt": "2024-05-05",
-    "tags": ["ai", "gpt", "dall-e", "whisper", "embeddings", "llm"],
-    "features": ["Text generation", "Image generation", "Audio transcription", "Embeddings", "Fine-tuning", "Moderation"],
+    "tags": [
+      "ai",
+      "gpt",
+      "dall-e",
+      "whisper",
+      "embeddings",
+      "llm"
+    ],
+    "features": [
+      "Text generation",
+      "Image generation",
+      "Audio transcription",
+      "Embeddings",
+      "Fine-tuning",
+      "Moderation"
+    ],
     "githubUrl": "https://github.com/openai/openai-mcp",
     "docsUrl": "https://platform.openai.com/docs/mcp",
     "iconBg": "#10A37F",
     "verified": true,
     "trending": true,
     "featured": false,
-    "compatibility": ["Claude", "GPT", "Gemini", "Open Source"],
+    "compatibility": [
+      "Claude",
+      "GPT",
+      "Gemini",
+      "Open Source"
+    ],
     "npmPackage": "mcp-server-openai",
     "installCommand": "npx",
     "envVars": [
-      { "name": "OPENAI_API_KEY", "description": "OpenAI API key", "required": true, "placeholder": "sk-..." }
+      {
+        "name": "OPENAI_API_KEY",
+        "description": "OpenAI API key",
+        "required": true,
+        "placeholder": "sk-..."
+      }
     ]
   },
   {
@@ -1044,28 +2020,58 @@
     "description": "Claude API access — text generation, analysis, and conversation through the MCP protocol.",
     "longDescription": "Connect to the Anthropic API through MCP for access to Claude models. Generate text, analyze documents, have multi-turn conversations, and leverage Claude's capabilities.\n\n## Key Capabilities\n- Text generation with Claude\n- Document analysis\n- Multi-turn conversations\n- Tool use orchestration\n- System prompt management\n- Streaming responses",
     "category": "ai-ml",
-    "author": { "name": "Anthropic", "username": "anthropic", "verified": true },
-    "pricing": { "model": "per-call", "price": 0.008, "unit": "call" },
-    "rating": 4.9,
-    "reviewCount": 1890,
-    "installCount": 39800,
-    "weeklyInstalls": 1100,
+    "author": {
+      "name": "Anthropic",
+      "username": "anthropic",
+      "verified": true
+    },
+    "pricing": {
+      "model": "per-call",
+      "price": 0.008,
+      "unit": "call"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "installCount": 0,
+    "weeklyInstalls": 0,
     "version": "2.3.0",
     "lastUpdated": "2025-12-20",
     "createdAt": "2024-04-15",
-    "tags": ["ai", "claude", "llm", "analysis", "conversation"],
-    "features": ["Text generation", "Document analysis", "Conversations", "Tool use", "System prompts", "Streaming"],
+    "tags": [
+      "ai",
+      "claude",
+      "llm",
+      "analysis",
+      "conversation"
+    ],
+    "features": [
+      "Text generation",
+      "Document analysis",
+      "Conversations",
+      "Tool use",
+      "System prompts",
+      "Streaming"
+    ],
     "githubUrl": "https://github.com/anthropics/anthropic-mcp",
     "docsUrl": "https://docs.anthropic.com/mcp",
     "iconBg": "#D4A27F",
     "verified": true,
     "trending": true,
     "featured": true,
-    "compatibility": ["Claude", "GPT", "Gemini", "Open Source"],
+    "compatibility": [
+      "Claude",
+      "GPT",
+      "Gemini",
+      "Open Source"
+    ],
     "npmPackage": "mcp-server-anthropic",
     "installCommand": "npx",
     "envVars": [
-      { "name": "ANTHROPIC_API_KEY", "description": "Anthropic API key", "required": true }
+      {
+        "name": "ANTHROPIC_API_KEY",
+        "description": "Anthropic API key",
+        "required": true
+      }
     ]
   },
   {
@@ -1075,27 +2081,58 @@
     "description": "Run inference on thousands of ML models — NLP, vision, audio, and multimodal.",
     "longDescription": "Access Hugging Face's vast model hub through your AI agents. Run inference on pre-trained models for text, image, audio, and multimodal tasks.\n\n## Key Capabilities\n- Text classification and generation\n- Image classification and generation\n- Audio transcription and classification\n- Sentence embeddings\n- Model search and discovery\n- Spaces API access",
     "category": "ai-ml",
-    "author": { "name": "Hugging Face", "username": "huggingface", "verified": true },
-    "pricing": { "model": "tiered", "price": 0.005, "unit": "call", "freeTier": "Free for small models" },
-    "rating": 4.6,
-    "reviewCount": 934,
-    "installCount": 25600,
-    "weeklyInstalls": 690,
+    "author": {
+      "name": "Hugging Face",
+      "username": "huggingface",
+      "verified": true
+    },
+    "pricing": {
+      "model": "tiered",
+      "price": 0.005,
+      "unit": "call",
+      "freeTier": "Free for small models"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "installCount": 0,
+    "weeklyInstalls": 0,
     "version": "1.9.0",
     "lastUpdated": "2025-11-18",
     "createdAt": "2024-07-10",
-    "tags": ["ml", "models", "inference", "nlp", "vision", "audio"],
-    "features": ["Text inference", "Image inference", "Audio inference", "Embeddings", "Model search", "Spaces API"],
+    "tags": [
+      "ml",
+      "models",
+      "inference",
+      "nlp",
+      "vision",
+      "audio"
+    ],
+    "features": [
+      "Text inference",
+      "Image inference",
+      "Audio inference",
+      "Embeddings",
+      "Model search",
+      "Spaces API"
+    ],
     "githubUrl": "https://github.com/huggingface/huggingface-mcp",
     "iconBg": "#FFD21E",
     "verified": true,
     "trending": false,
     "featured": false,
-    "compatibility": ["Claude", "GPT", "Open Source"],
+    "compatibility": [
+      "Claude",
+      "GPT",
+      "Open Source"
+    ],
     "npmPackage": "mcp-server-huggingface",
     "installCommand": "npx",
     "envVars": [
-      { "name": "HF_TOKEN", "description": "Hugging Face API token", "required": true }
+      {
+        "name": "HF_TOKEN",
+        "description": "Hugging Face API token",
+        "required": true
+      }
     ]
   },
   {
@@ -1105,27 +2142,56 @@
     "description": "Run open-source ML models in the cloud — Stable Diffusion, LLaMA, and thousands more.",
     "longDescription": "Run machine learning models through Replicate's cloud infrastructure via your AI agents. Access thousands of open-source models including image generators, language models, and audio tools.\n\n## Key Capabilities\n- Run any Replicate model\n- Image generation (Stable Diffusion, FLUX)\n- Language model inference\n- Audio and music generation\n- Video generation\n- Custom model deployment",
     "category": "ai-ml",
-    "author": { "name": "Replicate", "username": "replicate", "verified": true },
-    "pricing": { "model": "per-call", "price": 0.01, "unit": "call" },
-    "rating": 4.5,
-    "reviewCount": 678,
-    "installCount": 18900,
-    "weeklyInstalls": 490,
+    "author": {
+      "name": "Replicate",
+      "username": "replicate",
+      "verified": true
+    },
+    "pricing": {
+      "model": "per-call",
+      "price": 0.01,
+      "unit": "call"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "installCount": 0,
+    "weeklyInstalls": 0,
     "version": "1.6.0",
     "lastUpdated": "2025-10-28",
     "createdAt": "2024-08-25",
-    "tags": ["ml", "models", "stable-diffusion", "inference", "cloud"],
-    "features": ["Model inference", "Image generation", "Language models", "Audio generation", "Video generation", "Custom models"],
+    "tags": [
+      "ml",
+      "models",
+      "stable-diffusion",
+      "inference",
+      "cloud"
+    ],
+    "features": [
+      "Model inference",
+      "Image generation",
+      "Language models",
+      "Audio generation",
+      "Video generation",
+      "Custom models"
+    ],
     "githubUrl": "https://github.com/replicate/replicate-mcp",
     "iconBg": "#262626",
     "verified": true,
     "trending": false,
     "featured": false,
-    "compatibility": ["Claude", "GPT", "Open Source"],
+    "compatibility": [
+      "Claude",
+      "GPT",
+      "Open Source"
+    ],
     "npmPackage": "mcp-server-replicate",
     "installCommand": "npx",
     "envVars": [
-      { "name": "REPLICATE_API_TOKEN", "description": "Replicate API token", "required": true }
+      {
+        "name": "REPLICATE_API_TOKEN",
+        "description": "Replicate API token",
+        "required": true
+      }
     ]
   },
   {
@@ -1135,27 +2201,53 @@
     "description": "Search and download high-quality stock photos from Unsplash for your AI agent workflows.",
     "longDescription": "Access Unsplash's vast library of free high-quality photos through your AI agents. Search images, get random photos, manage collections, and download images.\n\n## Key Capabilities\n- Photo search with filters\n- Random photo generation\n- Collection browsing and creation\n- User and photographer info\n- Download tracking\n- Topic exploration",
     "category": "content",
-    "author": { "name": "Unsplash", "username": "unsplash", "verified": true },
-    "pricing": { "model": "free" },
-    "rating": 4.5,
-    "reviewCount": 456,
-    "installCount": 12800,
-    "weeklyInstalls": 340,
+    "author": {
+      "name": "Unsplash",
+      "username": "unsplash",
+      "verified": true
+    },
+    "pricing": {
+      "model": "free"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "installCount": 0,
+    "weeklyInstalls": 0,
     "version": "1.3.0",
     "lastUpdated": "2025-09-10",
     "createdAt": "2024-10-05",
-    "tags": ["images", "photos", "stock", "media", "creative"],
-    "features": ["Photo search", "Random photos", "Collections", "User profiles", "Download tracking", "Topics"],
+    "tags": [
+      "images",
+      "photos",
+      "stock",
+      "media",
+      "creative"
+    ],
+    "features": [
+      "Photo search",
+      "Random photos",
+      "Collections",
+      "User profiles",
+      "Download tracking",
+      "Topics"
+    ],
     "githubUrl": "https://github.com/unsplash/unsplash-mcp",
     "iconBg": "#000000",
     "verified": true,
     "trending": false,
     "featured": false,
-    "compatibility": ["Claude", "GPT"],
+    "compatibility": [
+      "Claude",
+      "GPT"
+    ],
     "npmPackage": "mcp-server-unsplash",
     "installCommand": "npx",
     "envVars": [
-      { "name": "UNSPLASH_ACCESS_KEY", "description": "Unsplash API access key", "required": true }
+      {
+        "name": "UNSPLASH_ACCESS_KEY",
+        "description": "Unsplash API access key",
+        "required": true
+      }
     ]
   },
   {
@@ -1165,27 +2257,58 @@
     "description": "Image and video management — upload, transform, optimize, and deliver media at scale.",
     "longDescription": "Manage images and videos through Cloudinary via your AI agents. Upload, transform, optimize, and deliver media assets with powerful manipulation capabilities.\n\n## Key Capabilities\n- Image upload and management\n- On-the-fly transformations\n- Video processing\n- AI-powered tagging\n- CDN delivery optimization\n- Responsive image generation",
     "category": "content",
-    "author": { "name": "Cloudinary", "username": "cloudinary", "verified": true },
-    "pricing": { "model": "tiered", "price": 0.002, "unit": "call", "freeTier": "25 credits/month" },
-    "rating": 4.6,
-    "reviewCount": 567,
-    "installCount": 15400,
-    "weeklyInstalls": 410,
+    "author": {
+      "name": "Cloudinary",
+      "username": "cloudinary",
+      "verified": true
+    },
+    "pricing": {
+      "model": "tiered",
+      "price": 0.002,
+      "unit": "call",
+      "freeTier": "25 credits/month"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "installCount": 0,
+    "weeklyInstalls": 0,
     "version": "1.7.0",
     "lastUpdated": "2025-10-20",
     "createdAt": "2024-09-20",
-    "tags": ["images", "video", "media", "cdn", "transformations"],
-    "features": ["Image management", "Transformations", "Video processing", "AI tagging", "CDN delivery", "Responsive images"],
+    "tags": [
+      "images",
+      "video",
+      "media",
+      "cdn",
+      "transformations"
+    ],
+    "features": [
+      "Image management",
+      "Transformations",
+      "Video processing",
+      "AI tagging",
+      "CDN delivery",
+      "Responsive images"
+    ],
     "githubUrl": "https://github.com/cloudinary/cloudinary-mcp",
     "iconBg": "#3448C5",
     "verified": true,
     "trending": false,
     "featured": false,
-    "compatibility": ["Claude", "GPT", "Gemini"],
+    "compatibility": [
+      "Claude",
+      "GPT",
+      "Gemini"
+    ],
     "npmPackage": "mcp-server-cloudinary",
     "installCommand": "npx",
     "envVars": [
-      { "name": "CLOUDINARY_URL", "description": "Cloudinary connection URL", "required": true, "placeholder": "cloudinary://api_key:api_secret@cloud_name" }
+      {
+        "name": "CLOUDINARY_URL",
+        "description": "Cloudinary connection URL",
+        "required": true,
+        "placeholder": "cloudinary://api_key:api_secret@cloud_name"
+      }
     ]
   },
   {
@@ -1195,27 +2318,55 @@
     "description": "YouTube data access — search videos, get transcripts, manage playlists, and analyze channels.",
     "longDescription": "Access YouTube data through your AI agents. Search videos, retrieve transcripts, manage playlists, analyze channel stats, and monitor comments.\n\n## Key Capabilities\n- Video search and metadata\n- Transcript/subtitle retrieval\n- Playlist management\n- Channel analytics\n- Comment operations\n- Trending and recommendation data",
     "category": "content",
-    "author": { "name": "Google Cloud", "username": "google-cloud", "verified": true },
-    "pricing": { "model": "free", "freeTier": "10,000 units/day" },
-    "rating": 4.3,
-    "reviewCount": 389,
-    "installCount": 11600,
-    "weeklyInstalls": 310,
+    "author": {
+      "name": "Google Cloud",
+      "username": "google-cloud",
+      "verified": true
+    },
+    "pricing": {
+      "model": "free",
+      "freeTier": "10,000 units/day"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "installCount": 0,
+    "weeklyInstalls": 0,
     "version": "1.4.0",
     "lastUpdated": "2025-08-30",
     "createdAt": "2024-10-20",
-    "tags": ["video", "youtube", "transcripts", "playlists", "media"],
-    "features": ["Video search", "Transcripts", "Playlists", "Channel analytics", "Comments", "Trending data"],
+    "tags": [
+      "video",
+      "youtube",
+      "transcripts",
+      "playlists",
+      "media"
+    ],
+    "features": [
+      "Video search",
+      "Transcripts",
+      "Playlists",
+      "Channel analytics",
+      "Comments",
+      "Trending data"
+    ],
     "githubUrl": "https://github.com/google/youtube-mcp",
     "iconBg": "#FF0000",
     "verified": true,
     "trending": false,
     "featured": false,
-    "compatibility": ["Claude", "GPT", "Gemini"],
+    "compatibility": [
+      "Claude",
+      "GPT",
+      "Gemini"
+    ],
     "npmPackage": "mcp-server-youtube",
     "installCommand": "npx",
     "envVars": [
-      { "name": "YOUTUBE_API_KEY", "description": "YouTube Data API key", "required": true }
+      {
+        "name": "YOUTUBE_API_KEY",
+        "description": "YouTube Data API key",
+        "required": true
+      }
     ]
   },
   {
@@ -1225,27 +2376,55 @@
     "description": "Web scraping at scale — crawl websites, extract structured data, and convert pages to markdown.",
     "longDescription": "Crawl and scrape websites at scale through your AI agents using Firecrawl. Convert pages to clean markdown, extract structured data, and handle JavaScript-rendered content.\n\n## Key Capabilities\n- Full site crawling\n- Page to markdown conversion\n- Structured data extraction\n- JavaScript rendering\n- Sitemap discovery\n- Rate limiting and retries",
     "category": "content",
-    "author": { "name": "Firecrawl", "username": "firecrawl", "verified": true },
-    "pricing": { "model": "free", "freeTier": "500 credits/month" },
-    "rating": 4.7,
-    "reviewCount": 678,
-    "installCount": 21200,
-    "weeklyInstalls": 580,
+    "author": {
+      "name": "Firecrawl",
+      "username": "firecrawl",
+      "verified": true
+    },
+    "pricing": {
+      "model": "free",
+      "freeTier": "500 credits/month"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "installCount": 0,
+    "weeklyInstalls": 0,
     "version": "1.5.0",
     "lastUpdated": "2025-11-25",
     "createdAt": "2024-07-15",
-    "tags": ["scraping", "crawling", "web", "data-extraction", "markdown"],
-    "features": ["Site crawling", "Markdown conversion", "Data extraction", "JS rendering", "Sitemap discovery", "Rate limiting"],
+    "tags": [
+      "scraping",
+      "crawling",
+      "web",
+      "data-extraction",
+      "markdown"
+    ],
+    "features": [
+      "Site crawling",
+      "Markdown conversion",
+      "Data extraction",
+      "JS rendering",
+      "Sitemap discovery",
+      "Rate limiting"
+    ],
     "githubUrl": "https://github.com/mendableai/firecrawl-mcp",
     "iconBg": "#FF6F00",
     "verified": true,
     "trending": false,
     "featured": false,
-    "compatibility": ["Claude", "GPT", "Open Source"],
+    "compatibility": [
+      "Claude",
+      "GPT",
+      "Open Source"
+    ],
     "npmPackage": "firecrawl-mcp",
     "installCommand": "npx",
     "envVars": [
-      { "name": "FIRECRAWL_API_KEY", "description": "Firecrawl API key", "required": true }
+      {
+        "name": "FIRECRAWL_API_KEY",
+        "description": "Firecrawl API key",
+        "required": true
+      }
     ]
   },
   {
@@ -1255,27 +2434,55 @@
     "description": "AI-native semantic search — find content by meaning, not just keywords.",
     "longDescription": "Search the web semantically using Exa's AI-native search API. Find content by meaning and intent, not just keyword matching.\n\n## Key Capabilities\n- Semantic search\n- Neural search queries\n- Content retrieval\n- Similar page discovery\n- Category filtering\n- Date range filtering",
     "category": "devtools",
-    "author": { "name": "Exa", "username": "exa-labs", "verified": true },
-    "pricing": { "model": "free", "freeTier": "1000 searches/month" },
-    "rating": 4.6,
-    "reviewCount": 345,
-    "installCount": 11400,
-    "weeklyInstalls": 310,
+    "author": {
+      "name": "Exa",
+      "username": "exa-labs",
+      "verified": true
+    },
+    "pricing": {
+      "model": "free",
+      "freeTier": "1000 searches/month"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "installCount": 0,
+    "weeklyInstalls": 0,
     "version": "1.1.0",
     "lastUpdated": "2025-10-15",
     "createdAt": "2024-09-01",
-    "tags": ["search", "semantic", "ai-search", "web", "neural"],
-    "features": ["Semantic search", "Neural queries", "Content retrieval", "Similar pages", "Category filter", "Date filtering"],
+    "tags": [
+      "search",
+      "semantic",
+      "ai-search",
+      "web",
+      "neural"
+    ],
+    "features": [
+      "Semantic search",
+      "Neural queries",
+      "Content retrieval",
+      "Similar pages",
+      "Category filter",
+      "Date filtering"
+    ],
     "githubUrl": "https://github.com/exa-labs/exa-mcp",
     "iconBg": "#4F46E5",
     "verified": true,
     "trending": false,
     "featured": false,
-    "compatibility": ["Claude", "GPT", "Open Source"],
+    "compatibility": [
+      "Claude",
+      "GPT",
+      "Open Source"
+    ],
     "npmPackage": "mcp-server-exa",
     "installCommand": "npx",
     "envVars": [
-      { "name": "EXA_API_KEY", "description": "Exa API key", "required": true }
+      {
+        "name": "EXA_API_KEY",
+        "description": "Exa API key",
+        "required": true
+      }
     ]
   },
   {
@@ -1285,23 +2492,46 @@
     "description": "Headless Chrome automation — navigate, screenshot, scrape, and automate web pages.",
     "longDescription": "Control headless Chrome through your AI agents using Puppeteer. Navigate web pages, take screenshots, extract data, and automate browser interactions.\n\n## Key Capabilities\n- Page navigation\n- Screenshots and PDFs\n- DOM manipulation\n- Form submission\n- Network interception\n- Cookie management",
     "category": "devtools",
-    "author": { "name": "Anthropic", "username": "anthropic", "verified": true },
-    "pricing": { "model": "free" },
-    "rating": 4.5,
-    "reviewCount": 567,
-    "installCount": 16800,
-    "weeklyInstalls": 450,
+    "author": {
+      "name": "Anthropic",
+      "username": "anthropic",
+      "verified": true
+    },
+    "pricing": {
+      "model": "free"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "installCount": 0,
+    "weeklyInstalls": 0,
     "version": "1.3.0",
     "lastUpdated": "2025-10-20",
     "createdAt": "2024-08-01",
-    "tags": ["browser", "automation", "headless", "chrome", "scraping"],
-    "features": ["Page navigation", "Screenshots", "DOM manipulation", "Form submission", "Network interception", "Cookies"],
+    "tags": [
+      "browser",
+      "automation",
+      "headless",
+      "chrome",
+      "scraping"
+    ],
+    "features": [
+      "Page navigation",
+      "Screenshots",
+      "DOM manipulation",
+      "Form submission",
+      "Network interception",
+      "Cookies"
+    ],
     "githubUrl": "https://github.com/modelcontextprotocol/servers",
     "iconBg": "#00D8A2",
     "verified": true,
     "trending": false,
     "featured": false,
-    "compatibility": ["Claude", "GPT", "Open Source"],
+    "compatibility": [
+      "Claude",
+      "GPT",
+      "Open Source"
+    ],
     "npmPackage": "@modelcontextprotocol/server-puppeteer",
     "installCommand": "npx"
   },
@@ -1312,28 +2542,59 @@
     "description": "Cloud browser automation — run headless browsers at scale without infrastructure management.",
     "longDescription": "Run headless browsers in the cloud through Browserbase. Scale browser automation without managing infrastructure.\n\n## Key Capabilities\n- Cloud browser sessions\n- Screenshot capture\n- Content extraction\n- Session management\n- Proxy support\n- Auto-scaling",
     "category": "devtools",
-    "author": { "name": "Browserbase", "username": "browserbase", "verified": true },
-    "pricing": { "model": "free", "freeTier": "100 sessions/month" },
-    "rating": 4.4,
-    "reviewCount": 234,
-    "installCount": 8900,
-    "weeklyInstalls": 240,
+    "author": {
+      "name": "Browserbase",
+      "username": "browserbase",
+      "verified": true
+    },
+    "pricing": {
+      "model": "free",
+      "freeTier": "100 sessions/month"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "installCount": 0,
+    "weeklyInstalls": 0,
     "version": "1.1.0",
     "lastUpdated": "2025-09-30",
     "createdAt": "2024-10-01",
-    "tags": ["browser", "cloud", "automation", "headless", "scraping"],
-    "features": ["Cloud browsers", "Screenshots", "Content extraction", "Session management", "Proxies", "Auto-scaling"],
+    "tags": [
+      "browser",
+      "cloud",
+      "automation",
+      "headless",
+      "scraping"
+    ],
+    "features": [
+      "Cloud browsers",
+      "Screenshots",
+      "Content extraction",
+      "Session management",
+      "Proxies",
+      "Auto-scaling"
+    ],
     "githubUrl": "https://github.com/browserbase/mcp-server-browserbase",
     "iconBg": "#FF4F00",
     "verified": true,
     "trending": false,
     "featured": false,
-    "compatibility": ["Claude", "GPT"],
+    "compatibility": [
+      "Claude",
+      "GPT"
+    ],
     "npmPackage": "mcp-server-browserbase",
     "installCommand": "npx",
     "envVars": [
-      { "name": "BROWSERBASE_API_KEY", "description": "Browserbase API key", "required": true },
-      { "name": "BROWSERBASE_PROJECT_ID", "description": "Browserbase project ID", "required": true }
+      {
+        "name": "BROWSERBASE_API_KEY",
+        "description": "Browserbase API key",
+        "required": true
+      },
+      {
+        "name": "BROWSERBASE_PROJECT_ID",
+        "description": "Browserbase project ID",
+        "required": true
+      }
     ]
   },
   {
@@ -1343,27 +2604,54 @@
     "description": "Manage Workers, KV, R2, D1, and DNS — edge computing and infrastructure from AI agents.",
     "longDescription": "Control your Cloudflare infrastructure through AI agents. Deploy Workers, manage KV storage, R2 buckets, D1 databases, and configure DNS.\n\n## Key Capabilities\n- Workers deployment\n- KV storage operations\n- R2 bucket management\n- D1 database queries\n- DNS record management\n- Zone configuration",
     "category": "devtools",
-    "author": { "name": "Cloudflare", "username": "cloudflare", "verified": true },
-    "pricing": { "model": "free" },
-    "rating": 4.6,
-    "reviewCount": 567,
-    "installCount": 16200,
-    "weeklyInstalls": 430,
+    "author": {
+      "name": "Cloudflare",
+      "username": "cloudflare",
+      "verified": true
+    },
+    "pricing": {
+      "model": "free"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "installCount": 0,
+    "weeklyInstalls": 0,
     "version": "1.4.0",
     "lastUpdated": "2025-11-10",
     "createdAt": "2024-08-15",
-    "tags": ["edge", "workers", "cdn", "dns", "cloud"],
-    "features": ["Workers", "KV storage", "R2 buckets", "D1 database", "DNS management", "Zone config"],
+    "tags": [
+      "edge",
+      "workers",
+      "cdn",
+      "dns",
+      "cloud"
+    ],
+    "features": [
+      "Workers",
+      "KV storage",
+      "R2 buckets",
+      "D1 database",
+      "DNS management",
+      "Zone config"
+    ],
     "githubUrl": "https://github.com/cloudflare/mcp-server-cloudflare",
     "iconBg": "#F38020",
     "verified": true,
     "trending": false,
     "featured": false,
-    "compatibility": ["Claude", "GPT", "Open Source"],
+    "compatibility": [
+      "Claude",
+      "GPT",
+      "Open Source"
+    ],
     "npmPackage": "mcp-server-cloudflare",
     "installCommand": "npx",
     "envVars": [
-      { "name": "CLOUDFLARE_API_TOKEN", "description": "Cloudflare API token", "required": true }
+      {
+        "name": "CLOUDFLARE_API_TOKEN",
+        "description": "Cloudflare API token",
+        "required": true
+      }
     ]
   },
   {
@@ -1373,29 +2661,62 @@
     "description": "Product analytics — track events, analyze funnels, manage feature flags, and run experiments.",
     "longDescription": "Connect your AI agents to PostHog for product analytics and experimentation. Track events, analyze user funnels, manage feature flags, and run A/B tests.\n\n## Key Capabilities\n- Event tracking and capture\n- Funnel analysis\n- User session recording queries\n- Feature flag management\n- A/B test configuration\n- Cohort analysis",
     "category": "analytics",
-    "author": { "name": "PostHog", "username": "posthog", "verified": true },
-    "pricing": { "model": "free", "freeTier": "1M events/month" },
-    "rating": 4.7,
-    "reviewCount": 623,
-    "installCount": 17800,
-    "weeklyInstalls": 480,
+    "author": {
+      "name": "PostHog",
+      "username": "posthog",
+      "verified": true
+    },
+    "pricing": {
+      "model": "free",
+      "freeTier": "1M events/month"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "installCount": 0,
+    "weeklyInstalls": 0,
     "version": "1.8.0",
     "lastUpdated": "2025-11-08",
     "createdAt": "2024-07-25",
-    "tags": ["analytics", "events", "funnels", "feature-flags", "experiments"],
-    "features": ["Event tracking", "Funnel analysis", "Session replays", "Feature flags", "A/B testing", "Cohorts"],
+    "tags": [
+      "analytics",
+      "events",
+      "funnels",
+      "feature-flags",
+      "experiments"
+    ],
+    "features": [
+      "Event tracking",
+      "Funnel analysis",
+      "Session replays",
+      "Feature flags",
+      "A/B testing",
+      "Cohorts"
+    ],
     "githubUrl": "https://github.com/posthog/posthog-mcp",
     "docsUrl": "https://posthog.com/docs/mcp",
     "iconBg": "#1D4AFF",
     "verified": true,
     "trending": false,
     "featured": true,
-    "compatibility": ["Claude", "GPT", "Open Source"],
+    "compatibility": [
+      "Claude",
+      "GPT",
+      "Open Source"
+    ],
     "npmPackage": "mcp-server-posthog",
     "installCommand": "npx",
     "envVars": [
-      { "name": "POSTHOG_API_KEY", "description": "PostHog personal API key", "required": true },
-      { "name": "POSTHOG_HOST", "description": "PostHog instance URL", "required": false, "placeholder": "https://app.posthog.com" }
+      {
+        "name": "POSTHOG_API_KEY",
+        "description": "PostHog personal API key",
+        "required": true
+      },
+      {
+        "name": "POSTHOG_HOST",
+        "description": "PostHog instance URL",
+        "required": false,
+        "placeholder": "https://app.posthog.com"
+      }
     ]
   },
   {
@@ -1405,28 +2726,59 @@
     "description": "Query GA4 data — traffic, engagement, conversions, and custom reports for AI agents.",
     "longDescription": "Access Google Analytics 4 data through your AI agents. Query traffic reports, analyze user engagement, track conversions, and generate custom reports.\n\n## Key Capabilities\n- Traffic and acquisition reports\n- User engagement metrics\n- Conversion tracking\n- Custom report generation\n- Real-time data access\n- Audience analysis",
     "category": "analytics",
-    "author": { "name": "Google Cloud", "username": "google-cloud", "verified": true },
-    "pricing": { "model": "free" },
-    "rating": 4.4,
-    "reviewCount": 534,
-    "installCount": 16200,
-    "weeklyInstalls": 430,
+    "author": {
+      "name": "Google Cloud",
+      "username": "google-cloud",
+      "verified": true
+    },
+    "pricing": {
+      "model": "free"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "installCount": 0,
+    "weeklyInstalls": 0,
     "version": "1.5.0",
     "lastUpdated": "2025-10-05",
     "createdAt": "2024-08-10",
-    "tags": ["analytics", "traffic", "conversions", "engagement", "reporting"],
-    "features": ["Traffic reports", "Engagement metrics", "Conversion tracking", "Custom reports", "Real-time data", "Audiences"],
+    "tags": [
+      "analytics",
+      "traffic",
+      "conversions",
+      "engagement",
+      "reporting"
+    ],
+    "features": [
+      "Traffic reports",
+      "Engagement metrics",
+      "Conversion tracking",
+      "Custom reports",
+      "Real-time data",
+      "Audiences"
+    ],
     "githubUrl": "https://github.com/google/google-analytics-mcp",
     "iconBg": "#E37400",
     "verified": true,
     "trending": false,
     "featured": false,
-    "compatibility": ["Claude", "GPT", "Gemini"],
+    "compatibility": [
+      "Claude",
+      "GPT",
+      "Gemini"
+    ],
     "npmPackage": "mcp-server-google-analytics",
     "installCommand": "npx",
     "envVars": [
-      { "name": "GOOGLE_CREDENTIALS_PATH", "description": "Path to Google service account credentials", "required": true },
-      { "name": "GA_PROPERTY_ID", "description": "Google Analytics 4 property ID", "required": true }
+      {
+        "name": "GOOGLE_CREDENTIALS_PATH",
+        "description": "Path to Google service account credentials",
+        "required": true
+      },
+      {
+        "name": "GA_PROPERTY_ID",
+        "description": "Google Analytics 4 property ID",
+        "required": true
+      }
     ]
   },
   {
@@ -1436,28 +2788,59 @@
     "description": "Event analytics — track user actions, build funnels, analyze retention, and segment users.",
     "longDescription": "Connect your AI agents to Mixpanel for event-based analytics. Track user actions, build conversion funnels, analyze retention, and create user segments.\n\n## Key Capabilities\n- Event tracking and querying\n- Funnel construction and analysis\n- Retention analysis\n- User segmentation\n- Flow analysis\n- Custom JQL queries",
     "category": "analytics",
-    "author": { "name": "Mixpanel", "username": "mixpanel", "verified": true },
-    "pricing": { "model": "free", "freeTier": "20M events/month" },
-    "rating": 4.5,
-    "reviewCount": 412,
-    "installCount": 13900,
-    "weeklyInstalls": 370,
+    "author": {
+      "name": "Mixpanel",
+      "username": "mixpanel",
+      "verified": true
+    },
+    "pricing": {
+      "model": "free",
+      "freeTier": "20M events/month"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "installCount": 0,
+    "weeklyInstalls": 0,
     "version": "1.4.2",
     "lastUpdated": "2025-09-18",
     "createdAt": "2024-09-28",
-    "tags": ["analytics", "events", "funnels", "retention", "segmentation"],
-    "features": ["Event tracking", "Funnels", "Retention", "Segmentation", "Flows", "Custom queries"],
+    "tags": [
+      "analytics",
+      "events",
+      "funnels",
+      "retention",
+      "segmentation"
+    ],
+    "features": [
+      "Event tracking",
+      "Funnels",
+      "Retention",
+      "Segmentation",
+      "Flows",
+      "Custom queries"
+    ],
     "githubUrl": "https://github.com/mixpanel/mixpanel-mcp",
     "iconBg": "#7856FF",
     "verified": true,
     "trending": false,
     "featured": false,
-    "compatibility": ["Claude", "GPT"],
+    "compatibility": [
+      "Claude",
+      "GPT"
+    ],
     "npmPackage": "mcp-server-mixpanel",
     "installCommand": "npx",
     "envVars": [
-      { "name": "MIXPANEL_TOKEN", "description": "Mixpanel project token", "required": true },
-      { "name": "MIXPANEL_API_SECRET", "description": "Mixpanel API secret", "required": true }
+      {
+        "name": "MIXPANEL_TOKEN",
+        "description": "Mixpanel project token",
+        "required": true
+      },
+      {
+        "name": "MIXPANEL_API_SECRET",
+        "description": "Mixpanel API secret",
+        "required": true
+      }
     ]
   }
 ]

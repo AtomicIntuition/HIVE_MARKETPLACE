@@ -104,7 +104,7 @@ export function ConnectDialog({
             </div>
 
             {/* Tabs */}
-            <div className="flex border-b border-border/50 px-6">
+            <div className="flex overflow-x-auto border-b border-border/50 px-4 sm:px-6">
               {MCP_CLIENTS.map((tab) => (
                 <button
                   key={tab}

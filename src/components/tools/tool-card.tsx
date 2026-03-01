@@ -84,11 +84,17 @@ export function ToolCard({ tool, className }: ToolCardProps) {
 
         {/* Footer: rating + installs */}
         <div className="mt-4 flex items-center justify-between border-t border-border/50 pt-3">
-          <RatingStars rating={tool.rating} count={tool.reviewCount} />
-          <div className="flex items-center gap-1 text-xs text-muted-foreground">
-            <Download className="h-3 w-3" />
-            {tool.installCount.toLocaleString()}
-          </div>
+          {tool.reviewCount > 0 ? (
+            <RatingStars rating={tool.rating} count={tool.reviewCount} />
+          ) : (
+            <span className="text-xs text-muted-foreground">No reviews yet</span>
+          )}
+          {tool.installCount > 0 && (
+            <div className="flex items-center gap-1 text-xs text-muted-foreground">
+              <Download className="h-3 w-3" />
+              {tool.installCount.toLocaleString()}
+            </div>
+          )}
         </div>
       </div>
     </Link>

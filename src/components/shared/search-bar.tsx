@@ -58,8 +58,8 @@ export function SearchBar({
         className={cn(
           "w-full bg-transparent text-foreground placeholder:text-muted-foreground focus:outline-none",
           size === "lg"
-            ? "py-4 pl-12 pr-4 text-lg"
-            : "py-2.5 pl-10 pr-4 text-sm"
+            ? "py-4 pl-12 pr-4 text-base md:text-lg"
+            : "py-2.5 pl-10 pr-4 text-base md:text-sm"
         )}
       />
       {query && (

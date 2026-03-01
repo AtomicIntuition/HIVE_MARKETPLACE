@@ -62,7 +62,7 @@ export function CategoryGrid({ categories: categoriesProp }: CategoryGridProps) 
                 transition={{ duration: 0.4, delay: i * 0.05 }}
               >
                 <Link href={`/categories/${cat.slug}`}>
-                  <div className="group flex flex-col items-center rounded-xl border border-border/50 bg-card p-6 text-center transition-all hover:border-border hover:bg-card/80 hover:shadow-lg">
+                  <div className="group flex flex-col items-center rounded-xl border border-border/50 bg-card p-4 text-center transition-all hover:border-border hover:bg-card/80 hover:shadow-lg sm:p-6">
                     <div
                       className="mb-3 flex h-12 w-12 items-center justify-center rounded-xl transition-transform group-hover:scale-110"
                       style={{ backgroundColor: `${cat.color}15` }}

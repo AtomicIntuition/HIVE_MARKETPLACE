@@ -102,15 +102,19 @@ export function ToolDetail({ tool, relatedTools, reviewsSection }: ToolDetailPro
                     )}
                   </p>
                   <div className="mt-3 flex flex-wrap items-center gap-4">
-                    <RatingStars
-                      rating={tool.rating}
-                      count={tool.reviewCount}
-                      size="md"
-                    />
-                    <div className="flex items-center gap-1 text-sm text-muted-foreground">
-                      <Download className="h-4 w-4" />
-                      {tool.installCount.toLocaleString()} installs
-                    </div>
+                    {tool.reviewCount > 0 && (
+                      <RatingStars
+                        rating={tool.rating}
+                        count={tool.reviewCount}
+                        size="md"
+                      />
+                    )}
+                    {tool.installCount > 0 && (
+                      <div className="flex items-center gap-1 text-sm text-muted-foreground">
+                        <Download className="h-4 w-4" />
+                        {tool.installCount.toLocaleString()} installs
+                      </div>
+                    )}
                     <div className="flex items-center gap-1 text-sm text-muted-foreground">
                       <Tag className="h-4 w-4" />v{tool.version}
                     </div>
@@ -142,7 +146,7 @@ export function ToolDetail({ tool, relatedTools, reviewsSection }: ToolDetailPro
                       )}
                     </button>
                   </div>
-                  <div className="p-4 font-mono text-sm">
+                  <div className="overflow-x-auto p-4 font-mono text-sm">
                     <span className="text-violet-400">$</span> {installCmd}
                   </div>
                 </div>
@@ -315,15 +319,19 @@ export function ToolDetail({ tool, relatedTools, reviewsSection }: ToolDetailPro
                         {tool.verified ? "Yes" : "No"}
                       </span>
                     </div>
-                    <Separator />
-                    <div className="flex items-center justify-between text-sm">
-                      <span className="text-muted-foreground">
-                        Weekly installs
-                      </span>
-                      <span className="text-foreground">
-                        {tool.weeklyInstalls.toLocaleString()}
-                      </span>
-                    </div>
+                    {tool.weeklyInstalls > 0 && (
+                      <>
+                        <Separator />
+                        <div className="flex items-center justify-between text-sm">
+                          <span className="text-muted-foreground">
+                            Weekly installs
+                          </span>
+                          <span className="text-foreground">
+                            {tool.weeklyInstalls.toLocaleString()}
+                          </span>
+                        </div>
+                      </>
+                    )}
                   </div>
                 </div>
 
