@@ -31,6 +31,13 @@
     "memory": {
       "command": "npx",
       "args": ["-y", "@modelcontextprotocol/server-memory"]
+    },
+    "hive-market": {
+      "command": "node",
+      "args": ["/Users/AI/Desktop/HIVE_MARKET_BUILD/hive-market/mcp-server/dist/index.js"],
+      "env": {
+        "HIVE_MARKET_API_URL": "http://localhost:3000"
+      }
     }
   }
 }
