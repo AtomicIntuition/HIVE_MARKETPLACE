@@ -6,12 +6,17 @@ export async function GET(
   _request: NextRequest,
   { params }: { params: Promise<{ slug: string }> }
 ) {
-  const { slug } = await params;
-  const tool = await getToolBySlug(slug);
-  if (!tool) {
-    return apiError("Tool not found", 404);
+  try {
+    const { slug } = await params;
+    const tool = await getToolBySlug(slug);
+    if (!tool) {
+      return apiError("Tool not found", 404);
+    }
+    return apiSuccess(tool);
+  } catch (e) {
+    console.error("API /tools/[slug] error:", e);
+    return apiError("Failed to fetch tool", 500);
   }
-  return apiSuccess(tool);
 }
 
 export async function OPTIONS() {

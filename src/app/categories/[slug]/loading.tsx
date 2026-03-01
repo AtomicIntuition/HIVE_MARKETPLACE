@@ -1,25 +1,35 @@
+import { Shimmer, ToolCardSkeleton } from "@/components/ui/skeleton-shimmer";
+
 export default function CategoryLoading() {
   return (
     <div className="py-12">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="mb-6 flex items-center gap-2">
-          <div className="h-4 w-20 animate-pulse rounded bg-muted" />
-          <span className="text-muted-foreground">/</span>
-          <div className="h-4 w-24 animate-pulse rounded bg-muted" />
+        {/* Breadcrumb */}
+        <div className="mb-6 flex items-center gap-2 animate-skeleton-in">
+          <Shimmer className="h-4 w-20" />
+          <span className="text-muted-foreground/30">/</span>
+          <Shimmer className="h-4 w-28" />
         </div>
-        <div className="mb-8 flex items-center gap-4">
-          <div className="h-14 w-14 animate-pulse rounded-2xl bg-muted" />
-          <div>
-            <div className="h-8 w-40 animate-pulse rounded-lg bg-muted" />
-            <div className="mt-2 h-4 w-56 animate-pulse rounded bg-muted" />
+
+        {/* Header */}
+        <div className="mb-8 flex items-center gap-4 animate-skeleton-in" style={{ animationDelay: "50ms" }}>
+          <Shimmer className="h-14 w-14 shrink-0 rounded-2xl" />
+          <div className="space-y-3">
+            <Shimmer className="h-8 w-44 rounded-lg" />
+            <Shimmer className="h-4 w-64" />
           </div>
         </div>
+
+        {/* Tool grid */}
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {Array.from({ length: 6 }).map((_, i) => (
             <div
               key={i}
-              className="h-48 animate-pulse rounded-xl border border-border/50 bg-muted"
-            />
+              className="animate-skeleton-in"
+              style={{ animationDelay: `${100 + i * 50}ms` }}
+            >
+              <ToolCardSkeleton />
+            </div>
           ))}
         </div>
       </div>

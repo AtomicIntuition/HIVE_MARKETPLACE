@@ -1,13 +1,13 @@
 "use client";
 
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { AlertTriangle, RefreshCw, Home } from "lucide-react";
-import Link from "next/link";
 
-export default function RootError({
+export default function CategoriesError({
   reset,
 }: {
-  error: Error & { digest?: string };
+  error: Error;
   reset: () => void;
 }) {
   return (
@@ -17,11 +17,10 @@ export default function RootError({
           <AlertTriangle className="h-8 w-8 text-red-400" />
         </div>
         <h2 className="text-2xl font-bold text-foreground">
-          Something went wrong
+          Failed to load categories
         </h2>
         <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-          We hit an unexpected error loading this page. This is usually temporary
-          — try refreshing.
+          We couldn&apos;t load the category data. Please try again in a moment.
         </p>
         <div className="mt-8 flex items-center justify-center gap-3">
           <Button onClick={reset} variant="outline" className="gap-2">

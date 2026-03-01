@@ -9,22 +9,27 @@ export async function GET(
   _request: NextRequest,
   { params }: { params: Promise<{ slug: string }> }
 ) {
-  const { slug } = await params;
-  const stack = getStackBySlug(slug);
-  if (!stack) {
-    return apiError("Stack not found", 404);
+  try {
+    const { slug } = await params;
+    const stack = getStackBySlug(slug);
+    if (!stack) {
+      return apiError("Stack not found", 404);
+    }
+
+    const tools: Tool[] = [];
+    for (const toolSlug of stack.toolSlugs) {
+      const tool = await getToolBySlug(toolSlug);
+      if (tool) tools.push(tool);
+    }
+
+    const configStr = generateMultiToolConfig(tools, "Claude Desktop");
+    const config = JSON.parse(configStr);
+
+    return apiSuccess({ stack, tools, config });
+  } catch (e) {
+    console.error("API /stacks/[slug] error:", e);
+    return apiError("Failed to fetch stack", 500);
   }
-
-  const tools: Tool[] = [];
-  for (const toolSlug of stack.toolSlugs) {
-    const tool = await getToolBySlug(toolSlug);
-    if (tool) tools.push(tool);
-  }
-
-  const configStr = generateMultiToolConfig(tools, "Claude Desktop");
-  const config = JSON.parse(configStr);
-
-  return apiSuccess({ stack, tools, config });
 }
 
 export async function OPTIONS() {

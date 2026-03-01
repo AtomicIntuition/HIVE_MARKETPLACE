@@ -1,33 +1,34 @@
+import { Shimmer, ToolCardSkeleton } from "@/components/ui/skeleton-shimmer";
+
 export default function ToolsLoading() {
   return (
     <div className="py-12">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="mb-8">
-          <div className="h-8 w-48 animate-pulse rounded-lg bg-muted" />
-          <div className="mt-2 h-5 w-72 animate-pulse rounded-lg bg-muted" />
+        {/* Header */}
+        <div className="mb-8 animate-skeleton-in">
+          <Shimmer className="h-9 w-52 rounded-lg" />
+          <Shimmer className="mt-3 h-5 w-80 rounded-lg" />
         </div>
-        <div className="mb-6 h-10 w-full animate-pulse rounded-lg bg-muted" />
+
+        {/* Search bar */}
+        <Shimmer className="mb-8 h-12 w-full rounded-xl animate-skeleton-in" style={{ animationDelay: "50ms" }} />
+
+        {/* Filter pills */}
+        <div className="mb-6 flex gap-2 animate-skeleton-in" style={{ animationDelay: "100ms" }}>
+          {Array.from({ length: 5 }).map((_, i) => (
+            <Shimmer key={i} className="h-8 w-24 rounded-full" />
+          ))}
+        </div>
+
+        {/* Tool grid */}
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {Array.from({ length: 6 }).map((_, i) => (
+          {Array.from({ length: 9 }).map((_, i) => (
             <div
               key={i}
-              className="rounded-xl border border-border/50 bg-card p-5"
+              className="animate-skeleton-in"
+              style={{ animationDelay: `${150 + i * 50}ms` }}
             >
-              <div className="mb-3 flex items-center gap-3">
-                <div className="h-10 w-10 animate-pulse rounded-xl bg-muted" />
-                <div className="flex-1">
-                  <div className="h-4 w-24 animate-pulse rounded bg-muted" />
-                  <div className="mt-1 h-3 w-16 animate-pulse rounded bg-muted" />
-                </div>
-              </div>
-              <div className="mb-3 space-y-1">
-                <div className="h-3 w-full animate-pulse rounded bg-muted" />
-                <div className="h-3 w-3/4 animate-pulse rounded bg-muted" />
-              </div>
-              <div className="flex items-center justify-between">
-                <div className="h-5 w-16 animate-pulse rounded-full bg-muted" />
-                <div className="h-3 w-12 animate-pulse rounded bg-muted" />
-              </div>
+              <ToolCardSkeleton />
             </div>
           ))}
         </div>

@@ -123,3 +123,38 @@ html {
 .search-glow:focus-within {
   box-shadow: 0 0 0 1px #8B5CF6, 0 0 20px rgba(139, 92, 246, 0.15);
 }
+
+/* Shimmer loading animation */
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Hive hex spinner pulse */
+@keyframes hive-pulse {
+  0%, 100% {
+    opacity: 0.2;
+    transform: rotate(var(--tw-rotate, 0)) translateY(-120%) scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: rotate(var(--tw-rotate, 0)) translateY(-120%) scale(1.2);
+  }
+}
+
+/* Skeleton fade-in */
+@keyframes skeleton-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-skeleton-in {
+  animation: skeleton-in 0.4s ease-out both;
+}
