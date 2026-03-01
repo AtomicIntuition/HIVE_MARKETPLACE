@@ -32,6 +32,7 @@ const toolSubmissionSchema = z.object({
   githubUrl: z.union([z.url(), z.literal("")]).optional(),
   docsUrl: z.union([z.url(), z.literal("")]).optional(),
   npmPackage: z.string().max(255).optional(),
+  installCommand: z.enum(["npx", "uvx"]).default("npx"),
   version: z.string().min(1, "Version is required").max(50),
   compatibility: z.array(z.string()).min(1, "Select at least one"),
   pricingModel: z.enum(["free", "per-call", "monthly"]),
@@ -74,6 +75,7 @@ export async function submitTool(
     githubUrl: formData.get("githubUrl") as string,
     docsUrl: formData.get("docsUrl") as string,
     npmPackage: formData.get("npmPackage") as string,
+    installCommand: (formData.get("installCommand") as string) || "npx",
     version: formData.get("version") as string,
     compatibility: formData.getAll("compatibility") as string[],
     pricingModel: formData.get("pricingModel") as string,
@@ -131,6 +133,7 @@ export async function submitTool(
     github_url: data.githubUrl || null,
     docs_url: data.docsUrl || null,
     npm_package: data.npmPackage || null,
+    install_command: data.installCommand,
     version: data.version,
     compatibility: data.compatibility,
     icon_bg: "#8B5CF6",
@@ -185,6 +188,7 @@ export async function submitTool(
     featured: false,
     compatibility: data.compatibility,
     npm_package: data.npmPackage || null,
+    install_command: data.installCommand,
   });
 
   if (toolError) {

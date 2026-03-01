@@ -81,6 +81,7 @@ export const tools = pgTable(
     featured: boolean("featured").notNull().default(false),
     compatibility: text("compatibility").array().notNull().default([]),
     npmPackage: varchar("npm_package", { length: 255 }),
+    installCommand: varchar("install_command", { length: 10 }).notNull().default("npx"),
   },
   (table) => [
     uniqueIndex("tools_slug_idx").on(table.slug),
@@ -148,6 +149,7 @@ export const toolSubmissions = pgTable("tool_submissions", {
   githubUrl: text("github_url"),
   docsUrl: text("docs_url"),
   npmPackage: varchar("npm_package", { length: 255 }),
+  installCommand: varchar("install_command", { length: 10 }).notNull().default("npx"),
   iconBg: varchar("icon_bg", { length: 20 }).notNull().default("#8B5CF6"),
   compatibility: text("compatibility").array().notNull().default([]),
   version: varchar("version", { length: 50 }).notNull().default("1.0.0"),

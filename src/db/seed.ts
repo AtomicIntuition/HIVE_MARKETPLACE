@@ -298,7 +298,8 @@ const SEED_TOOLS = [
     trending: false,
     featured: false,
     compatibility: ["Claude", "GPT", "Gemini", "Open Source"],
-    npmPackage: "@modelcontextprotocol/server-fetch",
+    npmPackage: "mcp-server-fetch",
+    installCommand: "uvx",
   },
   {
     id: "mcp-puppeteer",
@@ -382,7 +383,8 @@ const SEED_TOOLS = [
     trending: false,
     featured: false,
     compatibility: ["Claude", "GPT", "Gemini", "Open Source"],
-    npmPackage: "@modelcontextprotocol/server-sqlite",
+    npmPackage: "mcp-server-sqlite",
+    installCommand: "uvx",
   },
   {
     id: "mcp-memory",
@@ -494,7 +496,7 @@ const SEED_TOOLS = [
     trending: false,
     featured: false,
     compatibility: ["Claude", "GPT", "Gemini", "Open Source"],
-    npmPackage: "@modelcontextprotocol/server-sentry",
+    npmPackage: "@sentry/mcp-server",
   },
 
   // ── Popular Community MCP Servers ──
@@ -608,7 +610,7 @@ const SEED_TOOLS = [
     trending: true,
     featured: true,
     compatibility: ["Claude", "GPT", "Gemini", "Open Source"],
-    npmPackage: "@anthropic-ai/mcp-server-playwright",
+    npmPackage: "@playwright/mcp",
   },
   {
     id: "mcp-supabase",
@@ -636,7 +638,7 @@ const SEED_TOOLS = [
     trending: true,
     featured: false,
     compatibility: ["Claude", "GPT", "Gemini", "Open Source"],
-    npmPackage: "supabase-mcp-server",
+    npmPackage: "@supabase/mcp-server-supabase",
   },
   {
     id: "mcp-cloudflare",
@@ -776,7 +778,7 @@ const SEED_TOOLS = [
     trending: false,
     featured: false,
     compatibility: ["Claude", "GPT", "Open Source"],
-    npmPackage: "@anthropic-ai/mcp-server-raygun",
+    npmPackage: null,
   },
   {
     id: "mcp-twilio",
@@ -804,7 +806,7 @@ const SEED_TOOLS = [
     trending: false,
     featured: false,
     compatibility: ["Claude", "GPT", "Open Source"],
-    npmPackage: "@anthropic-ai/mcp-server-twilio",
+    npmPackage: null,
   },
   {
     id: "mcp-email",
@@ -1140,7 +1142,8 @@ const SEED_TOOLS = [
     trending: false,
     featured: false,
     compatibility: ["Claude", "GPT", "Open Source"],
-    npmPackage: "mcp-server-youtube-transcript",
+    npmPackage: "youtube-transcript-mcp",
+    installCommand: "uvx",
   },
   {
     id: "mcp-unsplash",
@@ -1196,7 +1199,8 @@ const SEED_TOOLS = [
     trending: false,
     featured: false,
     compatibility: ["Claude", "GPT", "Gemini", "Open Source"],
-    npmPackage: "@modelcontextprotocol/server-time",
+    npmPackage: "mcp-server-time",
+    installCommand: "uvx",
   },
   {
     id: "mcp-aws-kb-retrieval",
@@ -1364,7 +1368,7 @@ const SEED_TOOLS = [
     trending: true,
     featured: false,
     compatibility: ["Claude", "GPT", "Gemini", "Open Source"],
-    npmPackage: "context7-mcp",
+    npmPackage: "@upstash/context7-mcp",
   },
   {
     id: "mcp-smithery",
@@ -1392,7 +1396,7 @@ const SEED_TOOLS = [
     trending: false,
     featured: false,
     compatibility: ["Claude", "GPT", "Gemini", "Open Source"],
-    npmPackage: "@anthropic-ai/mcp-server-smithery",
+    npmPackage: "@smithery/cli",
   },
   {
     id: "mcp-google-calendar",
@@ -1476,7 +1480,7 @@ const SEED_TOOLS = [
     trending: false,
     featured: false,
     compatibility: ["Claude", "GPT", "Gemini", "Open Source"],
-    npmPackage: "@anthropic-ai/mcp-server-browserbase",
+    npmPackage: "@browserbasehq/mcp",
   },
   {
     id: "mcp-tinybird",
@@ -1505,6 +1509,7 @@ const SEED_TOOLS = [
     featured: false,
     compatibility: ["Claude", "GPT", "Open Source"],
     npmPackage: "mcp-tinybird",
+    installCommand: "uvx",
   },
 ];
 

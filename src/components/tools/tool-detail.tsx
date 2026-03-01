@@ -37,7 +37,9 @@ export function ToolDetail({ tool, relatedTools, reviewsSection }: ToolDetailPro
   const categoryColor =
     COLORS.categories[tool.category as keyof typeof COLORS.categories];
   const installCmd = tool.npmPackage
-    ? `npx -y ${tool.npmPackage}`
+    ? tool.installCommand === "uvx"
+      ? `uvx ${tool.npmPackage}`
+      : `npx -y ${tool.npmPackage}`
     : null;
 
   const handleCopy = () => {
@@ -249,6 +251,7 @@ export function ToolDetail({ tool, relatedTools, reviewsSection }: ToolDetailPro
                     toolName={tool.name}
                     toolSlug={tool.slug}
                     npmPackage={tool.npmPackage}
+                    installCommand={tool.installCommand}
                     githubUrl={tool.githubUrl}
                   />
                   <p className="mt-3 text-center text-xs text-muted-foreground">

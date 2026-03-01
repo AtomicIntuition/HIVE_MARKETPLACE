@@ -1,6 +1,7 @@
 import { MetadataRoute } from "next";
 import { SITE_CONFIG, CATEGORIES } from "@/lib/constants";
 import { getAllTools } from "@/lib/data";
+import { STACKS } from "@/lib/stacks";
 
 export const dynamic = "force-dynamic";
 
@@ -21,6 +22,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
+  const stackPages = STACKS.map((stack) => ({
+    url: `${SITE_CONFIG.url}/stacks/${stack.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "weekly" as const,
+    priority: 0.7,
+  }));
+
   return [
     {
       url: SITE_CONFIG.url,
@@ -35,6 +43,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.9,
     },
     {
+      url: `${SITE_CONFIG.url}/stacks`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    {
       url: `${SITE_CONFIG.url}/categories`,
       lastModified: new Date(),
       changeFrequency: "weekly",
@@ -42,5 +56,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     ...toolPages,
     ...categoryPages,
+    ...stackPages,
   ];
 }

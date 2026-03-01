@@ -11,6 +11,7 @@ interface ConnectDialogProps {
   toolName: string;
   toolSlug: string;
   npmPackage?: string;
+  installCommand?: "npx" | "uvx";
   githubUrl?: string;
 }
 
@@ -21,6 +22,7 @@ export function ConnectDialog({
   toolName,
   toolSlug,
   npmPackage,
+  installCommand = "npx",
   githubUrl,
 }: ConnectDialogProps) {
   const [isOpen, setIsOpen] = useState(false);
@@ -44,10 +46,9 @@ export function ConnectDialog({
   }
 
   function getConfig() {
-    const serverConfig = {
-      command: "npx",
-      args: ["-y", npmPackage!],
-    };
+    const serverConfig = installCommand === "uvx"
+      ? { command: "uvx", args: [npmPackage!] }
+      : { command: "npx", args: ["-y", npmPackage!] };
 
     switch (activeTab) {
       case "Claude Desktop":
@@ -187,7 +188,7 @@ export function ConnectDialog({
 
               <div className="mt-4 flex items-center justify-between">
                 <p className="text-xs text-muted-foreground">
-                  Package: {npmPackage}
+                  {installCommand === "uvx" ? "PyPI" : "npm"}: {npmPackage}
                 </p>
                 <Button
                   onClick={handleCopy}

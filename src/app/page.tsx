@@ -1,6 +1,7 @@
 import { Hero } from "@/components/landing/hero";
 import { FeaturedTools } from "@/components/landing/featured-tools";
 import { CategoryGrid } from "@/components/landing/category-grid";
+import { StacksPreview } from "@/components/landing/stacks-preview";
 import { ForCreators } from "@/components/landing/for-creators";
 import { HowItWorks } from "@/components/landing/how-it-works";
 import { CTA } from "@/components/landing/cta";
@@ -24,6 +25,7 @@ export default async function HomePage() {
       <Hero />
       <FeaturedTools trendingTools={trendingTools} featuredTools={featuredTools} />
       <CategoryGrid categories={categories} />
+      <StacksPreview />
       <ForCreators />
       <HowItWorks />
       <CTA />

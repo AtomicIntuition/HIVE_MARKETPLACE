@@ -24,6 +24,7 @@ export interface Tool {
   featured: boolean;
   compatibility: string[];
   npmPackage?: string;
+  installCommand?: "npx" | "uvx";
 }
 
 export interface ToolAuthor {

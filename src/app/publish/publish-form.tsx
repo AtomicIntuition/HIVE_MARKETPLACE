@@ -39,6 +39,7 @@ export function PublishForm() {
   const [githubUrl, setGithubUrl] = useState("");
   const [docsUrl, setDocsUrl] = useState("");
   const [npmPackage, setNpmPackage] = useState("");
+  const [installCommand, setInstallCommand] = useState<"npx" | "uvx">("npx");
   const [version, setVersion] = useState("1.0.0");
   const [compatibility, setCompatibility] = useState<string[]>([]);
   const [pricingModel, setPricingModel] = useState("free");
@@ -119,6 +120,7 @@ export function PublishForm() {
         <input type="hidden" name="githubUrl" value={githubUrl} />
         <input type="hidden" name="docsUrl" value={docsUrl} />
         <input type="hidden" name="npmPackage" value={npmPackage} />
+        <input type="hidden" name="installCommand" value={installCommand} />
         <input type="hidden" name="version" value={version} />
         {compatibility.map((c) => (
           <input key={c} type="hidden" name="compatibility" value={c} />
@@ -241,14 +243,32 @@ export function PublishForm() {
               </div>
 
               <div>
-                <label className="mb-1.5 block text-sm text-muted-foreground">npm Package Name</label>
+                <label className="mb-1.5 block text-sm text-muted-foreground">Package Registry</label>
+                <div className="flex gap-2 mb-3">
+                  {(["npx", "uvx"] as const).map((cmd) => (
+                    <button
+                      key={cmd}
+                      type="button"
+                      onClick={() => setInstallCommand(cmd)}
+                      className={cn(
+                        "rounded-lg border px-4 py-1.5 text-sm font-medium transition-colors",
+                        installCommand === cmd
+                          ? "border-violet-500/30 bg-violet-500/10 text-violet-400"
+                          : "border-border/50 text-muted-foreground hover:border-border"
+                      )}
+                    >
+                      {cmd === "npx" ? "npm (npx)" : "PyPI (uvx)"}
+                    </button>
+                  ))}
+                </div>
+                <label className="mb-1.5 block text-sm text-muted-foreground">Package Name</label>
                 <Input
                   value={npmPackage}
                   onChange={(e) => setNpmPackage(e.target.value)}
-                  placeholder="@scope/mcp-server-name"
+                  placeholder={installCommand === "npx" ? "@scope/mcp-server-name" : "mcp-server-name"}
                 />
                 <p className="mt-1 text-xs text-muted-foreground">
-                  Used for the connect flow. Users will run: npx -y {npmPackage || "your-package"}
+                  Used for the connect flow. Users will run: {installCommand === "uvx" ? `uvx ${npmPackage || "your-package"}` : `npx -y ${npmPackage || "your-package"}`}
                 </p>
               </div>
 
@@ -384,7 +404,7 @@ export function PublishForm() {
                   <div className="space-y-1 text-sm">
                     <p><span className="text-muted-foreground">Version:</span> <span className="text-foreground">{version}</span></p>
                     {githubUrl && <p><span className="text-muted-foreground">GitHub:</span> <span className="text-foreground">{githubUrl}</span></p>}
-                    {npmPackage && <p><span className="text-muted-foreground">npm:</span> <span className="text-foreground">{npmPackage}</span></p>}
+                    {npmPackage && <p><span className="text-muted-foreground">{installCommand === "uvx" ? "PyPI" : "npm"}:</span> <span className="text-foreground">{npmPackage}</span></p>}
                     <p><span className="text-muted-foreground">Compatibility:</span> <span className="text-foreground">{compatibility.join(", ")}</span></p>
                   </div>
                 </div>

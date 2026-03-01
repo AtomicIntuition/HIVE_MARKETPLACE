@@ -46,6 +46,7 @@ function mapDbToolToTool(row: Record<string, unknown>): Tool {
     featured: row.featured as boolean,
     compatibility: row.compatibility as string[],
     npmPackage: (row.npmPackage as string) || undefined,
+    installCommand: (row.installCommand as "npx" | "uvx") || "npx",
   };
 }
 
