@@ -1,5 +1,5 @@
 import "server-only";
-import { Tool, CategorySlug } from "./types";
+import { Tool, ToolEnvVar, CategorySlug } from "./types";
 import { CATEGORIES } from "./constants";
 
 // Dynamic import to avoid requiring DATABASE_URL at build time
@@ -47,6 +47,7 @@ function mapDbToolToTool(row: Record<string, unknown>): Tool {
     compatibility: row.compatibility as string[],
     npmPackage: (row.npmPackage as string) || undefined,
     installCommand: (row.installCommand as "npx" | "uvx") || "npx",
+    envVars: (row.envVars as ToolEnvVar[]) || undefined,
   };
 }
 

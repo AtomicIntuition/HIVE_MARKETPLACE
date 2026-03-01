@@ -10,7 +10,10 @@
     "db:push": "drizzle-kit push",
     "db:seed": "tsx src/db/seed.ts",
     "db:generate": "drizzle-kit generate",
-    "db:studio": "drizzle-kit studio"
+    "db:studio": "drizzle-kit studio",
+    "mcp:build": "pnpm --filter hive-market-mcp build",
+    "mcp:dev": "pnpm --filter hive-market-mcp dev",
+    "discover-tools": "tsx scripts/discover-tools.ts"
   },
   "dependencies": {
     "@supabase/ssr": "^0.8.0",

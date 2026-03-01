@@ -19,7 +19,7 @@ export const STACKS: Stack[] = [
     longDescription: "The foundation stack for any developer using AI coding tools. Context7 gives your agent up-to-date library documentation instead of hallucinated APIs. Sequential Thinking helps break down complex architecture decisions. Memory creates a persistent knowledge graph across sessions. Filesystem and GitHub round it out with direct project access.",
     icon: "Zap",
     color: "#8B5CF6",
-    toolSlugs: ["filesystem", "github", "sequential-thinking", "memory", "context7", "brave-search"],
+    toolSlugs: ["filesystem-mcp", "github-mcp", "sequential-thinking-mcp", "memory-mcp", "context7-mcp", "brave-search-mcp"],
     popular: true,
   },
   {
@@ -30,7 +30,7 @@ export const STACKS: Stack[] = [
     longDescription: "Built for the Next.js / Supabase / Vercel developer. Your AI agent can query your Supabase database, deploy to Vercel, run Playwright tests, manage Docker containers, and spin up serverless Postgres with Neon. Stop switching between terminals — let your agent handle the infrastructure.",
     icon: "Layers",
     color: "#3B82F6",
-    toolSlugs: ["supabase", "vercel", "playwright", "docker", "neon", "fetch"],
+    toolSlugs: ["supabase-mcp", "vercel-mcp", "playwright-mcp", "docker-mcp", "neon-mcp", "fetch-mcp"],
     popular: true,
   },
   {
@@ -41,7 +41,7 @@ export const STACKS: Stack[] = [
     longDescription: "Everything you need to build and run a SaaS product. Stripe handles payments and subscriptions. Slack keeps your team in sync. Linear manages your roadmap. Sentry catches production errors before your users do. Add email notifications and you've got a complete ops stack for your AI agent.",
     icon: "Rocket",
     color: "#F59E0B",
-    toolSlugs: ["stripe", "slack", "linear", "sentry", "email-smtp"],
+    toolSlugs: ["stripe-mcp", "slack-mcp", "linear-mcp", "sentry-mcp", "email-smtp-mcp"],
     popular: true,
   },
   {
@@ -52,7 +52,7 @@ export const STACKS: Stack[] = [
     longDescription: "For content teams and solo creators who want AI to help with the full content pipeline. Pull research from Notion and Google Drive, grab stock photos from Unsplash, transcribe YouTube videos for repurposing, and manage your knowledge base in Obsidian. Your AI agent becomes your content co-pilot.",
     icon: "Palette",
     color: "#EC4899",
-    toolSlugs: ["notion", "google-drive", "unsplash", "youtube-transcript", "obsidian"],
+    toolSlugs: ["notion-mcp", "google-drive-mcp", "unsplash-mcp", "youtube-mcp", "obsidian-mcp"],
     popular: false,
   },
   {
@@ -63,7 +63,7 @@ export const STACKS: Stack[] = [
     longDescription: "A complete e-commerce operations stack. Stripe and PayPal handle payments from every angle. Shopify manages your storefront and products. Cloudinary optimizes your product images. Let your AI agent handle inventory updates, process refunds, and generate product descriptions.",
     icon: "ShoppingCart",
     color: "#10B981",
-    toolSlugs: ["stripe", "shopify", "paypal", "cloudinary"],
+    toolSlugs: ["stripe-mcp", "shopify-mcp", "paypal-mcp", "cloudinary-mcp"],
     popular: false,
   },
   {
@@ -74,7 +74,7 @@ export const STACKS: Stack[] = [
     longDescription: "For data-driven teams. Query your PostgreSQL database directly. Pipe events through Tinybird for real-time analytics. Manage structured data in Airtable. Your AI agent can run complex queries, build reports, and surface insights without you writing SQL.",
     icon: "BarChart3",
     color: "#06B6D4",
-    toolSlugs: ["postgresql", "tinybird", "airtable", "sqlite"],
+    toolSlugs: ["postgresql-mcp", "tinybird-mcp", "airtable-mcp", "sqlite-mcp"],
     popular: false,
   },
   {
@@ -85,7 +85,7 @@ export const STACKS: Stack[] = [
     longDescription: "Infrastructure management through your AI agent. Deploy to Cloudflare Workers at the edge. Manage Docker containers. Push to Vercel. Monitor with Sentry. Your agent can handle the entire CI/CD pipeline, check deployment status, and roll back if something goes wrong.",
     icon: "Server",
     color: "#EF4444",
-    toolSlugs: ["docker", "cloudflare", "vercel", "sentry"],
+    toolSlugs: ["docker-mcp", "cloudflare-mcp", "vercel-mcp", "sentry-mcp"],
     popular: false,
   },
   {
@@ -96,7 +96,19 @@ export const STACKS: Stack[] = [
     longDescription: "Turn your AI agent into a research machine. Firecrawl handles large-scale web scraping. Brave Search and Exa provide different search paradigms — traditional and AI-native semantic. Puppeteer and Browserbase give you browser automation. Fetch grabs individual pages. Perfect for competitive research, lead generation, and data collection.",
     icon: "Globe",
     color: "#8B5CF6",
-    toolSlugs: ["firecrawl", "brave-search", "exa-search", "puppeteer", "fetch", "browserbase"],
+    toolSlugs: ["firecrawl-mcp", "brave-search-mcp", "exa-search-mcp", "puppeteer-mcp", "fetch-mcp", "browserbase-mcp"],
     popular: true,
   },
 ];
+
+export function getAllStacks(): Stack[] {
+  return STACKS;
+}
+
+export function getStackBySlug(slug: string): Stack | undefined {
+  return STACKS.find((s) => s.slug === slug);
+}
+
+export function getPopularStacks(): Stack[] {
+  return STACKS.filter((s) => s.popular);
+}

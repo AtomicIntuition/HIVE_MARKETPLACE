@@ -5,56 +5,30 @@ import { Copy, Check, Share2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Tool } from "@/lib/types";
+import {
+  MCP_CLIENTS,
+  McpClient,
+  generateMultiToolConfig,
+  getClientInstructions,
+  getEnvVarsForTools,
+} from "@/lib/mcp-config";
 
 interface StackConfigGeneratorProps {
   stackName: string;
   tools: Tool[];
 }
 
-const TABS = ["Claude Desktop", "Cursor", "Windsurf", "Claude Code"] as const;
-type Tab = (typeof TABS)[number];
-
-function buildConfig(tools: Tool[], tab: Tab): string {
-  const servers: Record<string, { command: string; args: string[] }> = {};
-
-  for (const tool of tools) {
-    if (!tool.npmPackage) continue;
-    const isUvx = tool.installCommand === "uvx";
-    servers[tool.slug] = isUvx
-      ? { command: "uvx", args: [tool.npmPackage] }
-      : { command: "npx", args: ["-y", tool.npmPackage] };
-  }
-
-  if (tab === "Claude Code") {
-    return JSON.stringify({ mcpServers: servers }, null, 2);
-  }
-
-  return JSON.stringify({ mcpServers: servers }, null, 2);
-}
-
-function getInstructions(tab: Tab): string {
-  switch (tab) {
-    case "Claude Desktop":
-      return "Paste into your claude_desktop_config.json:";
-    case "Cursor":
-      return "Paste into .cursor/mcp.json in your project:";
-    case "Windsurf":
-      return "Paste into your Windsurf MCP settings:";
-    case "Claude Code":
-      return "Save as .mcp.json in your project root:";
-  }
-}
-
 export function StackConfigGenerator({
   stackName,
   tools,
 }: StackConfigGeneratorProps) {
-  const [activeTab, setActiveTab] = useState<Tab>("Claude Desktop");
+  const [activeTab, setActiveTab] = useState<McpClient>("Claude Desktop");
   const [copied, setCopied] = useState(false);
   const [sharedLink, setSharedLink] = useState(false);
 
-  const config = buildConfig(tools, activeTab);
+  const config = generateMultiToolConfig(tools, activeTab);
   const toolsWithPackage = tools.filter((t) => t.npmPackage);
+  const requiredEnvVars = getEnvVarsForTools(tools).filter((e) => e.required);
 
   async function handleCopy() {
     await navigator.clipboard.writeText(config);
@@ -84,7 +58,7 @@ export function StackConfigGenerator({
 
       {/* Tabs */}
       <div className="flex overflow-x-auto border-b border-border/50 px-4">
-        {TABS.map((tab) => (
+        {MCP_CLIENTS.map((tab) => (
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
@@ -103,7 +77,7 @@ export function StackConfigGenerator({
       {/* Config */}
       <div className="p-4">
         <p className="mb-2 text-xs text-muted-foreground">
-          {getInstructions(activeTab)}
+          {getClientInstructions(activeTab)}
         </p>
         <div className="relative">
           <pre className="max-h-80 overflow-auto rounded-lg bg-gray-950 p-4 text-xs text-foreground">
@@ -120,6 +94,20 @@ export function StackConfigGenerator({
             )}
           </button>
         </div>
+
+        {requiredEnvVars.length > 0 && (
+          <div className="mt-3 rounded-lg border border-border/50 p-3">
+            <p className="mb-2 text-xs font-medium text-muted-foreground">Required Environment Variables</p>
+            <div className="space-y-1">
+              {requiredEnvVars.map((e) => (
+                <div key={e.name} className="text-xs">
+                  <code className="text-violet-400">{e.name}</code>
+                  <span className="ml-2 text-muted-foreground">{e.description}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
         <div className="mt-4 flex gap-2">
           <Button

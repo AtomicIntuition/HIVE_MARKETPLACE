@@ -1,3 +1,10 @@
+export interface ToolEnvVar {
+  name: string;
+  description: string;
+  required: boolean;
+  placeholder?: string;
+}
+
 export interface Tool {
   id: string;
   name: string;
@@ -25,6 +32,7 @@ export interface Tool {
   compatibility: string[];
   npmPackage?: string;
   installCommand?: "npx" | "uvx";
+  envVars?: ToolEnvVar[];
 }
 
 export interface ToolAuthor {

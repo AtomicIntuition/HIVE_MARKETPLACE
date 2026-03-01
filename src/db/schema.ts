@@ -37,6 +37,19 @@ export const submissionStatusEnum = pgEnum("submission_status", [
   "rejected",
 ]);
 
+export const analyticsEventTypeEnum = pgEnum("analytics_event_type", [
+  "install",
+  "config_copy",
+  "api_view",
+  "mcp_request",
+]);
+
+export const analyticsSourceEnum = pgEnum("analytics_source", [
+  "web",
+  "mcp-server",
+  "api",
+]);
+
 // Types for JSONB columns
 export interface ToolAuthorJson {
   name: string;
@@ -50,6 +63,13 @@ export interface ToolPricingJson {
   price?: number;
   unit?: string;
   freeTier?: string;
+}
+
+export interface ToolEnvVarJson {
+  name: string;
+  description: string;
+  required: boolean;
+  placeholder?: string;
 }
 
 // Tables
@@ -82,6 +102,7 @@ export const tools = pgTable(
     compatibility: text("compatibility").array().notNull().default([]),
     npmPackage: varchar("npm_package", { length: 255 }),
     installCommand: varchar("install_command", { length: 10 }).notNull().default("npx"),
+    envVars: jsonb("env_vars").$type<ToolEnvVarJson[]>(),
   },
   (table) => [
     uniqueIndex("tools_slug_idx").on(table.slug),
@@ -174,5 +195,24 @@ export const userConnections = pgTable(
   },
   (table) => [
     uniqueIndex("user_connections_pk").on(table.userId, table.toolId),
+  ]
+);
+
+export const toolAnalytics = pgTable(
+  "tool_analytics",
+  {
+    id: text("id").primaryKey(),
+    toolId: text("tool_id")
+      .notNull()
+      .references(() => tools.id, { onDelete: "cascade" }),
+    eventType: analyticsEventTypeEnum("event_type").notNull(),
+    source: analyticsSourceEnum("source").notNull().default("web"),
+    metadata: jsonb("metadata").$type<Record<string, unknown>>(),
+    createdAt: timestamp("created_at", { mode: "string" }).notNull().defaultNow(),
+  },
+  (table) => [
+    index("tool_analytics_tool_id_idx").on(table.toolId),
+    index("tool_analytics_event_type_idx").on(table.eventType),
+    index("tool_analytics_created_at_idx").on(table.createdAt),
   ]
 );

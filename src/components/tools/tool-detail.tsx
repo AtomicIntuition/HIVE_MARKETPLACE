@@ -21,6 +21,7 @@ import { Separator } from "@/components/ui/separator";
 import { RatingStars } from "@/components/shared/rating-stars";
 import { ToolCard } from "./tool-card";
 import { ConnectDialog } from "./connect-dialog";
+import { McpConfigDisplay } from "./mcp-config-display";
 import { Tool } from "@/lib/types";
 import { CATEGORIES, COLORS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
@@ -253,11 +254,15 @@ export function ToolDetail({ tool, relatedTools, reviewsSection }: ToolDetailPro
                     npmPackage={tool.npmPackage}
                     installCommand={tool.installCommand}
                     githubUrl={tool.githubUrl}
+                    envVars={tool.envVars}
                   />
                   <p className="mt-3 text-center text-xs text-muted-foreground">
                     One command to add to your agent
                   </p>
                 </div>
+
+                {/* MCP Config */}
+                {tool.npmPackage && <McpConfigDisplay tool={tool} />}
 
                 {/* Info card */}
                 <div className="rounded-xl border border-border/50 bg-card p-6">

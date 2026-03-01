@@ -5,6 +5,8 @@ import { Copy, Check, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { trackInstall } from "@/app/actions/track-install";
+import { MCP_CLIENTS, McpClient, generateToolConfig, getClientInstructions } from "@/lib/mcp-config";
+import { ToolEnvVar } from "@/lib/types";
 
 interface ConnectDialogProps {
   toolId: string;
@@ -13,9 +15,8 @@ interface ConnectDialogProps {
   npmPackage?: string;
   installCommand?: "npx" | "uvx";
   githubUrl?: string;
+  envVars?: ToolEnvVar[];
 }
-
-const TABS = ["Claude Desktop", "Cursor", "Windsurf", "Generic"] as const;
 
 export function ConnectDialog({
   toolId,
@@ -24,9 +25,10 @@ export function ConnectDialog({
   npmPackage,
   installCommand = "npx",
   githubUrl,
+  envVars,
 }: ConnectDialogProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState<(typeof TABS)[number]>("Claude Desktop");
+  const [activeTab, setActiveTab] = useState<McpClient>("Claude Desktop");
   const [copied, setCopied] = useState(false);
 
   if (!npmPackage && !githubUrl) return null;
@@ -45,66 +47,20 @@ export function ConnectDialog({
     );
   }
 
-  function getConfig() {
-    const serverConfig = installCommand === "uvx"
-      ? { command: "uvx", args: [npmPackage!] }
-      : { command: "npx", args: ["-y", npmPackage!] };
+  // Build a minimal Tool-like object for config generation
+  const toolForConfig = {
+    slug: toolSlug,
+    npmPackage,
+    installCommand,
+    envVars,
+  } as Parameters<typeof generateToolConfig>[0];
 
-    switch (activeTab) {
-      case "Claude Desktop":
-        return JSON.stringify(
-          {
-            mcpServers: {
-              [toolSlug]: serverConfig,
-            },
-          },
-          null,
-          2
-        );
-      case "Cursor":
-        return JSON.stringify(
-          {
-            mcpServers: {
-              [toolSlug]: serverConfig,
-            },
-          },
-          null,
-          2
-        );
-      case "Windsurf":
-        return JSON.stringify(
-          {
-            mcpServers: {
-              [toolSlug]: serverConfig,
-            },
-          },
-          null,
-          2
-        );
-      case "Generic":
-        return JSON.stringify(serverConfig, null, 2);
-    }
-  }
-
-  function getInstructions() {
-    switch (activeTab) {
-      case "Claude Desktop":
-        return "Add to your claude_desktop_config.json:";
-      case "Cursor":
-        return "Add to your Cursor MCP settings (.cursor/mcp.json):";
-      case "Windsurf":
-        return "Add to your Windsurf MCP settings:";
-      case "Generic":
-        return "MCP server configuration for any client:";
-    }
-  }
+  const config = generateToolConfig(toolForConfig, activeTab);
 
   async function handleCopy() {
-    await navigator.clipboard.writeText(getConfig());
+    await navigator.clipboard.writeText(config);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
-
-    // Track install
     trackInstall(toolId);
   }
 
@@ -149,7 +105,7 @@ export function ConnectDialog({
 
             {/* Tabs */}
             <div className="flex border-b border-border/50 px-6">
-              {TABS.map((tab) => (
+              {MCP_CLIENTS.map((tab) => (
                 <button
                   key={tab}
                   onClick={() => setActiveTab(tab)}
@@ -168,11 +124,11 @@ export function ConnectDialog({
             {/* Content */}
             <div className="p-6">
               <p className="mb-3 text-sm text-muted-foreground">
-                {getInstructions()}
+                {getClientInstructions(activeTab)}
               </p>
               <div className="relative">
                 <pre className="overflow-x-auto rounded-lg bg-gray-950 p-4 text-sm text-foreground">
-                  <code>{getConfig()}</code>
+                  <code>{config}</code>
                 </pre>
                 <button
                   onClick={handleCopy}
@@ -185,6 +141,20 @@ export function ConnectDialog({
                   )}
                 </button>
               </div>
+
+              {envVars && envVars.length > 0 && (
+                <div className="mt-4 rounded-lg border border-border/50 p-3">
+                  <p className="mb-2 text-xs font-medium text-muted-foreground">Required Environment Variables</p>
+                  <div className="space-y-1.5">
+                    {envVars.filter((e) => e.required).map((e) => (
+                      <div key={e.name} className="text-xs">
+                        <code className="text-violet-400">{e.name}</code>
+                        <span className="ml-2 text-muted-foreground">{e.description}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
 
               <div className="mt-4 flex items-center justify-between">
                 <p className="text-xs text-muted-foreground">

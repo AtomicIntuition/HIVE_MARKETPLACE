@@ -20,6 +20,21 @@ export async function trackInstall(toolId: string) {
         .eq("id", toolId);
     }
 
+    // Record analytics event
+    try {
+      const { db } = await import("@/db");
+      const { toolAnalytics } = await import("@/db/schema");
+      const id = `evt_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
+      await db.insert(toolAnalytics).values({
+        id,
+        toolId,
+        eventType: "install",
+        source: "web",
+      });
+    } catch {
+      // Analytics is fire-and-forget
+    }
+
     // If user is signed in, record the connection
     const {
       data: { user },
