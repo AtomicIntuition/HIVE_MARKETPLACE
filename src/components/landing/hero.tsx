@@ -1,12 +1,23 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { Terminal, ArrowRight } from "lucide-react";
+import { Terminal, ArrowRight, Copy, Check } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { SearchBar } from "@/components/shared/search-bar";
 
+const CLI_COMMAND = "npx -y hive-market-mcp";
+
 export function Hero() {
+  const [copied, setCopied] = useState(false);
+
+  async function handleCopy() {
+    await navigator.clipboard.writeText(CLI_COMMAND);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  }
+
   return (
     <section className="relative overflow-hidden py-24 md:py-32">
       {/* Background gradient effects */}
@@ -95,25 +106,45 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
           >
-            <div className="flex items-center gap-1.5 border-b border-border/50 px-4 py-3">
-              <div className="h-3 w-3 rounded-full bg-red-500/50" />
-              <div className="h-3 w-3 rounded-full bg-yellow-500/50" />
-              <div className="h-3 w-3 rounded-full bg-green-500/50" />
-              <span className="ml-2 font-mono text-xs text-muted-foreground">
-                terminal
-              </span>
+            <div className="flex items-center justify-between border-b border-border/50 px-4 py-3">
+              <div className="flex items-center gap-1.5">
+                <div className="h-3 w-3 rounded-full bg-red-500/50" />
+                <div className="h-3 w-3 rounded-full bg-yellow-500/50" />
+                <div className="h-3 w-3 rounded-full bg-green-500/50" />
+                <span className="ml-2 font-mono text-xs text-muted-foreground">
+                  terminal
+                </span>
+              </div>
+              <button
+                onClick={handleCopy}
+                className="rounded-md p-1.5 text-muted-foreground transition-colors hover:bg-gray-800 hover:text-foreground"
+                title="Copy install command"
+              >
+                {copied ? (
+                  <Check className="h-3.5 w-3.5 text-emerald-400" />
+                ) : (
+                  <Copy className="h-3.5 w-3.5" />
+                )}
+              </button>
             </div>
             <div className="overflow-x-auto p-4 text-left font-mono text-sm">
               <p className="text-muted-foreground">
-                <span className="text-violet-400">$</span> npx hive-market
-                connect stripe-mcp
+                <span className="text-violet-400">$</span> npx -y hive-market-mcp
               </p>
               <p className="mt-2 text-emerald-400">
-                &#10003; stripe-mcp connected to your agent
+                &#10003; Hive Market MCP Server running
               </p>
-              <p className="text-emerald-400">&#10003; API key configured</p>
               <p className="text-emerald-400">
-                &#10003; Ready — your agent can now process payments
+                &#10003; 50+ tools available
+              </p>
+              <p className="text-emerald-400">
+                &#10003; Ready — search, discover, and install MCP tools
+              </p>
+              <p className="mt-3 text-muted-foreground/60">
+                # Or add to Claude Code:
+              </p>
+              <p className="text-muted-foreground">
+                <span className="text-violet-400">$</span> claude mcp add hive-market -- npx -y hive-market-mcp
               </p>
             </div>
           </motion.div>

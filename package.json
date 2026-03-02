@@ -13,7 +13,8 @@
     "db:studio": "drizzle-kit studio",
     "mcp:build": "pnpm --filter hive-market-mcp build",
     "mcp:dev": "pnpm --filter hive-market-mcp dev",
-    "discover-tools": "tsx scripts/discover-tools.ts"
+    "discover-tools": "tsx scripts/discover-tools.ts",
+    "review-tools": "tsx scripts/review-existing-tools.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.78.0",

@@ -4,6 +4,7 @@ import { z } from "zod/v4";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { auditToolSubmission } from "@/lib/audit-tool";
+import { generateAIReview, CLAUDE_REVIEWER } from "@/lib/review-tool";
 
 const envVarSchema = z.object({
   name: z.string().min(1),
@@ -238,6 +239,53 @@ export async function submitTool(
           review_notes: audit.summary,
         })
         .eq("id", id);
+
+      // Generate AI review (non-blocking — failure never stops publication)
+      try {
+        // Upsert claude-reviewer profile
+        await supabase.from("profiles").upsert(
+          {
+            id: CLAUDE_REVIEWER.id,
+            username: CLAUDE_REVIEWER.username,
+            display_name: CLAUDE_REVIEWER.displayName,
+          },
+          { onConflict: "id" }
+        );
+
+        const aiReview = await generateAIReview({
+          name: data.name,
+          slug: data.slug,
+          description: data.description,
+          longDescription: data.longDescription,
+          category: data.category,
+          features: data.features,
+          tags: data.tags,
+          npmPackage: data.npmPackage,
+          githubUrl: data.githubUrl,
+        });
+
+        const reviewId = `review-ai-${data.slug}-${Date.now()}`;
+        await supabase.from("reviews").insert({
+          id: reviewId,
+          tool_id: id,
+          user_id: CLAUDE_REVIEWER.id,
+          author_name: aiReview.authorName,
+          author_username: aiReview.authorUsername,
+          rating: aiReview.rating,
+          text: aiReview.text,
+        });
+
+        // Update tool rating
+        await supabase
+          .from("tools")
+          .update({
+            rating: aiReview.rating,
+            review_count: 1,
+          })
+          .eq("id", id);
+      } catch (reviewError) {
+        console.error("AI review generation failed (non-blocking):", reviewError);
+      }
     }
   } else {
     // Flagged for manual review — keep as pending with audit notes

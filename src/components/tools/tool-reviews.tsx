@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useActionState } from "react";
-import { Star, Loader2 } from "lucide-react";
+import { Star, Loader2, Bot } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { RatingStars } from "@/components/shared/rating-stars";
 import { submitReview, ReviewState } from "@/app/actions/submit-review";
@@ -167,8 +167,14 @@ export function ToolReviews({
                     {review.authorName.charAt(0).toUpperCase()}
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-foreground">
+                    <p className="flex items-center gap-1.5 text-sm font-medium text-foreground">
                       {review.authorName}
+                      {review.authorUsername === "claude-reviewer" && (
+                        <span className="inline-flex items-center gap-1 rounded-full border border-violet-500/20 bg-violet-500/10 px-1.5 py-0.5 text-[10px] font-medium text-violet-400">
+                          <Bot className="h-2.5 w-2.5" />
+                          AI Review
+                        </span>
+                      )}
                     </p>
                     <p className="text-xs text-muted-foreground">
                       @{review.authorUsername}
