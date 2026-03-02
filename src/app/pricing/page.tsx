@@ -70,8 +70,7 @@ export default function PricingPage() {
                 The Marketplace
               </div>
               <div className="mt-2 flex items-baseline justify-center gap-1">
-                <span className="text-5xl font-bold text-foreground">$0</span>
-                <span className="text-gray-500">forever</span>
+                <span className="text-5xl font-bold text-foreground">Free</span>
               </div>
               <p className="mt-2 text-gray-400">
                 Everything you need to discover and publish MCP tools
