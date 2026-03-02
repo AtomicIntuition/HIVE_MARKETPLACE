@@ -57,9 +57,9 @@ const FAQ_ITEMS = [
       "You need a Hive Market account and a working MCP server published to npm or hosted on GitHub. Go to the Publish page, fill out the four-step form (basic info, technical details, pricing, review), and submit. Your tool goes live immediately.",
   },
   {
-    question: "What revenue share does Hive Market take?",
+    question: "Does Hive Market take a cut of my revenue?",
     answer:
-      "Hive Market takes a 20% platform fee on paid tools. Creators receive 80% of all revenue from per-call and monthly subscription pricing models. Free and open-source tools have no fees.",
+      "No. Hive Market is completely free to use — free to browse, free to publish. If you set a price on your tool (per-call or monthly), you keep 100% of your revenue. You handle your own billing and payments, just like any API provider.",
   },
   {
     question: "Can I edit my tool listing after publishing?",

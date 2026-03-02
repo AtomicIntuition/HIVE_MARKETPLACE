@@ -15,7 +15,7 @@ const BENEFITS = [
     icon: DollarSign,
     title: "Earn",
     description:
-      "Set per-call or monthly pricing. We handle billing and payouts.",
+      "Set per-call or monthly pricing on your tools. You keep 100% of your revenue.",
   },
   {
     icon: TrendingUp,

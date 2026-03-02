@@ -109,7 +109,7 @@ export default function PublishingPage() {
               <li><strong className="text-foreground">Monthly</strong> — recurring subscription</li>
             </ul>
             <p className="mt-2 text-sm text-muted-foreground">
-              Paid tools receive an <strong className="text-foreground">80% revenue share</strong> — Hive Market takes 20%.
+              Publishing is free. You keep <strong className="text-foreground">100% of your tool&apos;s revenue</strong> — set your own price and collect payments directly.
             </p>
           </div>
 
