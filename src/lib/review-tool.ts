@@ -50,14 +50,14 @@ Tool to review:
 - npm package: ${input.npmPackage || "not provided"}
 - GitHub: ${input.githubUrl || "not provided"}
 
-CRITICAL RATING RULES — you MUST follow this distribution:
-- 5 stars: ONLY for best-in-class tools (official SDK from major company, exceptional docs, broad utility). ~10% of tools.
-- 4 stars: Strong tools with good features and documentation, minor gaps. ~30%.
-- 3 stars: Solid but has notable limitations, missing features, or mediocre docs. ~40%.
-- 2 stars: Minimal functionality, poor docs, very narrow scope. ~15%.
-- 1 star: Broken or essentially useless. ~5%.
+RATING CRITERIA — evaluate honestly based on these factors:
+- Quality of documentation and examples
+- Breadth and depth of features for its category
+- Whether it's from a trusted/official source or community-maintained
+- How production-ready it feels (error handling, security, edge cases)
+- Whether the npm package exists and is well-maintained
 
-DO NOT default to 4. Think critically about what makes THIS tool better or worse than average.
+5 stars = genuinely exceptional on all criteria. 1 star = fundamentally broken or useless. Rate honestly based on the tool's actual merits — don't inflate or deflate.
 
 Review guidelines:
 - Be specific — mention actual features and real limitations
@@ -82,7 +82,7 @@ Use the write_review tool to submit your review.`;
                   minimum: 1,
                   maximum: 5,
                   description:
-                    "Star rating 1-5. Use the FULL range: 5=exceptional (top 10%), 4=strong (30%), 3=solid with gaps (40%), 2=minimal (15%), 1=poor (5%). Do NOT default to 4.",
+                    "Honest star rating 1-5 based on docs quality, feature depth, maintainer trust, and production-readiness.",
                 },
                 text: {
                   type: "string",
