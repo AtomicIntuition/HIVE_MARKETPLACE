@@ -9,7 +9,7 @@ const BENEFITS = [
   {
     icon: Users,
     title: "Reach",
-    description: "12,000+ developers building agents discover tools here daily.",
+    description: "Developers building AI agents discover and connect tools here.",
   },
   {
     icon: DollarSign,
@@ -46,7 +46,7 @@ export function ForCreators() {
                 <span className="bg-gradient-to-r from-amber-400 to-amber-500 bg-clip-text text-transparent">Earn Money.</span>
               </h2>
               <p className="mt-4 text-lg text-gray-300">
-                Publish your MCP server to reach thousands of agent developers.
+                Publish your MCP server to reach agent developers.
                 Set your price, track your analytics, get paid automatically.
               </p>
 
@@ -82,7 +82,7 @@ export function ForCreators() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: 0.25 }}
               >
-                <Link href="/docs">
+                <Link href="/publish">
                   <Button
                     size="lg"
                     className="gap-2 bg-amber-500 text-gray-950 hover:bg-amber-400"
@@ -131,7 +131,7 @@ export function ForCreators() {
                   <p className="mt-2 text-gray-300">
                     <span className="text-emerald-400">&#10003;</span> Live at:{" "}
                     <span className="text-amber-400">
-                      market.hive.sh/tools/my-tool
+                      hive-mcp.vercel.app/tools/my-tool
                     </span>
                   </p>
                 </div>

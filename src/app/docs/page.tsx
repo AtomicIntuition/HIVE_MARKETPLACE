@@ -54,8 +54,8 @@ export default function DocsPage() {
           infrastructure, and more.
         </p>
         <p className="text-muted-foreground">
-          Creators publish their MCP servers to the marketplace where thousands
-          of developers can find and connect them. Each tool listing includes
+          Creators publish their MCP servers to the marketplace where
+          developers can find and connect them. Each tool listing includes
           documentation, install counts, user reviews, and a one-click
           configuration snippet for every major AI client.
         </p>

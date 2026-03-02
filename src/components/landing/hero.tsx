@@ -64,7 +64,7 @@ export function Hero() {
             transition={{ duration: 0.3, delay: 0.1 }}
           >
             The marketplace for MCP-compatible tools. Discover, connect, and
-            power your AI agents with thousands of integrations. One command to
+            power your AI agents with 50+ ready-to-use integrations. One command to
             connect.
           </motion.p>
 
@@ -94,7 +94,7 @@ export function Hero() {
                 <ArrowRight className="h-4 w-4" />
               </Button>
             </Link>
-            <Link href="/docs">
+            <Link href="/publish">
               <Button size="lg" variant="outline" className="gap-2 border-white/[0.1] hover:bg-white/[0.04]">
                 Publish a Tool
               </Button>

@@ -17,7 +17,7 @@ export default function PublishingPage() {
     <>
       <DocsHeader
         title="Publishing Tools"
-        description="Submit your MCP server to Hive Market and reach thousands of AI agent users."
+        description="Submit your MCP server to Hive Market and reach AI agent developers."
       />
 
       {/* Prerequisites */}

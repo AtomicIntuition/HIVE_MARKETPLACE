@@ -219,7 +219,7 @@ export function PublishForm({ initialData, editMode = false }: PublishFormProps)
                 />
                 {fieldError("slug") && <p className="mt-1 text-xs text-red-400">{fieldError("slug")}</p>}
                 <p className="mt-1 text-xs text-muted-foreground">
-                  URL: market.hive.sh/tools/{slug || "your-slug"}
+                  URL: hive-mcp.vercel.app/tools/{slug || "your-slug"}
                 </p>
               </div>
 

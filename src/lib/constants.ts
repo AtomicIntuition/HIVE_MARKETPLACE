@@ -3,7 +3,7 @@ import { Category } from "./types";
 export const SITE_CONFIG = {
   name: "Hive Market",
   description:
-    "The marketplace for MCP-compatible tools. Discover, connect, and power your AI agents with thousands of integrations.",
+    "The marketplace for MCP-compatible tools. Discover, connect, and power your AI agents with 50+ ready-to-use integrations.",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://hive-mcp.vercel.app",
   hiveUrl: "https://hive.sh",
   ogImage: "/og-image.png",
@@ -106,7 +106,7 @@ export const CATEGORIES: Category[] = [
 ];
 
 export const STATS = [
-  { label: "MCP Tools Published", value: "500+" },
-  { label: "Developers", value: "12,000+" },
-  { label: "API Calls / Month", value: "2M+" },
+  { label: "MCP Tools Listed", value: "50+" },
+  { label: "Categories", value: "8" },
+  { label: "Curated Stacks", value: "8" },
 ] as const;

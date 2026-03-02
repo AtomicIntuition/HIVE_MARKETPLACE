@@ -21,11 +21,11 @@ const FOOTER_LINKS = {
     { href: "/docs/connecting-tools", label: "Setup Guide" },
     { href: "/docs/faq", label: "FAQ" },
   ],
-  Company: [
-    { href: "/", label: "About" },
-    { href: "/", label: "Blog" },
-    { href: "/", label: "Careers" },
-    { href: "/", label: "Contact" },
+  Community: [
+    { href: "https://github.com/AtomicIntuition/HIVE_MARKETPLACE", label: "GitHub", external: true },
+    { href: "https://x.com/hivemarketplace", label: "X / Twitter", external: true },
+    { href: "/publish", label: "Publish a Tool" },
+    { href: "/docs/faq", label: "Support" },
   ],
 };
 
@@ -42,7 +42,7 @@ export function Footer() {
             <HiveMarketLogo />
             <p className="mt-4 text-sm leading-relaxed text-gray-400">
               The marketplace for MCP-compatible tools. Power your AI agents
-              with thousands of integrations.
+              with 50+ ready-to-use integrations.
             </p>
           </div>
 

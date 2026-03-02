@@ -27,7 +27,7 @@ export function CTA() {
               Ready to supercharge your agents?
             </h2>
             <p className="mx-auto mt-4 max-w-lg text-lg text-gray-300">
-              Join thousands of developers discovering and connecting MCP tools.
+              Discover and connect MCP tools to your AI agents in seconds.
               Browse the marketplace or publish your own.
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
@@ -40,7 +40,7 @@ export function CTA() {
                   <ArrowRight className="h-4 w-4" />
                 </Button>
               </Link>
-              <Link href="/docs">
+              <Link href="/publish">
                 <Button size="lg" variant="outline" className="gap-2 border-amber-500/30 text-amber-400 hover:bg-amber-500/10">
                   Publish Your Tool
                 </Button>
