@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight, Flame } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { ToolCard } from "@/components/tools/tool-card";
 import { Tool } from "@/lib/types";
 
@@ -24,20 +23,22 @@ export function FeaturedTools({ trendingTools, featuredTools }: FeaturedToolsPro
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.3 }}
         >
           <div className="mb-8 flex items-center justify-between">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-3">
+              <div className="h-5 w-1 rounded-full bg-amber-400" />
               <Flame className="h-5 w-5 text-amber-400" />
-              <h2 className="text-2xl font-bold text-foreground">
+              <h2 className="text-2xl font-semibold tracking-tight text-foreground">
                 Trending Tools
               </h2>
             </div>
-            <Link href="/tools?sort=popular">
-              <Button variant="ghost" size="sm" className="gap-1 text-muted-foreground hover:text-foreground">
-                View all
-                <ArrowRight className="h-4 w-4" />
-              </Button>
+            <Link
+              href="/tools?sort=popular"
+              className="flex items-center gap-1 text-sm text-gray-400 transition-colors hover:text-foreground"
+            >
+              View all
+              <ArrowRight className="h-3.5 w-3.5" />
             </Link>
           </div>
 
@@ -48,7 +49,7 @@ export function FeaturedTools({ trendingTools, featuredTools }: FeaturedToolsPro
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.1 }}
+                transition={{ duration: 0.3, delay: i * 0.05 }}
               >
                 <ToolCard tool={tool} />
               </motion.div>
@@ -62,17 +63,21 @@ export function FeaturedTools({ trendingTools, featuredTools }: FeaturedToolsPro
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.3 }}
         >
           <div className="mb-8 flex items-center justify-between">
-            <h2 className="text-2xl font-bold text-foreground">
-              Featured Tools
-            </h2>
-            <Link href="/tools">
-              <Button variant="ghost" size="sm" className="gap-1 text-muted-foreground hover:text-foreground">
-                Browse all
-                <ArrowRight className="h-4 w-4" />
-              </Button>
+            <div className="flex items-center gap-3">
+              <div className="h-5 w-1 rounded-full bg-violet-500" />
+              <h2 className="text-2xl font-semibold tracking-tight text-foreground">
+                Featured Tools
+              </h2>
+            </div>
+            <Link
+              href="/tools"
+              className="flex items-center gap-1 text-sm text-gray-400 transition-colors hover:text-foreground"
+            >
+              Browse all
+              <ArrowRight className="h-3.5 w-3.5" />
             </Link>
           </div>
 
@@ -83,7 +88,7 @@ export function FeaturedTools({ trendingTools, featuredTools }: FeaturedToolsPro
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.1 }}
+                transition={{ duration: 0.3, delay: i * 0.05 }}
               >
                 <ToolCard tool={tool} />
               </motion.div>

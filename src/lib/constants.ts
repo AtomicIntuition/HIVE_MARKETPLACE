@@ -11,15 +11,18 @@ export const SITE_CONFIG = {
 } as const;
 
 export const COLORS = {
-  primary: "#F59E0B",
-  secondary: "#0F172A",
-  accent: "#8B5CF6",
+  primary: "#8B5CF6",
+  secondary: "#F59E0B",
   background: "#030712",
   surface: "#111827",
-  surfaceHover: "#1F2937",
+  surfaceElevated: "#0A0F1A",
+  surfaceHover: "#1A2236",
   border: "#1F2937",
+  borderSubtle: "rgba(255,255,255,0.06)",
+  borderHover: "rgba(255,255,255,0.1)",
   text: "#F9FAFB",
   textMuted: "#9CA3AF",
+  textDimmed: "#6B7280",
   success: "#10B981",
   warning: "#F59E0B",
   error: "#EF4444",

@@ -1,0 +1,25 @@
+# Hive Market
+> The MCP tool marketplace for AI agents
+
+## API
+- Base URL: https://market.hive.sh/api
+- GET /api/tools — search and browse MCP tools (query params: q, category, pricing, sort, limit)
+- GET /api/tools/{slug} — tool details (name, description, install command, env vars, pricing)
+- GET /api/tools/{slug}/config — MCP config JSON ready to paste into claude_desktop_config.json
+- GET /api/tools/{slug}/reviews — reviews for a tool
+- POST /api/tools/{slug}/reviews — submit a review (requires API key)
+- POST /api/tools/submit — publish a new tool (requires API key)
+- GET /api/categories — list all tool categories
+- GET /api/stacks — list curated tool stacks (pre-built combinations for common use cases)
+- GET /api/stacks/{slug} — stack details with all tools and combined config
+
+## MCP Server
+Install: npx -y hive-market-mcp
+10 tools: search-tools, get-tool, get-tool-config, get-reviews, submit-review, submit-tool, list-categories, list-stacks, get-stack, recommend-tools
+
+## Auth
+API keys: https://market.hive.sh/dashboard
+Format: hm_sk_<64-hex-chars>
+Header: Authorization: Bearer <key>
+Read operations (search, get, config, categories, stacks) do not require auth.
+Write operations (submit review, submit tool) require a valid API key.

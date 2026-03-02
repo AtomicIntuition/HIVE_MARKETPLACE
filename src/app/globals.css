@@ -49,8 +49,31 @@
   /* Hive Market custom colors */
   --color-violet-accent: #8B5CF6;
   --color-amber-primary: #F59E0B;
+
+  /* Expanded gray palette for hierarchy */
+  --color-gray-950: #030712;
+  --color-gray-900: #0A0F1A;
+  --color-gray-850: #111827;
+  --color-gray-800: #1A2236;
+  --color-gray-700: #1F2937;
+  --color-gray-600: #374151;
+  --color-gray-500: #4B5563;
+  --color-gray-400: #6B7280;
+  --color-gray-300: #9CA3AF;
+  --color-gray-200: #D1D5DB;
+
+  /* Surface colors */
   --color-surface: #111827;
-  --color-surface-hover: #1F2937;
+  --color-surface-hover: #1A2236;
+  --color-surface-elevated: #0A0F1A;
+
+  /* Shadow system */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.3), 0 1px 3px rgba(0,0,0,0.15);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.25), 0 2px 4px rgba(0,0,0,0.15);
+  --shadow-lg: 0 10px 15px rgba(0,0,0,0.2), 0 4px 6px rgba(0,0,0,0.15);
+  --shadow-xl: 0 20px 25px rgba(0,0,0,0.25), 0 8px 10px rgba(0,0,0,0.15);
+  --shadow-glow-violet: 0 0 20px rgba(139,92,246,0.15), 0 0 60px rgba(139,92,246,0.05);
+  --shadow-glow-amber: 0 0 20px rgba(245,158,11,0.1), 0 0 60px rgba(245,158,11,0.03);
 }
 
 /* Dark mode only — Hive Market */
@@ -60,30 +83,30 @@
   --foreground: #F9FAFB;
   --card: #111827;
   --card-foreground: #F9FAFB;
-  --popover: #111827;
+  --popover: #0A0F1A;
   --popover-foreground: #F9FAFB;
   --primary: #8B5CF6;
   --primary-foreground: #FFFFFF;
-  --secondary: #1F2937;
+  --secondary: #1A2236;
   --secondary-foreground: #F9FAFB;
-  --muted: #1F2937;
+  --muted: #1A2236;
   --muted-foreground: #9CA3AF;
   --accent: #F59E0B;
   --accent-foreground: #030712;
   --destructive: #EF4444;
   --border: #1F2937;
-  --input: #1F2937;
+  --input: #1A2236;
   --ring: #8B5CF6;
   --chart-1: #8B5CF6;
   --chart-2: #10B981;
   --chart-3: #3B82F6;
   --chart-4: #F59E0B;
   --chart-5: #EC4899;
-  --sidebar: #111827;
+  --sidebar: #0A0F1A;
   --sidebar-foreground: #F9FAFB;
   --sidebar-primary: #8B5CF6;
   --sidebar-primary-foreground: #FFFFFF;
-  --sidebar-accent: #1F2937;
+  --sidebar-accent: #1A2236;
   --sidebar-accent-foreground: #F9FAFB;
   --sidebar-border: #1F2937;
   --sidebar-ring: #8B5CF6;
@@ -98,6 +121,11 @@
   }
 }
 
+/* Text selection */
+::selection {
+  background: rgba(139, 92, 246, 0.3);
+}
+
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
@@ -105,15 +133,15 @@ html {
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #030712;
+  background: transparent;
 }
 ::-webkit-scrollbar-thumb {
   background: #374151;
-  border-radius: 4px;
+  border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #4B5563;
@@ -122,6 +150,20 @@ html {
 /* Search input glow effect */
 .search-glow:focus-within {
   box-shadow: 0 0 0 1px #8B5CF6, 0 0 20px rgba(139, 92, 246, 0.15);
+}
+
+/* Glass surface utility */
+.glass-surface {
+  background: linear-gradient(to bottom, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+  border-color: rgba(255,255,255,0.06);
+}
+.glass-surface:hover {
+  border-color: rgba(255,255,255,0.1);
+}
+
+/* Gradient border utility */
+.gradient-border-b {
+  border-image: linear-gradient(to right, transparent, rgba(139,92,246,0.3), rgba(245,158,11,0.2), transparent) 1;
 }
 
 /* Shimmer loading animation */
@@ -157,4 +199,10 @@ html {
 
 .animate-skeleton-in {
   animation: skeleton-in 0.4s ease-out both;
+}
+
+/* Animated gradient border */
+@keyframes gradient-rotate {
+  0% { --gradient-angle: 0deg; }
+  100% { --gradient-angle: 360deg; }
 }

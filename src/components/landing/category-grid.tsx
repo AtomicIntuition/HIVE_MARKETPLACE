@@ -40,12 +40,12 @@ export function CategoryGrid({ categories: categoriesProp }: CategoryGridProps) 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.3 }}
         >
-          <h2 className="text-3xl font-bold text-foreground">
+          <h2 className="text-3xl font-bold tracking-tight text-foreground">
             Browse by Category
           </h2>
-          <p className="mt-3 text-muted-foreground">
+          <p className="mt-3 text-gray-400">
             Find the right tools for your agent&apos;s capabilities
           </p>
         </motion.div>
@@ -59,13 +59,21 @@ export function CategoryGrid({ categories: categoriesProp }: CategoryGridProps) 
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.05 }}
+                transition={{ duration: 0.3, delay: i * 0.05 }}
               >
                 <Link href={`/categories/${cat.slug}`}>
-                  <div className="group flex flex-col items-center rounded-xl border border-border/50 bg-card p-4 text-center transition-all hover:border-border hover:bg-card/80 hover:shadow-lg sm:p-6">
+                  <div
+                    className="group flex flex-col items-center rounded-xl border border-white/[0.06] p-4 text-center transition-all duration-200 hover:border-white/[0.1] hover:shadow-lg sm:p-6"
+                    style={{
+                      background: `linear-gradient(to bottom, ${cat.color}05, transparent)`,
+                    }}
+                  >
                     <div
-                      className="mb-3 flex h-12 w-12 items-center justify-center rounded-xl transition-transform group-hover:scale-110"
-                      style={{ backgroundColor: `${cat.color}15` }}
+                      className="mb-3 flex h-14 w-14 items-center justify-center rounded-xl transition-transform duration-200 group-hover:scale-110"
+                      style={{
+                        backgroundColor: `${cat.color}12`,
+                        boxShadow: `inset 0 0 0 1px ${cat.color}20`,
+                      }}
                     >
                       <Icon
                         className="h-6 w-6"
@@ -75,7 +83,7 @@ export function CategoryGrid({ categories: categoriesProp }: CategoryGridProps) 
                     <h3 className="text-sm font-semibold text-foreground">
                       {cat.name}
                     </h3>
-                    <p className="mt-1 text-xs text-muted-foreground">
+                    <p className="mt-1 text-xs text-gray-500">
                       {cat.toolCount} tools
                     </p>
                   </div>

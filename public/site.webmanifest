@@ -1,7 +1,7 @@
 {
   "name": "Hive Market",
   "short_name": "Hive Market",
-  "description": "The marketplace for MCP-compatible tools for AI agents",
+  "description": "The MCP tool marketplace for AI agents",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#030712",
@@ -16,6 +16,12 @@
       "src": "/icon-512.png",
       "sizes": "512x512",
       "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
 }

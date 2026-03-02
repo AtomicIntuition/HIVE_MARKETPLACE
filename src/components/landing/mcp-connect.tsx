@@ -114,25 +114,25 @@ export function McpConnect() {
   return (
     <section className="py-24">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="overflow-hidden rounded-2xl border border-border/50 bg-gradient-to-br from-violet-950/30 to-card">
+        <div className="overflow-hidden rounded-2xl border border-white/[0.06] bg-gradient-to-br from-violet-950/40 via-gray-900 to-gray-950">
           <div className="grid gap-12 p-8 md:grid-cols-2 md:p-12 lg:p-16">
             {/* Left: copy */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.3 }}
             >
               <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-violet-500/20 bg-violet-500/10 px-3 py-1 text-sm text-violet-300">
                 Connect via MCP
               </div>
-              <h2 className="text-3xl font-bold text-foreground md:text-4xl">
+              <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
                 Your Agent&apos;s{" "}
                 <span className="bg-gradient-to-r from-violet-400 to-violet-600 bg-clip-text text-transparent">
                   Tool Store
                 </span>
               </h2>
-              <p className="mt-4 text-lg text-muted-foreground">
+              <p className="mt-4 text-lg text-gray-300">
                 Connect Hive Market as an MCP server and let your agent
                 discover, configure, and install tools on its own.
               </p>
@@ -145,12 +145,12 @@ export function McpConnect() {
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: 0.2 + i * 0.08 }}
+                    transition={{ duration: 0.3, delay: 0.1 + i * 0.05 }}
                   >
                     <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-violet-500/10">
                       <cap.icon className="h-4 w-4 text-violet-400" />
                     </div>
-                    <span className="text-sm text-muted-foreground">
+                    <span className="text-sm text-gray-300">
                       {cap.text}
                     </span>
                   </motion.div>
@@ -166,9 +166,9 @@ export function McpConnect() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <div className="w-full overflow-hidden rounded-xl border border-border/50 bg-gray-950">
+              <div className="w-full overflow-hidden rounded-xl border border-white/[0.06] bg-gray-950 shadow-xl">
                 {/* Terminal header with tabs */}
-                <div className="border-b border-border/50">
+                <div className="border-b border-white/[0.06]">
                   <div className="flex items-center gap-1.5 px-4 pt-3 pb-0">
                     <div className="h-3 w-3 rounded-full bg-red-500/50" />
                     <div className="h-3 w-3 rounded-full bg-yellow-500/50" />
@@ -194,7 +194,7 @@ export function McpConnect() {
 
                 {/* Config content */}
                 <div className="relative p-4">
-                  <p className="mb-2 text-xs text-muted-foreground">
+                  <p className="mb-2 text-xs text-gray-500">
                     {getInstruction(activeTab)}
                   </p>
                   <pre className="overflow-x-auto rounded-lg bg-gray-900/50 p-3 font-mono text-sm text-foreground">

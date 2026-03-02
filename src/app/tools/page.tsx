@@ -17,12 +17,12 @@ export default async function ToolsPage() {
   const allTools = await getAllTools();
 
   return (
-    <div className="py-12">
+    <div className="py-16">
       <div className="mx-auto max-w-7xl px-6">
         {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-foreground">Browse Tools</h1>
-          <p className="mt-2 text-muted-foreground">
+        <div className="mb-10">
+          <h1 className="text-3xl font-bold tracking-tight text-foreground lg:text-4xl">Browse Tools</h1>
+          <p className="mt-3 text-lg text-gray-400">
             Discover MCP-compatible tools for your AI agents
           </p>
         </div>

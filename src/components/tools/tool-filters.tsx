@@ -31,7 +31,7 @@ export function ToolFilters({
         <select
           value={selectedSort}
           onChange={(e) => onSortChange(e.target.value)}
-          className="w-full rounded-lg border border-border bg-surface px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-violet-500"
+          className="w-full rounded-lg border border-white/[0.06] bg-gray-900 px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-violet-500"
         >
           <option value="popular">Most Popular</option>
           <option value="newest">Newest</option>
@@ -52,7 +52,7 @@ export function ToolFilters({
               "w-full rounded-md px-3 py-1.5 text-left text-sm transition-colors",
               !selectedCategory
                 ? "bg-violet-500/10 text-violet-400"
-                : "text-muted-foreground hover:text-foreground"
+                : "text-gray-400 hover:text-foreground"
             )}
           >
             All Categories
@@ -65,7 +65,7 @@ export function ToolFilters({
                 "w-full rounded-md px-3 py-1.5 text-left text-sm transition-colors",
                 selectedCategory === cat.slug
                   ? "bg-violet-500/10 text-violet-400"
-                  : "text-muted-foreground hover:text-foreground"
+                  : "text-gray-400 hover:text-foreground"
               )}
             >
               {cat.name}
@@ -94,7 +94,7 @@ export function ToolFilters({
                 "w-full rounded-md px-3 py-1.5 text-left text-sm transition-colors",
                 selectedPricing === opt.value
                   ? "bg-violet-500/10 text-violet-400"
-                  : "text-muted-foreground hover:text-foreground"
+                  : "text-gray-400 hover:text-foreground"
               )}
             >
               {opt.label}

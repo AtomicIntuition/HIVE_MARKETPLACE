@@ -61,22 +61,22 @@ export default function PricingPage() {
     <div className="py-24">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-16 text-center">
-          <h1 className="text-4xl font-bold text-foreground">
+          <h1 className="text-4xl font-bold tracking-tight text-foreground">
             Simple, transparent pricing
           </h1>
-          <p className="mt-4 text-lg text-muted-foreground">
+          <p className="mt-4 text-lg text-gray-400">
             Free to browse and connect. Creators keep 80% of revenue.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+        <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-3">
           {TIERS.map((tier) => (
             <div
               key={tier.name}
               className={`relative rounded-2xl border p-8 ${
                 tier.featured
-                  ? "border-violet-500/50 bg-gradient-to-b from-violet-950/50 to-card"
-                  : "border-border/50 bg-card"
+                  ? "border-violet-500/30 bg-gradient-to-b from-violet-950/50 to-gray-900 shadow-xl shadow-violet-500/5"
+                  : "border-white/[0.06] bg-gradient-to-b from-white/[0.03] to-transparent"
               }`}
             >
               {tier.featured && (
@@ -92,10 +92,10 @@ export default function PricingPage() {
                   {tier.price}
                 </span>
                 {tier.price !== "Custom" && (
-                  <span className="text-muted-foreground">/month</span>
+                  <span className="text-gray-500">/month</span>
                 )}
               </div>
-              <p className="mt-2 text-sm text-muted-foreground">
+              <p className="mt-2 text-sm text-gray-400">
                 {tier.description}
               </p>
               <Button
@@ -112,9 +112,9 @@ export default function PricingPage() {
                 {tier.features.map((feature) => (
                   <li
                     key={feature}
-                    className="flex items-center gap-3 text-sm text-muted-foreground"
+                    className="flex items-center gap-3 text-sm text-gray-400"
                   >
-                    <Check className="h-4 w-4 shrink-0 text-emerald-400" />
+                    <Check className="h-4 w-4 shrink-0 text-amber-400" />
                     {feature}
                   </li>
                 ))}

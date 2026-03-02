@@ -48,7 +48,7 @@ export default async function StacksPage() {
           <h1 className="text-4xl font-bold tracking-tight text-foreground md:text-5xl">
             MCP Stacks
           </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-400">
             Curated bundles of MCP servers for every workflow. Pick a stack,
             copy one config, and your AI agent is fully loaded.
           </p>
@@ -66,7 +66,7 @@ export default async function StacksPage() {
                 <Link
                   key={stack.id}
                   href={`/stacks/${stack.slug}`}
-                  className="group rounded-xl border border-border/50 bg-card p-6 transition-all hover:border-violet-500/30 hover:shadow-lg hover:shadow-violet-500/5"
+                  className="group rounded-xl border border-white/[0.06] bg-gradient-to-b from-white/[0.04] to-white/[0.01] p-6 transition-all duration-200 hover:border-white/[0.1] hover:shadow-lg hover:-translate-y-0.5"
                 >
                   <div
                     className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl text-white"
@@ -102,7 +102,7 @@ export default async function StacksPage() {
                 <Link
                   key={stack.id}
                   href={`/stacks/${stack.slug}`}
-                  className="group rounded-xl border border-border/50 bg-card p-6 transition-all hover:border-violet-500/30 hover:shadow-lg hover:shadow-violet-500/5"
+                  className="group rounded-xl border border-white/[0.06] bg-gradient-to-b from-white/[0.04] to-white/[0.01] p-6 transition-all duration-200 hover:border-white/[0.1] hover:shadow-lg hover:-translate-y-0.5"
                 >
                   <div
                     className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl text-white"

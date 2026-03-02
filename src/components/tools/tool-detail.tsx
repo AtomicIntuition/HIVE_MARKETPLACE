@@ -55,7 +55,7 @@ export function ToolDetail({ tool, relatedTools, reviewsSection }: ToolDetailPro
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
+          transition={{ duration: 0.3 }}
         >
           {/* Breadcrumb */}
           <nav className="mb-6 flex items-center gap-2 text-sm text-muted-foreground">
@@ -79,7 +79,7 @@ export function ToolDetail({ tool, relatedTools, reviewsSection }: ToolDetailPro
               {/* Hero */}
               <div className="flex items-start gap-4">
                 <div
-                  className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl text-2xl font-bold text-white"
+                  className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl text-2xl font-bold text-white shadow-lg"
                   style={{ backgroundColor: tool.iconBg }}
                 >
                   {tool.name.charAt(0)}
@@ -123,8 +123,8 @@ export function ToolDetail({ tool, relatedTools, reviewsSection }: ToolDetailPro
 
               {/* Install command */}
               {installCmd && (
-                <div className="mt-8 overflow-hidden rounded-xl border border-border/50 bg-gray-950">
-                  <div className="flex items-center justify-between border-b border-border/50 px-4 py-2">
+                <div className="mt-8 overflow-hidden rounded-xl border border-white/[0.06] bg-gray-950">
+                  <div className="flex items-center justify-between border-b border-white/[0.06] px-4 py-2">
                     <span className="text-xs text-muted-foreground">
                       Quick Install
                     </span>
@@ -194,7 +194,7 @@ export function ToolDetail({ tool, relatedTools, reviewsSection }: ToolDetailPro
                   {tool.features.map((feature) => (
                     <div
                       key={feature}
-                      className="flex items-center gap-2 rounded-lg border border-border/50 bg-card px-3 py-2 text-sm"
+                      className="flex items-center gap-2 rounded-lg border border-white/[0.06] bg-gradient-to-b from-white/[0.03] to-transparent px-3 py-2 text-sm"
                     >
                       <div
                         className="h-1.5 w-1.5 rounded-full"
@@ -228,7 +228,7 @@ export function ToolDetail({ tool, relatedTools, reviewsSection }: ToolDetailPro
             <aside className="lg:col-span-1">
               <div className="sticky top-24 space-y-6">
                 {/* Connect CTA */}
-                <div className="rounded-xl border border-border/50 bg-card p-6">
+                <div className="rounded-xl border border-white/[0.06] bg-gradient-to-b from-white/[0.03] to-transparent p-6">
                   <div className="mb-4">
                     {tool.pricing.model === "free" ? (
                       <div className="text-2xl font-bold text-emerald-400">
@@ -268,7 +268,7 @@ export function ToolDetail({ tool, relatedTools, reviewsSection }: ToolDetailPro
                 {tool.npmPackage && <McpConfigDisplay tool={tool} />}
 
                 {/* Info card */}
-                <div className="rounded-xl border border-border/50 bg-card p-6">
+                <div className="rounded-xl border border-white/[0.06] bg-gradient-to-b from-white/[0.03] to-transparent p-6">
                   <h3 className="mb-4 text-sm font-semibold text-foreground">
                     Details
                   </h3>
@@ -335,7 +335,7 @@ export function ToolDetail({ tool, relatedTools, reviewsSection }: ToolDetailPro
                 </div>
 
                 {/* Links */}
-                <div className="rounded-xl border border-border/50 bg-card p-6">
+                <div className="rounded-xl border border-white/[0.06] bg-gradient-to-b from-white/[0.03] to-transparent p-6">
                   <h3 className="mb-4 text-sm font-semibold text-foreground">
                     Links
                   </h3>
@@ -368,7 +368,7 @@ export function ToolDetail({ tool, relatedTools, reviewsSection }: ToolDetailPro
                 </div>
 
                 {/* Tags */}
-                <div className="rounded-xl border border-border/50 bg-card p-6">
+                <div className="rounded-xl border border-white/[0.06] bg-gradient-to-b from-white/[0.03] to-transparent p-6">
                   <h3 className="mb-4 text-sm font-semibold text-foreground">
                     Tags
                   </h3>

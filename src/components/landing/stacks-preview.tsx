@@ -56,7 +56,7 @@ export function StacksPreview() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.3 }}
           className="text-center"
         >
           <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-violet-500/10">
@@ -65,7 +65,7 @@ export function StacksPreview() {
           <h2 className="text-3xl font-bold tracking-tight text-foreground">
             MCP Stacks
           </h2>
-          <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
+          <p className="mx-auto mt-3 max-w-xl text-gray-400">
             Pre-built bundles of MCP servers. One click to copy the config for
             your entire workflow.
           </p>
@@ -78,11 +78,11 @@ export function StacksPreview() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
+              transition={{ duration: 0.3, delay: i * 0.05 }}
             >
               <Link
                 href={`/stacks/${stack.slug}`}
-                className="group flex h-full flex-col rounded-xl border border-border/50 bg-card p-5 transition-all hover:border-violet-500/30 hover:shadow-lg hover:shadow-violet-500/5"
+                className="group flex h-full flex-col rounded-xl border border-white/[0.06] bg-gradient-to-b from-white/[0.04] to-white/[0.01] p-5 transition-all duration-200 hover:border-white/[0.1] hover:shadow-lg hover:-translate-y-0.5"
               >
                 <div
                   className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg text-white"
@@ -90,17 +90,17 @@ export function StacksPreview() {
                 >
                   {stack.icon}
                 </div>
-                <h3 className="mb-1 text-sm font-semibold text-foreground group-hover:text-violet-400 transition-colors">
+                <h3 className="mb-1 text-sm font-semibold text-foreground transition-colors group-hover:text-violet-400">
                   {stack.name}
                 </h3>
-                <p className="mb-3 flex-1 text-xs text-muted-foreground">
+                <p className="mb-3 flex-1 text-xs text-gray-400">
                   {stack.description}
                 </p>
                 <div className="flex items-center justify-between">
                   <Badge variant="secondary" className="text-xs">
                     {stack.toolCount} tools
                   </Badge>
-                  <ArrowRight className="h-3.5 w-3.5 text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:text-violet-400" />
+                  <ArrowRight className="h-3.5 w-3.5 text-gray-500 transition-transform duration-200 group-hover:translate-x-1 group-hover:text-violet-400" />
                 </div>
               </Link>
             </motion.div>

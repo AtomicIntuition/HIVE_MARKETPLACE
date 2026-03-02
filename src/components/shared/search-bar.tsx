@@ -39,14 +39,14 @@ export function SearchBar({
     <form
       onSubmit={handleSubmit}
       className={cn(
-        "search-glow group relative flex items-center rounded-xl border border-border/50 bg-surface transition-all",
-        size === "lg" && "rounded-2xl",
+        "search-glow group relative flex items-center rounded-xl border border-white/[0.06] bg-gray-900/80 shadow-sm transition-all",
+        size === "lg" && "rounded-2xl shadow-md",
         className
       )}
     >
       <Search
         className={cn(
-          "absolute left-4 text-muted-foreground transition-colors group-focus-within:text-violet-400",
+          "absolute left-4 text-gray-500 transition-colors group-focus-within:text-violet-400",
           size === "lg" ? "h-5 w-5" : "h-4 w-4"
         )}
       />
@@ -56,9 +56,9 @@ export function SearchBar({
         onChange={(e) => setQuery(e.target.value)}
         placeholder={placeholder}
         className={cn(
-          "w-full bg-transparent text-foreground placeholder:text-muted-foreground focus:outline-none",
+          "w-full bg-transparent text-foreground placeholder:text-gray-500 focus:outline-none",
           size === "lg"
-            ? "py-4 pl-12 pr-4 text-base md:text-lg"
+            ? "h-14 pl-12 pr-4 text-base md:text-lg"
             : "py-2.5 pl-10 pr-4 text-base md:text-sm"
         )}
       />
