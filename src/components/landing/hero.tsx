@@ -64,7 +64,7 @@ export function Hero() {
             transition={{ duration: 0.3, delay: 0.1 }}
           >
             The marketplace for MCP-compatible tools. Discover, connect, and
-            power your AI agents with 50+ ready-to-use integrations. One command to
+            power your AI agents with 60+ ready-to-use integrations. One command to
             connect.
           </motion.p>
 
@@ -138,7 +138,7 @@ export function Hero() {
                 &#10003; Hive Market MCP Server running
               </p>
               <p className="text-emerald-400">
-                &#10003; 50+ tools available
+                &#10003; 60+ tools available
               </p>
               <p className="text-emerald-400">
                 &#10003; Ready — search, discover, and install MCP tools

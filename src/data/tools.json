@@ -2842,5 +2842,603 @@
         "required": true
       }
     ]
+  },
+  {
+    "slug": "github-official-mcp",
+    "name": "GitHub Official MCP",
+    "description": "GitHub's official MCP Server — repos, issues, PRs, code search, actions, and more with native GitHub authentication.",
+    "category": "devtools",
+    "author": {
+      "name": "GitHub",
+      "username": "github",
+      "verified": true
+    },
+    "githubUrl": "https://github.com/github/github-mcp-server",
+    "npmPackage": "@github/mcp-server",
+    "installCommand": "npx",
+    "features": [
+      "Repository management",
+      "Issue and PR operations",
+      "Code search",
+      "GitHub Actions",
+      "Branch management",
+      "Native GitHub auth"
+    ],
+    "tags": [
+      "github",
+      "git",
+      "repos",
+      "issues",
+      "pull-requests",
+      "devtools"
+    ],
+    "compatibility": [
+      "Claude",
+      "GPT",
+      "Gemini",
+      "Open Source"
+    ],
+    "pricing": {
+      "model": "free"
+    },
+    "stars": 27389,
+    "id": "1",
+    "rating": 0,
+    "reviewCount": 0,
+    "installs": 0,
+    "trending": false,
+    "featured": false,
+    "version": "1.0.0",
+    "longDescription": "GitHub's official MCP Server — repos, issues, PRs, code search, actions, and more with native GitHub authentication.",
+    "docsUrl": "https://github.com/github/github-mcp-server",
+    "envVars": [],
+    "lastUpdated": "2026-03-02T18:05:25.404Z",
+    "createdAt": "2026-03-02T18:05:25.404Z",
+    "installCount": 0,
+    "weeklyInstalls": 0,
+    "iconBg": "#1a1a2e",
+    "verified": false
+  },
+  {
+    "slug": "chrome-devtools-mcp",
+    "name": "Chrome DevTools MCP",
+    "description": "Chrome DevTools for coding agents — inspect, debug, and interact with web pages directly from your AI client.",
+    "category": "devtools",
+    "author": {
+      "name": "Chrome DevTools",
+      "username": "ChromeDevTools",
+      "verified": true
+    },
+    "githubUrl": "https://github.com/ChromeDevTools/chrome-devtools-mcp",
+    "npmPackage": "@anthropic-ai/chrome-devtools-mcp",
+    "installCommand": "npx",
+    "features": [
+      "Page inspection",
+      "Console access",
+      "Network monitoring",
+      "DOM manipulation",
+      "Screenshot capture",
+      "Performance profiling"
+    ],
+    "tags": [
+      "chrome",
+      "devtools",
+      "browser",
+      "debugging",
+      "web"
+    ],
+    "compatibility": [
+      "Claude",
+      "GPT",
+      "Gemini",
+      "Open Source"
+    ],
+    "pricing": {
+      "model": "free"
+    },
+    "stars": 27216,
+    "id": "2",
+    "rating": 0,
+    "reviewCount": 0,
+    "installs": 0,
+    "trending": false,
+    "featured": false,
+    "version": "1.0.0",
+    "longDescription": "Chrome DevTools for coding agents — inspect, debug, and interact with web pages directly from your AI client.",
+    "docsUrl": "https://github.com/ChromeDevTools/chrome-devtools-mcp",
+    "envVars": [],
+    "lastUpdated": "2026-03-02T18:05:25.404Z",
+    "createdAt": "2026-03-02T18:05:25.404Z",
+    "installCount": 0,
+    "weeklyInstalls": 0,
+    "iconBg": "#1a1a2e",
+    "verified": false
+  },
+  {
+    "slug": "trigger-dev-mcp",
+    "name": "Trigger.dev",
+    "description": "Build and deploy fully managed AI agents and background workflows with durable execution, retries, and scheduling.",
+    "category": "devtools",
+    "author": {
+      "name": "Trigger.dev",
+      "username": "triggerdotdev",
+      "verified": true
+    },
+    "githubUrl": "https://github.com/triggerdotdev/trigger.dev",
+    "npmPackage": "@trigger.dev/mcp",
+    "installCommand": "npx",
+    "features": [
+      "Durable workflows",
+      "Background jobs",
+      "Scheduled tasks",
+      "Retry logic",
+      "Agent deployment",
+      "Event triggers"
+    ],
+    "tags": [
+      "workflows",
+      "automation",
+      "background-jobs",
+      "scheduling",
+      "agents"
+    ],
+    "compatibility": [
+      "Claude",
+      "GPT",
+      "Gemini",
+      "Open Source"
+    ],
+    "pricing": {
+      "model": "free"
+    },
+    "stars": 13910,
+    "id": "3",
+    "rating": 0,
+    "reviewCount": 0,
+    "installs": 0,
+    "trending": false,
+    "featured": false,
+    "version": "1.0.0",
+    "longDescription": "Build and deploy fully managed AI agents and background workflows with durable execution, retries, and scheduling.",
+    "docsUrl": "https://github.com/triggerdotdev/trigger.dev",
+    "envVars": [],
+    "lastUpdated": "2026-03-02T18:05:25.404Z",
+    "createdAt": "2026-03-02T18:05:25.404Z",
+    "installCount": 0,
+    "weeklyInstalls": 0,
+    "iconBg": "#1a1a2e",
+    "verified": false
+  },
+  {
+    "slug": "aws-mcp",
+    "name": "AWS MCP",
+    "description": "Official MCP servers for AWS — interact with AWS services including S3, Lambda, DynamoDB, CloudFormation, and more.",
+    "category": "devtools",
+    "author": {
+      "name": "AWS Labs",
+      "username": "awslabs",
+      "verified": true
+    },
+    "githubUrl": "https://github.com/awslabs/mcp",
+    "installCommand": "npx",
+    "features": [
+      "S3 operations",
+      "Lambda management",
+      "DynamoDB access",
+      "CloudFormation stacks",
+      "IAM management",
+      "CloudWatch logs"
+    ],
+    "tags": [
+      "aws",
+      "cloud",
+      "infrastructure",
+      "s3",
+      "lambda",
+      "dynamodb"
+    ],
+    "compatibility": [
+      "Claude",
+      "GPT",
+      "Gemini",
+      "Open Source"
+    ],
+    "pricing": {
+      "model": "free"
+    },
+    "stars": 8297,
+    "id": "4",
+    "rating": 0,
+    "reviewCount": 0,
+    "installs": 0,
+    "trending": false,
+    "featured": false,
+    "version": "1.0.0",
+    "longDescription": "Official MCP servers for AWS — interact with AWS services including S3, Lambda, DynamoDB, CloudFormation, and more.",
+    "docsUrl": "https://github.com/awslabs/mcp",
+    "envVars": [],
+    "lastUpdated": "2026-03-02T18:05:25.404Z",
+    "createdAt": "2026-03-02T18:05:25.404Z",
+    "installCount": 0,
+    "weeklyInstalls": 0,
+    "iconBg": "#1a1a2e",
+    "verified": false
+  },
+  {
+    "slug": "browser-tools-mcp",
+    "name": "Browser Tools MCP",
+    "description": "Monitor browser logs, network requests, and console output directly from Cursor and other MCP-compatible IDEs.",
+    "category": "devtools",
+    "author": {
+      "name": "AgentDesk AI",
+      "username": "AgentDeskAI",
+      "verified": false
+    },
+    "githubUrl": "https://github.com/AgentDeskAI/browser-tools-mcp",
+    "npmPackage": "browser-tools-mcp",
+    "installCommand": "npx",
+    "features": [
+      "Console log capture",
+      "Network request monitoring",
+      "Browser state inspection",
+      "Error tracking",
+      "Real-time monitoring"
+    ],
+    "tags": [
+      "browser",
+      "debugging",
+      "monitoring",
+      "console",
+      "devtools"
+    ],
+    "compatibility": [
+      "Claude",
+      "GPT",
+      "Gemini",
+      "Open Source"
+    ],
+    "pricing": {
+      "model": "free"
+    },
+    "stars": 7098,
+    "id": "5",
+    "rating": 0,
+    "reviewCount": 0,
+    "installs": 0,
+    "trending": false,
+    "featured": false,
+    "version": "1.0.0",
+    "longDescription": "Monitor browser logs, network requests, and console output directly from Cursor and other MCP-compatible IDEs.",
+    "docsUrl": "https://github.com/AgentDeskAI/browser-tools-mcp",
+    "envVars": [],
+    "lastUpdated": "2026-03-02T18:05:25.404Z",
+    "createdAt": "2026-03-02T18:05:25.404Z",
+    "installCount": 0,
+    "weeklyInstalls": 0,
+    "iconBg": "#1a1a2e",
+    "verified": false
+  },
+  {
+    "slug": "unity-mcp",
+    "name": "Unity MCP",
+    "description": "Bridge between AI assistants and Unity Editor — manage assets, control scenes, edit scripts, and automate tasks in Unity.",
+    "category": "devtools",
+    "author": {
+      "name": "Coplay Dev",
+      "username": "CoplayDev",
+      "verified": false
+    },
+    "githubUrl": "https://github.com/CoplayDev/unity-mcp",
+    "installCommand": "npx",
+    "features": [
+      "Asset management",
+      "Scene control",
+      "Script editing",
+      "Task automation",
+      "GameObject manipulation",
+      "Unity Editor integration"
+    ],
+    "tags": [
+      "unity",
+      "game-dev",
+      "3d",
+      "editor",
+      "game-engine"
+    ],
+    "compatibility": [
+      "Claude",
+      "GPT",
+      "Gemini",
+      "Open Source"
+    ],
+    "pricing": {
+      "model": "free"
+    },
+    "stars": 6482,
+    "id": "6",
+    "rating": 0,
+    "reviewCount": 0,
+    "installs": 0,
+    "trending": false,
+    "featured": false,
+    "version": "1.0.0",
+    "longDescription": "Bridge between AI assistants and Unity Editor — manage assets, control scenes, edit scripts, and automate tasks in Unity.",
+    "docsUrl": "https://github.com/CoplayDev/unity-mcp",
+    "envVars": [],
+    "lastUpdated": "2026-03-02T18:05:25.404Z",
+    "createdAt": "2026-03-02T18:05:25.404Z",
+    "installCount": 0,
+    "weeklyInstalls": 0,
+    "iconBg": "#1a1a2e",
+    "verified": false
+  },
+  {
+    "slug": "figma-mcp",
+    "name": "Figma MCP",
+    "description": "MCP integration between AI agents and Figma — read designs, extract layout info, and modify them programmatically.",
+    "category": "devtools",
+    "author": {
+      "name": "Grab",
+      "username": "grab",
+      "verified": true
+    },
+    "githubUrl": "https://github.com/grab/cursor-talk-to-figma-mcp",
+    "npmPackage": "cursor-talk-to-figma-mcp",
+    "installCommand": "npx",
+    "features": [
+      "Read Figma designs",
+      "Extract layout info",
+      "Modify designs programmatically",
+      "Component inspection",
+      "Design-to-code bridge"
+    ],
+    "tags": [
+      "figma",
+      "design",
+      "ui",
+      "design-to-code",
+      "prototyping"
+    ],
+    "compatibility": [
+      "Claude",
+      "GPT",
+      "Gemini",
+      "Open Source"
+    ],
+    "pricing": {
+      "model": "free"
+    },
+    "stars": 6391,
+    "id": "7",
+    "rating": 0,
+    "reviewCount": 0,
+    "installs": 0,
+    "trending": false,
+    "featured": false,
+    "version": "1.0.0",
+    "longDescription": "MCP integration between AI agents and Figma — read designs, extract layout info, and modify them programmatically.",
+    "docsUrl": "https://github.com/grab/cursor-talk-to-figma-mcp",
+    "envVars": [],
+    "lastUpdated": "2026-03-02T18:05:25.404Z",
+    "createdAt": "2026-03-02T18:05:25.404Z",
+    "installCount": 0,
+    "weeklyInstalls": 0,
+    "iconBg": "#1a1a2e",
+    "verified": false
+  },
+  {
+    "slug": "xcodebuild-mcp",
+    "name": "XcodeBuild MCP",
+    "description": "MCP server and CLI for iOS and macOS development — build, test, and manage Xcode projects from your AI agent.",
+    "category": "devtools",
+    "author": {
+      "name": "Sentry",
+      "username": "getsentry",
+      "verified": true
+    },
+    "githubUrl": "https://github.com/getsentry/XcodeBuildMCP",
+    "npmPackage": "xcodebuildmcp",
+    "installCommand": "npx",
+    "features": [
+      "Xcode project builds",
+      "Test execution",
+      "Simulator management",
+      "Build log analysis",
+      "iOS/macOS development"
+    ],
+    "tags": [
+      "xcode",
+      "ios",
+      "macos",
+      "swift",
+      "apple",
+      "mobile"
+    ],
+    "compatibility": [
+      "Claude",
+      "GPT",
+      "Gemini",
+      "Open Source"
+    ],
+    "pricing": {
+      "model": "free"
+    },
+    "stars": 4525,
+    "id": "8",
+    "rating": 0,
+    "reviewCount": 0,
+    "installs": 0,
+    "trending": false,
+    "featured": false,
+    "version": "1.0.0",
+    "longDescription": "MCP server and CLI for iOS and macOS development — build, test, and manage Xcode projects from your AI agent.",
+    "docsUrl": "https://github.com/getsentry/XcodeBuildMCP",
+    "envVars": [],
+    "lastUpdated": "2026-03-02T18:05:25.404Z",
+    "createdAt": "2026-03-02T18:05:25.404Z",
+    "installCount": 0,
+    "weeklyInstalls": 0,
+    "iconBg": "#1a1a2e",
+    "verified": false
+  },
+  {
+    "slug": "deep-research-mcp",
+    "name": "Deep Research MCP",
+    "description": "Use any LLM for deep research — multi-step investigation, source synthesis, and comprehensive analysis via MCP.",
+    "category": "ai-ml",
+    "author": {
+      "name": "u14app",
+      "username": "u14app",
+      "verified": false
+    },
+    "githubUrl": "https://github.com/u14app/deep-research",
+    "installCommand": "npx",
+    "features": [
+      "Multi-step research",
+      "Source synthesis",
+      "Any LLM support",
+      "SSE API support",
+      "Comprehensive analysis"
+    ],
+    "tags": [
+      "research",
+      "analysis",
+      "deep-research",
+      "synthesis",
+      "ai"
+    ],
+    "compatibility": [
+      "Claude",
+      "GPT",
+      "Gemini",
+      "Open Source"
+    ],
+    "pricing": {
+      "model": "free"
+    },
+    "stars": 4488,
+    "id": "9",
+    "rating": 0,
+    "reviewCount": 0,
+    "installs": 0,
+    "trending": false,
+    "featured": false,
+    "version": "1.0.0",
+    "longDescription": "Use any LLM for deep research — multi-step investigation, source synthesis, and comprehensive analysis via MCP.",
+    "docsUrl": "https://github.com/u14app/deep-research",
+    "envVars": [],
+    "lastUpdated": "2026-03-02T18:05:25.404Z",
+    "createdAt": "2026-03-02T18:05:25.404Z",
+    "installCount": 0,
+    "weeklyInstalls": 0,
+    "iconBg": "#1a1a2e",
+    "verified": false
+  },
+  {
+    "slug": "antv-chart-mcp",
+    "name": "AntV Chart MCP",
+    "description": "Generate 25+ types of visual charts using AntV — bar, line, pie, scatter, heatmap, treemap, and more from your AI agent.",
+    "category": "analytics",
+    "author": {
+      "name": "AntV",
+      "username": "antvis",
+      "verified": true
+    },
+    "githubUrl": "https://github.com/antvis/mcp-server-chart",
+    "npmPackage": "@antv/mcp-server-chart",
+    "installCommand": "npx",
+    "features": [
+      "25+ chart types",
+      "Bar and line charts",
+      "Pie and scatter plots",
+      "Heatmaps and treemaps",
+      "Data visualization",
+      "SVG/PNG export"
+    ],
+    "tags": [
+      "charts",
+      "visualization",
+      "analytics",
+      "data-viz",
+      "graphs"
+    ],
+    "compatibility": [
+      "Claude",
+      "GPT",
+      "Gemini",
+      "Open Source"
+    ],
+    "pricing": {
+      "model": "free"
+    },
+    "stars": 3735,
+    "id": "10",
+    "rating": 0,
+    "reviewCount": 0,
+    "installs": 0,
+    "trending": false,
+    "featured": false,
+    "version": "1.0.0",
+    "longDescription": "Generate 25+ types of visual charts using AntV — bar, line, pie, scatter, heatmap, treemap, and more from your AI agent.",
+    "docsUrl": "https://github.com/antvis/mcp-server-chart",
+    "envVars": [],
+    "lastUpdated": "2026-03-02T18:05:25.404Z",
+    "createdAt": "2026-03-02T18:05:25.404Z",
+    "installCount": 0,
+    "weeklyInstalls": 0,
+    "iconBg": "#1a1a2e",
+    "verified": false
+  },
+  {
+    "slug": "ida-pro-mcp",
+    "name": "IDA Pro MCP",
+    "description": "AI-powered reverse engineering assistant — bridge IDA Pro with language models for binary analysis, decompilation, and vulnerability research.",
+    "category": "devtools",
+    "author": {
+      "name": "mrexodia",
+      "username": "mrexodia",
+      "verified": false
+    },
+    "githubUrl": "https://github.com/mrexodia/ida-pro-mcp",
+    "installCommand": "npx",
+    "features": [
+      "Binary analysis",
+      "Decompilation assistance",
+      "Function analysis",
+      "Vulnerability research",
+      "IDA Pro integration"
+    ],
+    "tags": [
+      "reverse-engineering",
+      "security",
+      "binary-analysis",
+      "ida-pro"
+    ],
+    "compatibility": [
+      "Claude",
+      "GPT",
+      "Gemini",
+      "Open Source"
+    ],
+    "pricing": {
+      "model": "free"
+    },
+    "stars": 5934,
+    "id": "11",
+    "rating": 0,
+    "reviewCount": 0,
+    "installs": 0,
+    "trending": false,
+    "featured": false,
+    "version": "1.0.0",
+    "longDescription": "AI-powered reverse engineering assistant — bridge IDA Pro with language models for binary analysis, decompilation, and vulnerability research.",
+    "docsUrl": "https://github.com/mrexodia/ida-pro-mcp",
+    "envVars": [],
+    "lastUpdated": "2026-03-02T18:05:25.404Z",
+    "createdAt": "2026-03-02T18:05:25.404Z",
+    "installCount": 0,
+    "weeklyInstalls": 0,
+    "iconBg": "#1a1a2e",
+    "verified": false
   }
 ]

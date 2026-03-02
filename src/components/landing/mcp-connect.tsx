@@ -20,7 +20,7 @@ const CLIENTS: ClientTab[] = ["Claude Code", "Claude Desktop", "Cursor", "Codex"
 const CAPABILITIES = [
   {
     icon: Search,
-    text: "Search and discover 50+ MCP tools",
+    text: "Search and discover 60+ MCP tools",
   },
   {
     icon: Download,

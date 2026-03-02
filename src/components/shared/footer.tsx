@@ -42,7 +42,7 @@ export function Footer() {
             <HiveMarketLogo />
             <p className="mt-4 text-sm leading-relaxed text-gray-400">
               The marketplace for MCP-compatible tools. Power your AI agents
-              with 50+ ready-to-use integrations.
+              with 60+ ready-to-use integrations.
             </p>
           </div>
 
