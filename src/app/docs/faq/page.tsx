@@ -34,7 +34,7 @@ const FAQ_ITEMS = [
   {
     question: "Which AI clients are supported?",
     answer:
-      "Hive Market provides configuration snippets for Claude Desktop, Cursor, and Windsurf. Any MCP-compatible client can use tools from the marketplace — you just need to know where your client stores its MCP configuration file.",
+      "Hive Market provides configuration snippets for Claude Desktop, Cursor, Windsurf, Codex, and OpenClaw. Any MCP-compatible client can use tools from the marketplace — you just need to know where your client stores its MCP configuration file.",
   },
   {
     question: "Do MCP tools send my data to external servers?",

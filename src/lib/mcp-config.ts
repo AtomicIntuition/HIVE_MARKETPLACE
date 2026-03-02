@@ -1,8 +1,8 @@
 import { Tool, ToolEnvVar } from "./types";
 
-export type McpClient = "Claude Desktop" | "Cursor" | "Windsurf" | "Claude Code" | "Codex";
+export type McpClient = "Claude Desktop" | "Cursor" | "Windsurf" | "Claude Code" | "Codex" | "OpenClaw";
 
-export const MCP_CLIENTS: McpClient[] = ["Claude Desktop", "Cursor", "Windsurf", "Claude Code", "Codex"];
+export const MCP_CLIENTS: McpClient[] = ["Claude Desktop", "Cursor", "Windsurf", "Claude Code", "Codex", "OpenClaw"];
 
 interface ServerConfig {
   command: string;
@@ -72,6 +72,8 @@ export function getClientInstructions(client: McpClient): string {
       return "Save as .mcp.json in your project root:";
     case "Codex":
       return "Add to your codex mcp config:";
+    case "OpenClaw":
+      return "Add to your OpenClaw MCP configuration (~/.openclaw/openclaw.json):";
   }
 }
 

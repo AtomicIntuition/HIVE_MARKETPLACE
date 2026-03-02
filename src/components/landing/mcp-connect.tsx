@@ -13,9 +13,9 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-type ClientTab = "Claude Code" | "Claude Desktop" | "Cursor" | "Codex";
+type ClientTab = "Claude Code" | "Claude Desktop" | "Cursor" | "Codex" | "OpenClaw";
 
-const CLIENTS: ClientTab[] = ["Claude Code", "Claude Desktop", "Cursor", "Codex"];
+const CLIENTS: ClientTab[] = ["Claude Code", "Claude Desktop", "Cursor", "Codex", "OpenClaw"];
 
 const CAPABILITIES = [
   {
@@ -83,6 +83,19 @@ function getConfig(client: ClientTab): string {
         null,
         2
       );
+    case "OpenClaw":
+      return JSON.stringify(
+        {
+          mcpServers: {
+            "hive-market": {
+              command: "npx",
+              args: ["-y", "hive-market-mcp"],
+            },
+          },
+        },
+        null,
+        2
+      );
   }
 }
 
@@ -96,6 +109,8 @@ function getInstruction(client: ClientTab): string {
       return "Add to .cursor/mcp.json in your project:";
     case "Codex":
       return "Add to your Codex MCP configuration:";
+    case "OpenClaw":
+      return "Add to ~/.openclaw/openclaw.json:";
   }
 }
 

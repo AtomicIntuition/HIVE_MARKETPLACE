@@ -11,7 +11,7 @@ interface BuildYourStackProps {
   tools: Tool[];
 }
 
-const TABS = ["Claude Desktop", "Cursor", "Windsurf", "Claude Code"] as const;
+const TABS = ["Claude Desktop", "Cursor", "Windsurf", "Claude Code", "OpenClaw"] as const;
 type Tab = (typeof TABS)[number];
 
 export function BuildYourStack({ tools }: BuildYourStackProps) {

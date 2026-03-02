@@ -8,7 +8,7 @@ import { Callout } from "@/components/docs/callout";
 export const metadata: Metadata = createMetadata({
   title: "Connecting Tools",
   description:
-    "Step-by-step guide to connecting MCP tools to Claude Desktop, Cursor, Windsurf, and other AI clients.",
+    "Step-by-step guide to connecting MCP tools to Claude Desktop, Cursor, Windsurf, OpenClaw, and other AI clients.",
   path: "/docs/connecting-tools",
 });
 
@@ -285,6 +285,50 @@ export default function ConnectingToolsPage() {
           <li className="flex gap-3">
             <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-violet-500/10 text-xs font-medium text-violet-400">3</span>
             <span>Restart Windsurf. The tools will appear in Cascade&apos;s tool list.</span>
+          </li>
+        </ol>
+      </section>
+
+      {/* OpenClaw */}
+      <section className="mb-12">
+        <h2 className="mb-4 text-xl font-semibold text-foreground" id="openclaw">
+          OpenClaw
+        </h2>
+        <p className="mb-4 text-muted-foreground">
+          OpenClaw is an AI agent orchestration platform with 40+ communication
+          channels and its own skills/plugins system. It uses a global MCP
+          configuration file.
+        </p>
+        <div className="mb-6 flex items-start gap-3 rounded-lg border border-border/50 bg-gray-950 px-4 py-3">
+          <span className="shrink-0 rounded bg-gray-800 px-2 py-0.5 font-mono text-xs text-muted-foreground">
+            Config path
+          </span>
+          <code className="font-mono text-sm text-muted-foreground">
+            ~/.openclaw/openclaw.json
+          </code>
+        </div>
+
+        <ol className="mb-6 space-y-3 text-muted-foreground">
+          <li className="flex gap-3">
+            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-violet-500/10 text-xs font-medium text-violet-400">1</span>
+            <span>Create the <code className="rounded bg-gray-800 px-1.5 py-0.5 font-mono text-xs">~/.openclaw</code> directory if it doesn&apos;t exist.</span>
+          </li>
+          <li className="flex gap-3">
+            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-violet-500/10 text-xs font-medium text-violet-400">2</span>
+            <span>Open or create <code className="rounded bg-gray-800 px-1.5 py-0.5 font-mono text-xs">openclaw.json</code> and add your MCP server configuration:</span>
+          </li>
+        </ol>
+
+        <CodeBlock
+          code={EXAMPLE_CONFIG}
+          filename="openclaw.json"
+          language="JSON"
+        />
+
+        <ol className="mt-6 space-y-3 text-muted-foreground" start={3}>
+          <li className="flex gap-3">
+            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-violet-500/10 text-xs font-medium text-violet-400">3</span>
+            <span>Restart OpenClaw. Your MCP tools will be available alongside OpenClaw&apos;s native skills and plugins.</span>
           </li>
         </ol>
       </section>

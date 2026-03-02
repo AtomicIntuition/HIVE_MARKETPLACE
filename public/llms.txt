@@ -13,6 +13,9 @@
 - GET /api/stacks — list curated tool stacks (pre-built combinations for common use cases)
 - GET /api/stacks/{slug} — stack details with all tools and combined config
 
+## Supported Clients
+Claude Desktop, Cursor, Windsurf, Claude Code, Codex, OpenClaw
+
 ## MCP Server
 Install: npx -y hive-market-mcp
 10 tools: search-tools, get-tool, get-tool-config, get-reviews, submit-review, submit-tool, list-categories, list-stacks, get-stack, recommend-tools

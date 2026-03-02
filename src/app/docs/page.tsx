@@ -16,7 +16,7 @@ const QUICK_LINKS = [
   {
     icon: Cable,
     title: "Connecting Tools",
-    description: "Set up MCP tools in Claude Desktop, Cursor, or Windsurf",
+    description: "Set up MCP tools in Claude Desktop, Cursor, Windsurf, or OpenClaw",
     href: "/docs/connecting-tools",
   },
   {
@@ -49,7 +49,7 @@ export default function DocsPage() {
         <p className="mb-4 text-muted-foreground">
           Hive Market is the marketplace for MCP-compatible tools — think of it as
           an app store for AI agent integrations. Developers discover tools that
-          give their AI clients (like Claude Desktop, Cursor, or Windsurf) new
+          give their AI clients (like Claude Desktop, Cursor, Windsurf, or OpenClaw) new
           capabilities: reading files, querying databases, calling APIs, managing
           infrastructure, and more.
         </p>
