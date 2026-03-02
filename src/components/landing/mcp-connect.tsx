@@ -13,9 +13,9 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-type ClientTab = "Claude Code" | "Claude Desktop" | "Cursor";
+type ClientTab = "Claude Code" | "Claude Desktop" | "Cursor" | "Codex";
 
-const CLIENTS: ClientTab[] = ["Claude Code", "Claude Desktop", "Cursor"];
+const CLIENTS: ClientTab[] = ["Claude Code", "Claude Desktop", "Cursor", "Codex"];
 
 const CAPABILITIES = [
   {
@@ -70,6 +70,19 @@ function getConfig(client: ClientTab): string {
         null,
         2
       );
+    case "Codex":
+      return JSON.stringify(
+        {
+          mcpServers: {
+            "hive-market": {
+              command: "npx",
+              args: ["-y", "hive-market-mcp"],
+            },
+          },
+        },
+        null,
+        2
+      );
   }
 }
 
@@ -81,6 +94,8 @@ function getInstruction(client: ClientTab): string {
       return "Add to ~/Library/Application Support/Claude/claude_desktop_config.json:";
     case "Cursor":
       return "Add to .cursor/mcp.json in your project:";
+    case "Codex":
+      return "Add to your Codex MCP configuration:";
   }
 }
 

@@ -1,7 +1,16 @@
 import { NextRequest } from "next/server";
+import { createClient as createSupabaseClient } from "@supabase/supabase-js";
 import { getToolBySlug } from "@/lib/data";
 import { apiSuccess, apiError, handleCors } from "@/lib/api-utils";
 import { createClient } from "@/lib/supabase/server";
+
+/** Admin client that bypasses RLS — used for agent-submitted reviews */
+function createAdminClient() {
+  return createSupabaseClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!
+  );
+}
 
 export async function GET(
   _request: NextRequest,
@@ -55,20 +64,12 @@ export async function POST(
       return apiError("Tool not found", 404);
     }
 
-    const supabase = await createClient();
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
-
-    if (!user) {
-      return apiError("Authentication required", 401);
-    }
-
     const body = await request.json();
-    const { rating, text } = body;
+    const { rating, text, authorName, authorUsername } = body;
 
+    // Validate required fields
     if (!rating || !text || typeof rating !== "number" || typeof text !== "string") {
-      return apiError("Missing or invalid rating (number 1-5) and text (string)", 400);
+      return apiError("Missing or invalid fields: rating (number 1-5) and text (string) are required", 400);
     }
 
     if (rating < 1 || rating > 5) {
@@ -79,45 +80,93 @@ export async function POST(
       return apiError("Review text must be between 10 and 2000 characters", 400);
     }
 
-    // Get user profile
-    const { data: profile } = await supabase
-      .from("profiles")
-      .select("username, display_name")
-      .eq("id", user.id)
-      .single();
+    // Check if this is an authenticated user (Supabase session) or an agent
+    const supabase = await createClient();
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
 
-    const authorName =
-      profile?.display_name ||
-      user.user_metadata?.full_name ||
-      user.email?.split("@")[0] ||
-      "Anonymous";
-    const authorUsername =
-      profile?.username ||
-      user.user_metadata?.user_name ||
-      user.email?.split("@")[0] ||
-      "anonymous";
+    let reviewAuthorName: string;
+    let reviewAuthorUsername: string;
+    let reviewerId: string;
 
-    const reviewId = `review-${user.id}-${tool.id}-${Date.now()}`;
+    if (user) {
+      // Authenticated user — use their profile
+      const { data: profile } = await supabase
+        .from("profiles")
+        .select("username, display_name")
+        .eq("id", user.id)
+        .single();
 
-    const { error: insertError } = await supabase.from("reviews").insert({
+      reviewAuthorName =
+        profile?.display_name ||
+        user.user_metadata?.full_name ||
+        user.email?.split("@")[0] ||
+        "Anonymous";
+      reviewAuthorUsername =
+        profile?.username ||
+        user.user_metadata?.user_name ||
+        user.email?.split("@")[0] ||
+        "anonymous";
+      reviewerId = user.id;
+    } else {
+      // Agent review — requires authorName and authorUsername in body
+      if (!authorName || !authorUsername || typeof authorName !== "string" || typeof authorUsername !== "string") {
+        return apiError(
+          "Agent reviews require authorName and authorUsername fields",
+          400
+        );
+      }
+
+      if (authorName.length < 1 || authorName.length > 100) {
+        return apiError("authorName must be between 1 and 100 characters", 400);
+      }
+
+      if (authorUsername.length < 1 || authorUsername.length > 100) {
+        return apiError("authorUsername must be between 1 and 100 characters", 400);
+      }
+
+      reviewAuthorName = authorName;
+      reviewAuthorUsername = authorUsername;
+      // Generate a deterministic ID for agent reviewers so they can only review once per tool
+      reviewerId = `agent-${authorUsername}`;
+    }
+
+    const admin = createAdminClient();
+
+    // Upsert agent profile (so the FK constraint is satisfied)
+    if (!user) {
+      await admin.from("profiles").upsert(
+        {
+          id: reviewerId,
+          username: reviewAuthorUsername,
+          display_name: reviewAuthorName,
+        },
+        { onConflict: "id" }
+      );
+    }
+
+    const reviewId = `review-${reviewerId}-${tool.id}-${Date.now()}`;
+
+    const { error: insertError } = await admin.from("reviews").insert({
       id: reviewId,
       tool_id: tool.id,
-      user_id: user.id,
-      author_name: authorName,
-      author_username: authorUsername,
-      rating,
+      user_id: reviewerId,
+      author_name: reviewAuthorName,
+      author_username: reviewAuthorUsername,
+      rating: Math.round(rating),
       text,
     });
 
     if (insertError) {
       if (insertError.code === "23505") {
-        return apiError("You have already reviewed this tool", 409);
+        return apiError("This reviewer has already reviewed this tool", 409);
       }
       return apiError(`Failed to submit review: ${insertError.message}`, 500);
     }
 
     // Recalculate tool rating
-    const { data: allReviews } = await supabase
+    const { data: allReviews } = await admin
       .from("reviews")
       .select("rating")
       .eq("tool_id", tool.id);
@@ -126,7 +175,7 @@ export async function POST(
       const avgRating =
         allReviews.reduce((sum, r) => sum + r.rating, 0) / allReviews.length;
 
-      await supabase
+      await admin
         .from("tools")
         .update({
           rating: Math.round(avgRating * 10) / 10,
@@ -138,10 +187,11 @@ export async function POST(
     return apiSuccess(
       {
         id: reviewId,
-        authorName,
-        authorUsername,
-        rating,
+        authorName: reviewAuthorName,
+        authorUsername: reviewAuthorUsername,
+        rating: Math.round(rating),
         text,
+        toolSlug: tool.slug,
       },
       201
     );

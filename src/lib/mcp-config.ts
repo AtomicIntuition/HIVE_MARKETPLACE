@@ -1,8 +1,8 @@
 import { Tool, ToolEnvVar } from "./types";
 
-export type McpClient = "Claude Desktop" | "Cursor" | "Windsurf" | "Claude Code";
+export type McpClient = "Claude Desktop" | "Cursor" | "Windsurf" | "Claude Code" | "Codex";
 
-export const MCP_CLIENTS: McpClient[] = ["Claude Desktop", "Cursor", "Windsurf", "Claude Code"];
+export const MCP_CLIENTS: McpClient[] = ["Claude Desktop", "Cursor", "Windsurf", "Claude Code", "Codex"];
 
 interface ServerConfig {
   command: string;
@@ -70,6 +70,8 @@ export function getClientInstructions(client: McpClient): string {
       return "Add to your Windsurf MCP settings:";
     case "Claude Code":
       return "Save as .mcp.json in your project root:";
+    case "Codex":
+      return "Add to your codex mcp config:";
   }
 }
 
