@@ -30,7 +30,7 @@ export default function PublishingPage() {
             <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-violet-500/10 text-xs font-medium text-violet-400">1</span>
             <span>
               <strong className="text-foreground">A Hive Market account.</strong>{" "}
-              <Link href="/auth/signup" className="text-violet-400 underline underline-offset-4 hover:text-violet-300">Sign up</Link> with email, GitHub, or Google.
+              <Link href="/auth/signup" className="text-violet-400 underline underline-offset-4 hover:text-violet-300">Sign up</Link> with your email.
             </span>
           </li>
           <li className="flex gap-3">
