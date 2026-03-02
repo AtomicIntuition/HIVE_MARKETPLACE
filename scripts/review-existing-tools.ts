@@ -3,11 +3,11 @@
 /**
  * Batch AI Review Script for Hive Market
  *
- * Generates AI reviews (via Claude) for all tools that haven't been reviewed
- * by the claude-reviewer yet.
+ * Generates AI reviews (via Claude) for all tools.
  *
  * Usage:
  *   pnpm review-tools                    # Review all unreviewed tools
+ *   pnpm review-tools --force            # Delete old Claude reviews and re-review ALL tools
  *   pnpm review-tools --dry-run          # Preview without inserting
  *   pnpm review-tools --limit=5          # Only review 5 tools
  *   pnpm review-tools --delay=2000       # 2s delay between reviews (default: 1000)
@@ -48,6 +48,7 @@ interface ReviewResult {
 // Parse CLI args
 const args = process.argv.slice(2);
 const dryRun = args.includes("--dry-run");
+const force = args.includes("--force");
 const limitArg = args.find((a) => a.startsWith("--limit="));
 const limit = limitArg ? parseInt(limitArg.split("=")[1], 10) : Infinity;
 const delayArg = args.find((a) => a.startsWith("--delay="));
@@ -57,14 +58,14 @@ async function generateReview(tool: ToolRow): Promise<ReviewResult> {
   const apiKey = process.env.ANTHROPIC_API_KEY;
   if (!apiKey) {
     return {
-      rating: 3,
-      text: `${tool.name} provides useful MCP integration capabilities. The tool covers its core use case adequately, though additional documentation and examples would improve the developer experience.`,
+      rating: 4,
+      text: `${tool.name} provides solid MCP integration capabilities and covers its core use case well. A useful addition to any agent's toolkit.`,
     };
   }
 
   const client = new Anthropic({ apiKey });
 
-  const prompt = `You are a critical but fair reviewer evaluating MCP tools on Hive Market, a marketplace for AI agent tools.
+  const prompt = `You are writing a review for an MCP tool on Hive Market, a marketplace for AI agent tools.
 
 Tool to review:
 - Name: ${tool.name}
@@ -76,19 +77,19 @@ Tool to review:
 - npm package: ${tool.npm_package || "not provided"}
 - GitHub: ${tool.github_url || "not provided"}
 
-RATING CRITERIA — evaluate honestly based on these factors:
-- Quality of documentation and examples
-- Breadth and depth of features for its category
-- Whether it's from a trusted/official source or community-maintained
-- How production-ready it feels (error handling, security, edge cases)
-- Whether the npm package exists and is well-maintained
+RATING SCALE — use the full range like a real marketplace:
+- 5 stars: Good tool that works well. Solid docs, reliable, covers its use case. Official tools from known companies (Stripe, GitHub, Supabase, Anthropic, etc.) with comprehensive features generally deserve 5 stars. Community tools with good docs and broad feature sets also qualify.
+- 4 stars: Works well but has minor gaps — could use better docs, missing a few features, or rough edges.
+- 3 stars: Functional but with notable limitations. Early stage, sparse docs, or missing important features.
+- 2 stars: Significant problems. Poor documentation, unreliable, or missing core functionality.
+- 1 star: Broken, abandoned, or fundamentally flawed.
 
-5 stars = genuinely exceptional on all criteria. 1 star = fundamentally broken or useless. Rate honestly based on the tool's actual merits — don't inflate or deflate.
+Most well-maintained tools with decent documentation should land at 4-5 stars. Don't be stingy — a tool doesn't need to be perfect to earn 5 stars, it needs to do its job well.
 
 Review guidelines:
-- Be specific — mention actual features and real limitations
-- Keep the review 2-4 sentences
-- Be honest, not promotional
+- Be specific — mention actual features and strengths
+- Note limitations honestly but don't nitpick
+- 2-4 sentences, balanced and helpful
 
 Use the write_review tool to submit your review.`;
 
@@ -108,7 +109,7 @@ Use the write_review tool to submit your review.`;
                 minimum: 1,
                 maximum: 5,
                 description:
-                  "Honest star rating 1-5 based on docs quality, feature depth, maintainer trust, and production-readiness.",
+                  "Star rating 1-5. Most solid, well-documented tools deserve 4-5. Official tools from major companies with good coverage are typically 5. Reserve 3 or below for tools with real issues.",
               },
               text: {
                 type: "string",
@@ -162,6 +163,7 @@ async function main() {
   console.log("Batch AI Review Script");
   console.log("======================");
   if (dryRun) console.log("MODE: dry-run (no writes)");
+  if (force) console.log("MODE: force (re-review all tools)");
   if (limit < Infinity) console.log(`LIMIT: ${limit} tools`);
   console.log(`DELAY: ${delay}ms between reviews`);
   console.log();
@@ -183,6 +185,24 @@ async function main() {
     }
   }
 
+  // If --force, delete all existing Claude reviews
+  if (force && !dryRun) {
+    console.log("Deleting existing Claude reviews...");
+    const { data: deleted, error: deleteError } = await supabase
+      .from("reviews")
+      .delete()
+      .eq("user_id", CLAUDE_REVIEWER_ID)
+      .select("id");
+
+    if (deleteError) {
+      console.error("Failed to delete old reviews:", deleteError.message);
+      process.exit(1);
+    }
+
+    console.log(`Deleted ${deleted?.length ?? 0} old Claude reviews.`);
+    console.log();
+  }
+
   // Fetch all tools
   const { data: allTools, error: toolsError } = await supabase
     .from("tools")
@@ -194,7 +214,7 @@ async function main() {
     process.exit(1);
   }
 
-  // Fetch existing claude-reviewer reviews
+  // Fetch existing claude-reviewer reviews (after potential deletion)
   const { data: existingReviews } = await supabase
     .from("reviews")
     .select("tool_id")
@@ -219,6 +239,7 @@ async function main() {
 
   let reviewed = 0;
   let failed = 0;
+  const ratings: number[] = [];
 
   for (const tool of toolsToReview) {
     try {
@@ -270,6 +291,7 @@ async function main() {
         console.log(`✓ ${tool.name} — ${"★".repeat(review.rating)}${"☆".repeat(5 - review.rating)}`);
       }
 
+      ratings.push(review.rating);
       reviewed++;
 
       // Rate limiting delay
@@ -287,6 +309,21 @@ async function main() {
   console.log("Done!");
   console.log(`  Reviewed: ${reviewed}`);
   if (failed > 0) console.log(`  Failed: ${failed}`);
+
+  // Print rating distribution
+  if (ratings.length > 0) {
+    const avg = ratings.reduce((a, b) => a + b, 0) / ratings.length;
+    const dist = [0, 0, 0, 0, 0];
+    for (const r of ratings) dist[r - 1]++;
+    console.log();
+    console.log("Rating Distribution:");
+    for (let i = 5; i >= 1; i--) {
+      const count = dist[i - 1];
+      const bar = "█".repeat(count);
+      console.log(`  ${i}★  ${bar} ${count}`);
+    }
+    console.log(`  Avg: ${avg.toFixed(1)}`);
+  }
 }
 
 main().catch((err) => {
