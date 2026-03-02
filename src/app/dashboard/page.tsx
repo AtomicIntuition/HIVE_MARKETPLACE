@@ -1,8 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { Plus } from "lucide-react";
+import { Plus, CheckCircle2, Clock, XCircle, Pencil, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { createMetadata } from "@/lib/metadata";
 import { createClient } from "@/lib/supabase/server";
 
@@ -11,6 +10,44 @@ export const metadata: Metadata = createMetadata({
   description: "Manage your tools, submissions, and connected integrations.",
   path: "/dashboard",
 });
+
+function StatusIcon({ status }: { status: string }) {
+  switch (status) {
+    case "approved":
+      return <CheckCircle2 className="h-4 w-4 text-green-400" />;
+    case "rejected":
+      return <XCircle className="h-4 w-4 text-red-400" />;
+    default:
+      return <Clock className="h-4 w-4 text-amber-400" />;
+  }
+}
+
+function StatusLabel({ status }: { status: string }) {
+  switch (status) {
+    case "approved":
+      return <span className="text-xs font-medium text-green-400">Approved</span>;
+    case "rejected":
+      return <span className="text-xs font-medium text-red-400">Rejected</span>;
+    default:
+      return <span className="text-xs font-medium text-amber-400">Pending Review</span>;
+  }
+}
+
+function ReviewNotes({ notes }: { notes: string | null }) {
+  if (!notes) return null;
+
+  return (
+    <details className="mt-2 group">
+      <summary className="flex cursor-pointer items-center gap-1 text-xs text-muted-foreground hover:text-foreground transition-colors">
+        <ChevronDown className="h-3 w-3 transition-transform group-open:rotate-180" />
+        Review notes
+      </summary>
+      <div className="mt-1.5 rounded-lg bg-background p-2.5 text-xs text-muted-foreground whitespace-pre-wrap">
+        {notes}
+      </div>
+    </details>
+  );
+}
 
 export default async function DashboardPage() {
   const supabase = await createClient();
@@ -35,14 +72,16 @@ export default async function DashboardPage() {
   const totalSubmissions = submissions?.length ?? 0;
   const totalConnections = connections?.length ?? 0;
 
-  // Calculate total installs across user's tools
+  // Get install counts for user's tools
+  const submissionIds = (submissions ?? []).map((s) => s.id);
   const { data: userTools } = await supabase
     .from("tools")
-    .select("install_count")
-    .in(
-      "id",
-      (submissions ?? []).map((s) => s.id)
-    );
+    .select("id, install_count")
+    .in("id", submissionIds.length > 0 ? submissionIds : ["__none__"]);
+
+  const installCountMap = new Map(
+    (userTools ?? []).map((t) => [t.id, t.install_count ?? 0])
+  );
   const totalInstalls = (userTools ?? []).reduce(
     (sum, t) => sum + (t.install_count ?? 0),
     0
@@ -112,43 +151,66 @@ export default async function DashboardPage() {
             </div>
           ) : (
             <div className="space-y-3">
-              {(submissions ?? []).map((sub) => (
-                <div
-                  key={sub.id}
-                  className="flex items-center justify-between rounded-xl border border-border/50 bg-card p-4"
-                >
-                  <div className="flex items-center gap-3">
-                    <div
-                      className="flex h-10 w-10 items-center justify-center rounded-xl text-sm font-bold text-white"
-                      style={{ backgroundColor: sub.icon_bg || "#8B5CF6" }}
-                    >
-                      {sub.name.charAt(0)}
-                    </div>
-                    <div>
-                      <Link
-                        href={`/tools/${sub.slug}`}
-                        className="font-medium text-foreground hover:text-violet-400"
-                      >
-                        {sub.name}
-                      </Link>
-                      <p className="text-sm text-muted-foreground">
-                        {sub.description?.slice(0, 60)}...
-                      </p>
-                    </div>
-                  </div>
-                  <Badge
-                    variant={
-                      sub.status === "approved"
-                        ? "default"
-                        : sub.status === "rejected"
-                          ? "destructive"
-                          : "secondary"
-                    }
+              {(submissions ?? []).map((sub) => {
+                const installs = installCountMap.get(sub.id) ?? 0;
+                return (
+                  <div
+                    key={sub.id}
+                    className="rounded-xl border border-border/50 bg-card p-4"
                   >
-                    {sub.status}
-                  </Badge>
-                </div>
-              ))}
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-3">
+                        <div
+                          className="flex h-10 w-10 items-center justify-center rounded-xl text-sm font-bold text-white"
+                          style={{ backgroundColor: sub.icon_bg || "#8B5CF6" }}
+                        >
+                          {sub.name.charAt(0)}
+                        </div>
+                        <div>
+                          <div className="flex items-center gap-2">
+                            {sub.status === "approved" ? (
+                              <Link
+                                href={`/tools/${sub.slug}`}
+                                className="font-medium text-foreground hover:text-violet-400"
+                              >
+                                {sub.name}
+                              </Link>
+                            ) : (
+                              <span className="font-medium text-foreground">
+                                {sub.name}
+                              </span>
+                            )}
+                          </div>
+                          <p className="text-sm text-muted-foreground">
+                            {sub.description?.slice(0, 60)}
+                            {(sub.description?.length ?? 0) > 60 ? "..." : ""}
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="flex items-center gap-3">
+                        {sub.status === "approved" && installs > 0 && (
+                          <span className="text-xs text-muted-foreground">
+                            {installs.toLocaleString()} install{installs !== 1 ? "s" : ""}
+                          </span>
+                        )}
+                        <div className="flex items-center gap-1.5">
+                          <StatusIcon status={sub.status} />
+                          <StatusLabel status={sub.status} />
+                        </div>
+                        <Link href={`/publish/${sub.id}`}>
+                          <Button variant="outline" size="sm" className="gap-1.5 text-xs">
+                            <Pencil className="h-3 w-3" />
+                            Edit
+                          </Button>
+                        </Link>
+                      </div>
+                    </div>
+
+                    <ReviewNotes notes={sub.review_notes ?? null} />
+                  </div>
+                );
+              })}
             </div>
           )}
         </div>

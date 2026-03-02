@@ -177,9 +177,11 @@ export const toolSubmissions = pgTable("tool_submissions", {
   submittedBy: text("submitted_by")
     .notNull()
     .references(() => profiles.id, { onDelete: "cascade" }),
+  envVars: jsonb("env_vars").$type<ToolEnvVarJson[]>(),
   status: submissionStatusEnum("status").notNull().default("pending"),
   submittedAt: timestamp("submitted_at", { mode: "string" }).notNull().defaultNow(),
   reviewedAt: timestamp("reviewed_at", { mode: "string" }),
+  reviewNotes: text("review_notes"),
 });
 
 export const userConnections = pgTable(

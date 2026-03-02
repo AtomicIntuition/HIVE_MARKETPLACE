@@ -1,11 +1,12 @@
 "use client";
 
 import { useState, useActionState } from "react";
-import { ArrowLeft, ArrowRight, Check, Loader2 } from "lucide-react";
+import { ArrowLeft, ArrowRight, Check, Loader2, Plus, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { submitTool, SubmitToolState } from "@/app/actions/submit-tool";
+import { updateTool, UpdateToolState } from "@/app/actions/update-tool";
 
 const STEPS = ["Basic Info", "Technical", "Pricing", "Review"];
 
@@ -22,30 +23,74 @@ const CATEGORIES = [
 
 const COMPATIBILITY_OPTIONS = ["Claude", "GPT", "Gemini", "Open Source"];
 
-export function PublishForm() {
+interface EnvVarEntry {
+  name: string;
+  description: string;
+  required: boolean;
+  placeholder: string;
+}
+
+export interface PublishFormInitialData {
+  id: string;
+  name: string;
+  slug: string;
+  description: string;
+  longDescription: string;
+  category: string;
+  tags: string;
+  features: string;
+  githubUrl: string;
+  docsUrl: string;
+  npmPackage: string;
+  installCommand: "npx" | "uvx";
+  version: string;
+  compatibility: string[];
+  pricingModel: string;
+  pricingPrice: string;
+  pricingUnit: string;
+  envVars: EnvVarEntry[];
+}
+
+interface PublishFormProps {
+  initialData?: PublishFormInitialData;
+  editMode?: boolean;
+}
+
+export function PublishForm({ initialData, editMode = false }: PublishFormProps) {
   const [step, setStep] = useState(0);
-  const [state, formAction, isPending] = useActionState<SubmitToolState, FormData>(
+
+  const [submitState, submitAction, isSubmitPending] = useActionState<SubmitToolState, FormData>(
     submitTool,
     {}
   );
 
+  const [updateState, updateAction, isUpdatePending] = useActionState<UpdateToolState, FormData>(
+    updateTool,
+    {}
+  );
+
+  const state = editMode ? updateState : submitState;
+  const formAction = editMode ? updateAction : submitAction;
+  const isPending = editMode ? isUpdatePending : isSubmitPending;
+
   // Form state
-  const [name, setName] = useState("");
-  const [slug, setSlug] = useState("");
-  const [description, setDescription] = useState("");
-  const [longDescription, setLongDescription] = useState("");
-  const [category, setCategory] = useState("");
-  const [tags, setTags] = useState("");
-  const [githubUrl, setGithubUrl] = useState("");
-  const [docsUrl, setDocsUrl] = useState("");
-  const [npmPackage, setNpmPackage] = useState("");
-  const [installCommand, setInstallCommand] = useState<"npx" | "uvx">("npx");
-  const [version, setVersion] = useState("1.0.0");
-  const [compatibility, setCompatibility] = useState<string[]>([]);
-  const [pricingModel, setPricingModel] = useState("free");
-  const [pricingPrice, setPricingPrice] = useState("");
-  const [pricingUnit, setPricingUnit] = useState("call");
-  const [features, setFeatures] = useState("");
+  const [name, setName] = useState(initialData?.name ?? "");
+  const [slug, setSlug] = useState(initialData?.slug ?? "");
+  const [description, setDescription] = useState(initialData?.description ?? "");
+  const [longDescription, setLongDescription] = useState(initialData?.longDescription ?? "");
+  const [category, setCategory] = useState(initialData?.category ?? "");
+  const [tags, setTags] = useState(initialData?.tags ?? "");
+  const [githubUrl, setGithubUrl] = useState(initialData?.githubUrl ?? "");
+  const [docsUrl, setDocsUrl] = useState(initialData?.docsUrl ?? "");
+  const [npmPackage, setNpmPackage] = useState(initialData?.npmPackage ?? "");
+  const [installCommand, setInstallCommand] = useState<"npx" | "uvx">(initialData?.installCommand ?? "npx");
+  const [version, setVersion] = useState(initialData?.version ?? "1.0.0");
+  const [compatibility, setCompatibility] = useState<string[]>(initialData?.compatibility ?? []);
+  const [pricingModel, setPricingModel] = useState(initialData?.pricingModel ?? "free");
+  const [pricingPrice, setPricingPrice] = useState(initialData?.pricingPrice ?? "");
+  const [pricingUnit, setPricingUnit] = useState(initialData?.pricingUnit ?? "call");
+  const [features, setFeatures] = useState(initialData?.features ?? "");
+  const [envVars, setEnvVars] = useState<EnvVarEntry[]>(initialData?.envVars ?? []);
 
   function generateSlug(name: string) {
     return name
@@ -56,7 +101,7 @@ export function PublishForm() {
 
   function handleNameChange(value: string) {
     setName(value);
-    if (!slug || slug === generateSlug(name)) {
+    if (!editMode && (!slug || slug === generateSlug(name))) {
       setSlug(generateSlug(value));
     }
   }
@@ -64,6 +109,20 @@ export function PublishForm() {
   function toggleCompatibility(value: string) {
     setCompatibility((prev) =>
       prev.includes(value) ? prev.filter((c) => c !== value) : [...prev, value]
+    );
+  }
+
+  function addEnvVar() {
+    setEnvVars((prev) => [...prev, { name: "", description: "", required: true, placeholder: "" }]);
+  }
+
+  function removeEnvVar(index: number) {
+    setEnvVars((prev) => prev.filter((_, i) => i !== index));
+  }
+
+  function updateEnvVar(index: number, field: keyof EnvVarEntry, value: string | boolean) {
+    setEnvVars((prev) =>
+      prev.map((ev, i) => (i === index ? { ...ev, [field]: value } : ev))
     );
   }
 
@@ -111,6 +170,9 @@ export function PublishForm() {
 
       <form action={formAction}>
         {/* Hidden fields for all steps */}
+        {editMode && initialData && (
+          <input type="hidden" name="submissionId" value={initialData.id} />
+        )}
         <input type="hidden" name="name" value={name} />
         <input type="hidden" name="slug" value={slug} />
         <input type="hidden" name="description" value={description} />
@@ -129,6 +191,7 @@ export function PublishForm() {
         <input type="hidden" name="pricingPrice" value={pricingPrice} />
         <input type="hidden" name="pricingUnit" value={pricingUnit} />
         <input type="hidden" name="features" value={features} />
+        <input type="hidden" name="envVars" value={JSON.stringify(envVars)} />
 
         <div className="rounded-xl border border-border/50 bg-card p-6">
           {/* Step 1: Basic Info */}
@@ -152,6 +215,7 @@ export function PublishForm() {
                   value={slug}
                   onChange={(e) => setSlug(e.target.value)}
                   placeholder="my-mcp-server"
+                  disabled={editMode}
                 />
                 {fieldError("slug") && <p className="mt-1 text-xs text-red-400">{fieldError("slug")}</p>}
                 <p className="mt-1 text-xs text-muted-foreground">
@@ -302,6 +366,75 @@ export function PublishForm() {
                 </div>
                 {fieldError("compatibility") && <p className="mt-1 text-xs text-red-400">{fieldError("compatibility")}</p>}
               </div>
+
+              {/* Environment Variables */}
+              <div>
+                <div className="mb-3 flex items-center justify-between">
+                  <label className="text-sm text-muted-foreground">Environment Variables</label>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    onClick={addEnvVar}
+                    className="gap-1.5 text-xs"
+                  >
+                    <Plus className="h-3.5 w-3.5" />
+                    Add Variable
+                  </Button>
+                </div>
+
+                {envVars.length === 0 && (
+                  <p className="text-xs text-muted-foreground">
+                    No environment variables configured. Add any API keys or secrets your tool requires.
+                  </p>
+                )}
+
+                <div className="space-y-3">
+                  {envVars.map((ev, i) => (
+                    <div
+                      key={i}
+                      className="rounded-lg border border-border/50 bg-background p-3 space-y-2"
+                    >
+                      <div className="flex items-start gap-2">
+                        <div className="flex-1 space-y-2">
+                          <Input
+                            value={ev.name}
+                            onChange={(e) => updateEnvVar(i, "name", e.target.value)}
+                            placeholder="EXAMPLE_API_KEY"
+                            className="font-mono text-xs"
+                          />
+                          <Input
+                            value={ev.description}
+                            onChange={(e) => updateEnvVar(i, "description", e.target.value)}
+                            placeholder="Description of this variable"
+                          />
+                          <Input
+                            value={ev.placeholder}
+                            onChange={(e) => updateEnvVar(i, "placeholder", e.target.value)}
+                            placeholder="Placeholder (e.g. sk-...)"
+                          />
+                        </div>
+                        <button
+                          type="button"
+                          onClick={() => removeEnvVar(i)}
+                          className="mt-1.5 rounded p-1 text-muted-foreground hover:text-red-400 transition-colors"
+                        >
+                          <Trash2 className="h-4 w-4" />
+                        </button>
+                      </div>
+                      <label className="flex items-center gap-2 text-xs text-muted-foreground cursor-pointer">
+                        <input
+                          type="checkbox"
+                          checked={ev.required}
+                          onChange={(e) => updateEnvVar(i, "required", e.target.checked)}
+                          className="rounded border-border"
+                        />
+                        Required
+                      </label>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           )}
 
@@ -409,6 +542,25 @@ export function PublishForm() {
                   </div>
                 </div>
 
+                {envVars.length > 0 && (
+                  <div className="rounded-lg border border-border/50 p-4">
+                    <h3 className="mb-2 text-sm font-medium text-muted-foreground">Environment Variables</h3>
+                    <div className="space-y-1.5 text-sm">
+                      {envVars.map((ev, i) => (
+                        <div key={i} className="flex items-center gap-2">
+                          <code className="rounded bg-background px-1.5 py-0.5 text-xs font-mono text-violet-400">
+                            {ev.name || "UNNAMED"}
+                          </code>
+                          <span className="text-muted-foreground">{ev.description}</span>
+                          {ev.required && (
+                            <span className="text-xs text-amber-400">(required)</span>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
                 <div className="rounded-lg border border-border/50 p-4">
                   <h3 className="mb-2 text-sm font-medium text-muted-foreground">Pricing</h3>
                   <p className="text-sm text-foreground">
@@ -455,7 +607,7 @@ export function PublishForm() {
               ) : (
                 <Check className="h-4 w-4" />
               )}
-              Publish Tool
+              {editMode ? "Update Tool" : "Publish Tool"}
             </Button>
           )}
         </div>
