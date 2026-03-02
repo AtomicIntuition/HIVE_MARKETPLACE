@@ -2955,61 +2955,6 @@
     "verified": false
   },
   {
-    "slug": "trigger-dev-mcp",
-    "name": "Trigger.dev",
-    "description": "Build and deploy fully managed AI agents and background workflows with durable execution, retries, and scheduling.",
-    "category": "devtools",
-    "author": {
-      "name": "Trigger.dev",
-      "username": "triggerdotdev",
-      "verified": true
-    },
-    "githubUrl": "https://github.com/triggerdotdev/trigger.dev",
-    "npmPackage": "@trigger.dev/mcp",
-    "installCommand": "npx",
-    "features": [
-      "Durable workflows",
-      "Background jobs",
-      "Scheduled tasks",
-      "Retry logic",
-      "Agent deployment",
-      "Event triggers"
-    ],
-    "tags": [
-      "workflows",
-      "automation",
-      "background-jobs",
-      "scheduling",
-      "agents"
-    ],
-    "compatibility": [
-      "Claude",
-      "GPT",
-      "Gemini",
-      "Open Source"
-    ],
-    "pricing": {
-      "model": "free"
-    },
-    "stars": 13910,
-    "id": "3",
-    "rating": 0,
-    "reviewCount": 0,
-    "installs": 0,
-    "trending": false,
-    "featured": false,
-    "version": "1.0.0",
-    "longDescription": "Build and deploy fully managed AI agents and background workflows with durable execution, retries, and scheduling.",
-    "docsUrl": "https://github.com/triggerdotdev/trigger.dev",
-    "envVars": [],
-    "lastUpdated": "2026-03-02T18:05:25.404Z",
-    "createdAt": "2026-03-02T18:05:25.404Z",
-    "installCount": 0,
-    "weeklyInstalls": 0,
-    "iconBg": "#1a1a2e",
-    "verified": false
-  },
-  {
     "slug": "aws-mcp",
     "name": "AWS MCP",
     "description": "Official MCP servers for AWS — interact with AWS services including S3, Lambda, DynamoDB, CloudFormation, and more.",
