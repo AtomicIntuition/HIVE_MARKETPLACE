@@ -67,7 +67,7 @@ async function getReviewsData(toolId: string) {
 
     const { data: reviews } = await supabase
       .from("reviews")
-      .select("id, author_name, author_username, rating, text, created_at")
+      .select("id, author_name, author_username, rating, text, created_at, user_id, profiles!reviews_user_id_fkey(avatar_url)")
       .eq("tool_id", toolId)
       .order("created_at", { ascending: false });
 
@@ -83,14 +83,18 @@ async function getReviewsData(toolId: string) {
     }
 
     return {
-      reviews: (reviews ?? []).map((r) => ({
-        id: r.id,
-        authorName: r.author_name,
-        authorUsername: r.author_username,
-        rating: r.rating,
-        text: r.text,
-        createdAt: r.created_at,
-      })),
+      reviews: (reviews ?? []).map((r) => {
+        const profile = r.profiles as unknown as { avatar_url: string | null } | null;
+        return {
+          id: r.id,
+          authorName: r.author_name,
+          authorUsername: r.author_username,
+          avatarUrl: profile?.avatar_url ?? null,
+          rating: r.rating,
+          text: r.text,
+          createdAt: r.created_at,
+        };
+      }),
       userHasReviewed,
     };
   } catch {

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useActionState } from "react";
+import Image from "next/image";
 import { Star, Loader2, Bot } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { RatingStars } from "@/components/shared/rating-stars";
@@ -12,6 +13,7 @@ interface ReviewData {
   id: string;
   authorName: string;
   authorUsername: string;
+  avatarUrl?: string | null;
   rating: number;
   text: string;
   createdAt: string;
@@ -162,14 +164,24 @@ export function ToolReviews({
               className="rounded-xl border border-border/50 bg-card p-5"
             >
               <div className="mb-2 flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-violet-600/20 text-xs font-medium text-violet-400">
-                    {review.authorName.charAt(0).toUpperCase()}
-                  </div>
+                <div className="flex items-center gap-2.5">
+                  {review.avatarUrl ? (
+                    <Image
+                      src={review.avatarUrl}
+                      alt={review.authorName}
+                      width={32}
+                      height={32}
+                      className="h-8 w-8 rounded-full object-cover"
+                    />
+                  ) : (
+                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-violet-600/20 text-xs font-medium text-violet-400">
+                      {review.authorName.charAt(0).toUpperCase()}
+                    </div>
+                  )}
                   <div>
                     <p className="flex items-center gap-1.5 text-sm font-medium text-foreground">
                       {review.authorName}
-                      {review.authorUsername === "claude-reviewer" && (
+                      {(review.authorUsername === "claude-ai" || review.authorUsername === "claude-reviewer") && (
                         <span className="inline-flex items-center gap-1 rounded-full border border-violet-500/20 bg-violet-500/10 px-1.5 py-0.5 text-[10px] font-medium text-violet-400">
                           <Bot className="h-2.5 w-2.5" />
                           AI Review

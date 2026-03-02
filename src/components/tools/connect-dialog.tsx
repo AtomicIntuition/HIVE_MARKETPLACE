@@ -81,84 +81,94 @@ export function ConnectDialog({
             onClick={() => setIsOpen(false)}
           />
 
-          {/* Dialog */}
-          <div className="fixed inset-x-4 top-[50%] z-50 mx-auto max-w-lg -translate-y-1/2 rounded-2xl border border-border/50 bg-card shadow-2xl md:inset-x-auto">
-            {/* Header */}
-            <div className="flex items-center justify-between border-b border-border/50 px-6 py-4">
-              <div>
-                <h2 className="text-lg font-semibold text-foreground">
-                  Connect {toolName}
-                </h2>
-                <p className="text-sm text-muted-foreground">
-                  Add to your AI agent&apos;s MCP configuration
-                </p>
-              </div>
-              <button
-                onClick={() => setIsOpen(false)}
-                className="rounded-lg p-1 text-muted-foreground transition-colors hover:text-foreground"
-              >
-                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-            </div>
-
-            {/* Tabs */}
-            <div className="flex overflow-x-auto border-b border-border/50 px-4 sm:px-6">
-              {MCP_CLIENTS.map((tab) => (
-                <button
-                  key={tab}
-                  onClick={() => setActiveTab(tab)}
-                  className={cn(
-                    "border-b-2 px-3 py-3 text-sm transition-colors",
-                    activeTab === tab
-                      ? "border-violet-500 text-foreground"
-                      : "border-transparent text-muted-foreground hover:text-foreground"
-                  )}
-                >
-                  {tab}
-                </button>
-              ))}
-            </div>
-
-            {/* Content */}
-            <div className="p-6">
-              <p className="mb-3 text-sm text-muted-foreground">
-                {getClientInstructions(activeTab)}
-              </p>
-              <div className="relative">
-                <pre className="overflow-x-auto rounded-lg bg-gray-950 p-4 text-sm text-foreground">
-                  <code>{config}</code>
-                </pre>
-                <button
-                  onClick={handleCopy}
-                  className="absolute right-2 top-2 rounded-lg bg-gray-800 p-2 text-muted-foreground transition-colors hover:bg-gray-700 hover:text-foreground"
-                >
-                  {copied ? (
-                    <Check className="h-4 w-4 text-emerald-400" />
-                  ) : (
-                    <Copy className="h-4 w-4" />
-                  )}
-                </button>
-              </div>
-
-              {envVars && envVars.length > 0 && (
-                <div className="mt-4 rounded-lg border border-border/50 p-3">
-                  <p className="mb-2 text-xs font-medium text-muted-foreground">Required Environment Variables</p>
-                  <div className="space-y-1.5">
-                    {envVars.filter((e) => e.required).map((e) => (
-                      <div key={e.name} className="text-xs">
-                        <code className="text-violet-400">{e.name}</code>
-                        <span className="ml-2 text-muted-foreground">{e.description}</span>
-                      </div>
-                    ))}
-                  </div>
+          {/* Dialog — centered with scroll support */}
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6">
+            <div
+              className="relative flex w-full max-w-lg flex-col overflow-hidden rounded-2xl border border-white/[0.08] bg-gray-900 shadow-2xl shadow-black/50"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Header */}
+              <div className="flex items-center justify-between border-b border-white/[0.06] px-5 py-4 sm:px-6">
+                <div>
+                  <h2 className="text-lg font-semibold text-foreground">
+                    Connect {toolName}
+                  </h2>
+                  <p className="mt-0.5 text-sm text-muted-foreground">
+                    Add to your AI agent&apos;s MCP configuration
+                  </p>
                 </div>
-              )}
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="rounded-lg p-1.5 text-muted-foreground transition-colors hover:bg-white/[0.06] hover:text-foreground"
+                >
+                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
 
-              <div className="mt-4 flex items-center justify-between">
+              {/* Tabs */}
+              <div className="flex gap-1 overflow-x-auto border-b border-white/[0.06] px-5 sm:px-6">
+                {MCP_CLIENTS.map((tab) => (
+                  <button
+                    key={tab}
+                    onClick={() => setActiveTab(tab)}
+                    className={cn(
+                      "shrink-0 border-b-2 px-3 py-2.5 text-sm font-medium transition-colors",
+                      activeTab === tab
+                        ? "border-violet-500 text-foreground"
+                        : "border-transparent text-muted-foreground hover:text-foreground"
+                    )}
+                  >
+                    {tab}
+                  </button>
+                ))}
+              </div>
+
+              {/* Scrollable content */}
+              <div className="max-h-[60vh] overflow-y-auto overscroll-contain p-5 sm:p-6">
+                <p className="mb-3 text-sm text-muted-foreground">
+                  {getClientInstructions(activeTab)}
+                </p>
+                <div className="relative">
+                  <pre className="overflow-x-auto rounded-lg bg-black/40 p-4 text-sm leading-relaxed text-foreground ring-1 ring-white/[0.06]">
+                    <code>{config}</code>
+                  </pre>
+                  <button
+                    onClick={handleCopy}
+                    className="absolute right-2 top-2 rounded-md bg-white/[0.06] p-1.5 text-muted-foreground transition-colors hover:bg-white/[0.1] hover:text-foreground"
+                  >
+                    {copied ? (
+                      <Check className="h-4 w-4 text-emerald-400" />
+                    ) : (
+                      <Copy className="h-4 w-4" />
+                    )}
+                  </button>
+                </div>
+
+                {envVars && envVars.length > 0 && (
+                  <div className="mt-4 rounded-lg border border-white/[0.06] bg-white/[0.02] p-3.5">
+                    <p className="mb-2.5 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                      Environment Variables
+                    </p>
+                    <div className="space-y-2">
+                      {envVars.filter((e) => e.required).map((e) => (
+                        <div key={e.name} className="flex items-baseline gap-2 text-xs">
+                          <code className="shrink-0 rounded bg-violet-500/10 px-1.5 py-0.5 font-mono text-violet-400">
+                            {e.name}
+                          </code>
+                          <span className="text-muted-foreground">{e.description}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Footer */}
+              <div className="flex items-center justify-between border-t border-white/[0.06] px-5 py-3.5 sm:px-6">
                 <p className="text-xs text-muted-foreground">
-                  {installCommand === "uvx" ? "PyPI" : "npm"}: {npmPackage}
+                  {installCommand === "uvx" ? "PyPI" : "npm"}: <code className="text-foreground">{npmPackage}</code>
                 </p>
                 <Button
                   onClick={handleCopy}
