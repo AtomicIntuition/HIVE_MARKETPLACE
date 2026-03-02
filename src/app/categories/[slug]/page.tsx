@@ -11,7 +11,6 @@ import {
   Image,
   BarChart3,
 } from "lucide-react";
-import { CATEGORIES } from "@/lib/constants";
 import {
   getToolsByCategory,
   getCategoryWithCount,

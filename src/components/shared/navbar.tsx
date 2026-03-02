@@ -74,6 +74,7 @@ export function Navbar() {
                 className="flex items-center gap-2 rounded-full border border-border/50 p-0.5 transition-colors hover:border-violet-500/30"
               >
                 {avatarUrl ? (
+                  /* eslint-disable-next-line @next/next/no-img-element */
                   <img
                     src={avatarUrl}
                     alt={displayName || "User"}
@@ -179,6 +180,7 @@ export function Navbar() {
             <div className="mt-3 space-y-2 border-t border-border/50 pt-3">
               <div className="flex items-center gap-2 px-3 py-1">
                 {avatarUrl ? (
+                  /* eslint-disable-next-line @next/next/no-img-element */
                   <img src={avatarUrl} alt="" className="h-6 w-6 rounded-full" />
                 ) : (
                   <UserIcon className="h-4 w-4 text-muted-foreground" />

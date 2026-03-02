@@ -84,7 +84,7 @@ export async function getTrendingTools(): Promise<Tool[]> {
 export async function searchTools(query: string): Promise<Tool[]> {
   const db = await getDb();
   const { tools } = await import("@/db/schema");
-  const { or, ilike } = await import("drizzle-orm");
+  const { or, ilike, sql } = await import("drizzle-orm");
   const pattern = `%${query}%`;
   const rows = await db
     .select()
@@ -93,7 +93,8 @@ export async function searchTools(query: string): Promise<Tool[]> {
       or(
         ilike(tools.name, pattern),
         ilike(tools.description, pattern),
-        ilike(tools.category, pattern)
+        // category is a pgEnum — cast to text for ilike
+        sql`${tools.category}::text ILIKE ${pattern}`
       )
     );
   return rows.map(mapDbToolToTool);

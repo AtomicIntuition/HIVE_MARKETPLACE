@@ -45,7 +45,7 @@ export function ToolSearch({ allTools }: ToolSearchProps) {
       selectedSort as "popular" | "newest" | "rating" | "name"
     );
     return result;
-  }, [query, selectedCategory, selectedPricing, selectedSort]);
+  }, [query, selectedCategory, selectedPricing, selectedSort, allTools]);
 
   const activeFiltersCount = [selectedCategory, selectedPricing].filter(
     Boolean

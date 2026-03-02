@@ -47,7 +47,7 @@ export function generateToolConfig(tool: Tool, client: McpClient): string {
   );
 }
 
-export function generateMultiToolConfig(tools: Tool[], client: McpClient): string {
+export function generateMultiToolConfig(tools: Tool[], _client: McpClient): string {
   const servers: Record<string, ServerConfig> = {};
 
   for (const tool of tools) {
