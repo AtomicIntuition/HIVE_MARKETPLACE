@@ -10,6 +10,7 @@ import {
   pgEnum,
   uniqueIndex,
   index,
+  primaryKey,
 } from "drizzle-orm/pg-core";
 
 // Enums
@@ -161,33 +162,39 @@ export const profiles = pgTable("profiles", {
   createdAt: timestamp("created_at", { mode: "string" }).notNull().defaultNow(),
 });
 
-export const toolSubmissions = pgTable("tool_submissions", {
-  id: text("id").primaryKey(),
-  name: varchar("name", { length: 255 }).notNull(),
-  slug: varchar("slug", { length: 255 }).notNull(),
-  description: text("description").notNull(),
-  longDescription: text("long_description").notNull(),
-  category: categorySlugEnum("category").notNull(),
-  author: jsonb("author").$type<ToolAuthorJson>().notNull(),
-  pricing: jsonb("pricing").$type<ToolPricingJson>().notNull(),
-  tags: text("tags").array().notNull().default([]),
-  features: text("features").array().notNull().default([]),
-  githubUrl: text("github_url"),
-  docsUrl: text("docs_url"),
-  npmPackage: varchar("npm_package", { length: 255 }),
-  installCommand: varchar("install_command", { length: 10 }).notNull().default("npx"),
-  iconBg: varchar("icon_bg", { length: 20 }).notNull().default("#8B5CF6"),
-  compatibility: text("compatibility").array().notNull().default([]),
-  version: varchar("version", { length: 50 }).notNull().default("1.0.0"),
-  submittedBy: text("submitted_by")
-    .notNull()
-    .references(() => profiles.id, { onDelete: "cascade" }),
-  envVars: jsonb("env_vars").$type<ToolEnvVarJson[]>(),
-  status: submissionStatusEnum("status").notNull().default("pending"),
-  submittedAt: timestamp("submitted_at", { mode: "string" }).notNull().defaultNow(),
-  reviewedAt: timestamp("reviewed_at", { mode: "string" }),
-  reviewNotes: text("review_notes"),
-});
+export const toolSubmissions = pgTable(
+  "tool_submissions",
+  {
+    id: text("id").primaryKey(),
+    name: varchar("name", { length: 255 }).notNull(),
+    slug: varchar("slug", { length: 255 }).notNull(),
+    description: text("description").notNull(),
+    longDescription: text("long_description").notNull(),
+    category: categorySlugEnum("category").notNull(),
+    author: jsonb("author").$type<ToolAuthorJson>().notNull(),
+    pricing: jsonb("pricing").$type<ToolPricingJson>().notNull(),
+    tags: text("tags").array().notNull().default([]),
+    features: text("features").array().notNull().default([]),
+    githubUrl: text("github_url"),
+    docsUrl: text("docs_url"),
+    npmPackage: varchar("npm_package", { length: 255 }),
+    installCommand: varchar("install_command", { length: 10 }).notNull().default("npx"),
+    iconBg: varchar("icon_bg", { length: 20 }).notNull().default("#8B5CF6"),
+    compatibility: text("compatibility").array().notNull().default([]),
+    version: varchar("version", { length: 50 }).notNull().default("1.0.0"),
+    submittedBy: text("submitted_by")
+      .notNull()
+      .references(() => profiles.id, { onDelete: "cascade" }),
+    envVars: jsonb("env_vars").$type<ToolEnvVarJson[]>(),
+    status: submissionStatusEnum("status").notNull().default("pending"),
+    submittedAt: timestamp("submitted_at", { mode: "string" }).notNull().defaultNow(),
+    reviewedAt: timestamp("reviewed_at", { mode: "string" }),
+    reviewNotes: text("review_notes"),
+  },
+  (table) => [
+    index("tool_submissions_submitted_by_idx").on(table.submittedBy),
+  ]
+);
 
 export const userConnections = pgTable(
   "user_connections",
@@ -201,7 +208,8 @@ export const userConnections = pgTable(
     connectedAt: timestamp("connected_at", { mode: "string" }).notNull().defaultNow(),
   },
   (table) => [
-    uniqueIndex("user_connections_pk").on(table.userId, table.toolId),
+    primaryKey({ columns: [table.userId, table.toolId] }),
+    index("user_connections_tool_id_idx").on(table.toolId),
   ]
 );
 
