@@ -1,7 +1,7 @@
 import { NextRequest } from "next/server";
 import { createClient as createSupabaseClient } from "@supabase/supabase-js";
 import { getToolBySlug } from "@/lib/data";
-import { apiSuccess, apiError, handleCors } from "@/lib/api-utils";
+import { apiSuccess, apiError, handleCors, checkReadRateLimit } from "@/lib/api-utils";
 import { createClient } from "@/lib/supabase/server";
 import { validateApiKey } from "@/lib/api-keys";
 import {
@@ -19,9 +19,12 @@ function createAdminClient() {
 }
 
 export async function GET(
-  _request: NextRequest,
+  request: NextRequest,
   { params }: { params: Promise<{ slug: string }> }
 ) {
+  const rateLimited = checkReadRateLimit(request);
+  if (rateLimited) return rateLimited;
+
   try {
     const { slug } = await params;
     const tool = await getToolBySlug(slug);

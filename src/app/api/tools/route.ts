@@ -1,9 +1,12 @@
 import { NextRequest } from "next/server";
 import { getAllTools, searchTools, getToolsByCategory } from "@/lib/data";
 import { CategorySlug } from "@/lib/types";
-import { apiSuccess, apiError, handleCors } from "@/lib/api-utils";
+import { apiSuccess, apiError, handleCors, checkReadRateLimit } from "@/lib/api-utils";
 
 export async function GET(request: NextRequest) {
+  const rateLimited = checkReadRateLimit(request);
+  if (rateLimited) return rateLimited;
+
   try {
     const params = request.nextUrl.searchParams;
     const q = params.get("q");

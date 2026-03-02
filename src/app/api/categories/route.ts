@@ -1,7 +1,11 @@
+import { NextRequest } from "next/server";
 import { getAllCategoriesWithCounts } from "@/lib/data";
-import { apiSuccess, apiError, handleCors } from "@/lib/api-utils";
+import { apiSuccess, apiError, handleCors, checkReadRateLimit } from "@/lib/api-utils";
 
-export async function GET() {
+export async function GET(request: NextRequest) {
+  const rateLimited = checkReadRateLimit(request);
+  if (rateLimited) return rateLimited;
+
   try {
     const categories = await getAllCategoriesWithCounts();
     return apiSuccess({ categories });

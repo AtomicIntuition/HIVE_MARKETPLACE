@@ -1,12 +1,15 @@
 import { NextRequest } from "next/server";
 import { getToolBySlug } from "@/lib/data";
 import { generateToolConfig, McpClient } from "@/lib/mcp-config";
-import { apiSuccess, apiError, handleCors } from "@/lib/api-utils";
+import { apiSuccess, apiError, handleCors, checkReadRateLimit } from "@/lib/api-utils";
 
 export async function GET(
   request: NextRequest,
   { params }: { params: Promise<{ slug: string }> }
 ) {
+  const rateLimited = checkReadRateLimit(request);
+  if (rateLimited) return rateLimited;
+
   try {
     const { slug } = await params;
     const client = (request.nextUrl.searchParams.get("client") || "Claude Desktop") as McpClient;

@@ -52,3 +52,8 @@ class SlidingWindowRateLimiter {
 export const reviewRateLimiter = new SlidingWindowRateLimiter();
 export const REVIEW_RATE_LIMIT = 10;
 export const REVIEW_RATE_WINDOW_MS = 60 * 60 * 1000; // 1 hour
+
+// Singleton: 100 read requests per minute per IP
+export const readRateLimiter = new SlidingWindowRateLimiter();
+export const READ_RATE_LIMIT = 100;
+export const READ_RATE_WINDOW_MS = 60 * 1000; // 1 minute
