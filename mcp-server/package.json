@@ -1,16 +1,22 @@
 {
   "name": "hive-market-mcp",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Hive Market MCP Server — discover, evaluate, and install MCP tools for AI agents",
   "type": "module",
   "bin": {
     "hive-market-mcp": "./dist/index.js"
   },
   "main": "./dist/index.js",
+  "files": [
+    "dist",
+    "data",
+    "README.md"
+  ],
   "scripts": {
     "build": "tsc",
     "dev": "tsx src/index.ts",
-    "start": "node dist/index.js"
+    "start": "node dist/index.js",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.12.1",
@@ -21,6 +27,24 @@
     "tsx": "^4.21.0",
     "typescript": "^5"
   },
-  "keywords": ["mcp", "mcp-server", "hive-market", "ai-tools", "marketplace"],
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "hive-market",
+    "ai-tools",
+    "marketplace",
+    "claude",
+    "cursor",
+    "windsurf",
+    "model-context-protocol",
+    "agent-tools"
+  ],
+  "author": "Atomic Intuition",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AtomicIntuition/HIVE_MARKETPLACE.git",
+    "directory": "mcp-server"
+  },
+  "homepage": "https://github.com/AtomicIntuition/HIVE_MARKETPLACE#readme",
   "license": "MIT"
 }
