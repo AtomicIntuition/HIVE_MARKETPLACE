@@ -12,10 +12,23 @@ import { recommendToolsSchema, recommendToolsHandler } from "./tools/recommend-t
 import { getReviewsSchema, getReviewsHandler } from "./tools/get-reviews.js";
 import { submitReviewSchema, submitReviewHandler } from "./tools/submit-review.js";
 import { submitToolSchema, submitToolHandler } from "./tools/submit-tool.js";
+import {
+  formatSearchResults,
+  formatToolDetail,
+  formatToolConfig,
+  formatCategories,
+  formatStackList,
+  formatStackDetail,
+  formatRecommendations,
+  formatReviews,
+  formatSubmitReviewSuccess,
+  formatSubmitToolSuccess,
+} from "./lib/formatters.js";
+import type { ToolConfigResult } from "./lib/formatters.js";
 
 const server = new McpServer({
   name: "hive-market",
-  version: "1.3.0",
+  version: "1.4.0",
 });
 
 server.tool(
@@ -28,7 +41,7 @@ server.tool(
       content: [
         {
           type: "text" as const,
-          text: JSON.stringify(results, null, 2),
+          text: formatSearchResults(results, { query, category }),
         },
       ],
     };
@@ -43,12 +56,17 @@ server.tool(
     const tool = await getToolHandler({ slug });
     if (!tool) {
       return {
-        content: [{ type: "text" as const, text: `Tool "${slug}" not found.` }],
+        content: [
+          {
+            type: "text" as const,
+            text: `Tool "${slug}" not found.\n\n\u2192 Use \`search-tools\` to find available tools.`,
+          },
+        ],
         isError: true,
       };
     }
     return {
-      content: [{ type: "text" as const, text: JSON.stringify(tool, null, 2) }],
+      content: [{ type: "text" as const, text: formatToolDetail(tool) }],
     };
   }
 );
@@ -64,7 +82,7 @@ server.tool(
         content: [
           {
             type: "text" as const,
-            text: `Tool "${slug}" not found or has no npm package.`,
+            text: `Tool "${slug}" not found or has no npm package.\n\n\u2192 Use \`search-tools\` to find available tools.\n\u2192 Use \`get-tool ${slug}\` to check if this tool exists.`,
           },
         ],
         isError: true,
@@ -72,7 +90,7 @@ server.tool(
     }
     return {
       content: [
-        { type: "text" as const, text: JSON.stringify(config, null, 2) },
+        { type: "text" as const, text: formatToolConfig(config as ToolConfigResult) },
       ],
     };
   }
@@ -86,7 +104,7 @@ server.tool(
     const categories = await listCategoriesHandler();
     return {
       content: [
-        { type: "text" as const, text: JSON.stringify(categories, null, 2) },
+        { type: "text" as const, text: formatCategories(categories) },
       ],
     };
   }
@@ -100,7 +118,7 @@ server.tool(
     const stacks = await listStacksHandler();
     return {
       content: [
-        { type: "text" as const, text: JSON.stringify(stacks, null, 2) },
+        { type: "text" as const, text: formatStackList(stacks) },
       ],
     };
   }
@@ -115,14 +133,17 @@ server.tool(
     if (!result) {
       return {
         content: [
-          { type: "text" as const, text: `Stack "${slug}" not found.` },
+          {
+            type: "text" as const,
+            text: `Stack "${slug}" not found.\n\n\u2192 Use \`list-stacks\` to see available stacks.`,
+          },
         ],
         isError: true,
       };
     }
     return {
       content: [
-        { type: "text" as const, text: JSON.stringify(result, null, 2) },
+        { type: "text" as const, text: formatStackDetail(result) },
       ],
     };
   }
@@ -139,7 +160,7 @@ server.tool(
         content: [
           {
             type: "text" as const,
-            text: "No matching tools found. Try a more specific use case description.",
+            text: `No matching tools found for "${useCase}".\n\n\u2192 Try a more specific use case description.\n\u2192 Use \`search-tools\` to browse by keyword.\n\u2192 Use \`list-categories\` to explore by category.`,
           },
         ],
       };
@@ -148,7 +169,7 @@ server.tool(
       content: [
         {
           type: "text" as const,
-          text: JSON.stringify(recommendations, null, 2),
+          text: formatRecommendations(recommendations, useCase),
         },
       ],
     };
@@ -163,12 +184,17 @@ server.tool(
     const result = await getReviewsHandler({ slug });
     if (!result) {
       return {
-        content: [{ type: "text" as const, text: `Tool "${slug}" not found or reviews unavailable.` }],
+        content: [
+          {
+            type: "text" as const,
+            text: `Tool "${slug}" not found or reviews unavailable.\n\n\u2192 Use \`search-tools\` to find available tools.`,
+          },
+        ],
         isError: true,
       };
     }
     return {
-      content: [{ type: "text" as const, text: JSON.stringify(result, null, 2) }],
+      content: [{ type: "text" as const, text: formatReviews(result) }],
     };
   }
 );
@@ -186,7 +212,12 @@ server.tool(
       };
     }
     return {
-      content: [{ type: "text" as const, text: JSON.stringify(result.review, null, 2) }],
+      content: [
+        {
+          type: "text" as const,
+          text: formatSubmitReviewSuccess({ slug, rating, text, authorName }),
+        },
+      ],
     };
   }
 );
@@ -204,7 +235,16 @@ server.tool(
       };
     }
     return {
-      content: [{ type: "text" as const, text: JSON.stringify(result.submission, null, 2) }],
+      content: [
+        {
+          type: "text" as const,
+          text: formatSubmitToolSuccess({
+            slug: params.slug,
+            name: params.name,
+            submission: result.submission,
+          }),
+        },
+      ],
     };
   }
 );
@@ -213,7 +253,7 @@ async function main() {
   // Detect interactive terminal (not piped by an MCP client)
   if (process.stdin.isTTY) {
     process.stderr.write(`
-  Hive Market MCP Server v1.3.0
+  Hive Market MCP Server v1.4.0
 
   This server communicates via the MCP protocol over stdio.
   To use it, add it to your AI client:
