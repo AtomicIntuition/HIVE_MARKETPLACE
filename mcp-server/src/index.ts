@@ -9,10 +9,13 @@ import { listCategoriesHandler } from "./tools/list-categories.js";
 import { listStacksHandler } from "./tools/list-stacks.js";
 import { getStackSchema, getStackHandler } from "./tools/get-stack.js";
 import { recommendToolsSchema, recommendToolsHandler } from "./tools/recommend-tools.js";
+import { getReviewsSchema, getReviewsHandler } from "./tools/get-reviews.js";
+import { submitReviewSchema, submitReviewHandler } from "./tools/submit-review.js";
+import { submitToolSchema, submitToolHandler } from "./tools/submit-tool.js";
 
 const server = new McpServer({
   name: "hive-market",
-  version: "0.1.0",
+  version: "1.2.0",
 });
 
 server.tool(
@@ -148,6 +151,60 @@ server.tool(
           text: JSON.stringify(recommendations, null, 2),
         },
       ],
+    };
+  }
+);
+
+server.tool(
+  "get-reviews",
+  "Get reviews for a specific MCP tool. Returns all reviews with ratings, text, and author info.",
+  getReviewsSchema.shape,
+  async ({ slug }) => {
+    const result = await getReviewsHandler({ slug });
+    if (!result) {
+      return {
+        content: [{ type: "text" as const, text: `Tool "${slug}" not found or reviews unavailable.` }],
+        isError: true,
+      };
+    }
+    return {
+      content: [{ type: "text" as const, text: JSON.stringify(result, null, 2) }],
+    };
+  }
+);
+
+server.tool(
+  "submit-review",
+  "Submit a review for an MCP tool. Requires HIVE_MARKET_API_KEY environment variable to be set.",
+  submitReviewSchema.shape,
+  async ({ slug, rating, text, authorName, authorUsername }) => {
+    const result = await submitReviewHandler({ slug, rating, text, authorName, authorUsername });
+    if (!result.success) {
+      return {
+        content: [{ type: "text" as const, text: result.error }],
+        isError: true,
+      };
+    }
+    return {
+      content: [{ type: "text" as const, text: JSON.stringify(result.review, null, 2) }],
+    };
+  }
+);
+
+server.tool(
+  "submit-tool",
+  "Publish an MCP tool to Hive Market. The tool goes through automated AI audit and is either auto-approved or flagged for review. Requires HIVE_MARKET_API_KEY environment variable.",
+  submitToolSchema.shape,
+  async (params) => {
+    const result = await submitToolHandler(params);
+    if (!result.success) {
+      return {
+        content: [{ type: "text" as const, text: result.error }],
+        isError: true,
+      };
+    }
+    return {
+      content: [{ type: "text" as const, text: JSON.stringify(result.submission, null, 2) }],
     };
   }
 );

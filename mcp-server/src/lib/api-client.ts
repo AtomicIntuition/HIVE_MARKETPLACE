@@ -56,3 +56,100 @@ export async function fetchStacks(): Promise<{ stacks: Stack[] }> {
 export async function fetchStack(slug: string): Promise<{ stack: Stack; tools: Tool[]; config: unknown }> {
   return fetchJson(`/api/stacks/${slug}`);
 }
+
+export interface Review {
+  id: string;
+  authorName: string;
+  authorUsername: string;
+  rating: number;
+  text: string;
+  createdAt: string;
+  helpful: number;
+}
+
+export interface ReviewsResponse {
+  tool: { id: string; slug: string; name: string };
+  reviews: Review[];
+  count: number;
+}
+
+export async function fetchReviews(slug: string): Promise<ReviewsResponse> {
+  return fetchJson(`/api/tools/${slug}/reviews`);
+}
+
+export async function postReview(
+  slug: string,
+  body: { rating: number; text: string; authorName: string; authorUsername: string },
+  apiKey: string
+): Promise<{ ok: true; data: unknown } | { ok: false; status: number; message: string }> {
+  const url = `${getApiUrl()}/api/tools/${slug}/reviews`;
+  const response = await fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${apiKey}`,
+    },
+    body: JSON.stringify(body),
+  });
+
+  const json = await response.json();
+
+  if (!response.ok) {
+    return {
+      ok: false,
+      status: response.status,
+      message: json.error || response.statusText,
+    };
+  }
+
+  return { ok: true, data: json.data ?? json };
+}
+
+export interface ToolSubmissionBody {
+  name: string;
+  slug: string;
+  description: string;
+  longDescription: string;
+  category: string;
+  tags: string[];
+  features: string[];
+  version: string;
+  compatibility: string[];
+  authorName: string;
+  authorUsername: string;
+  npmPackage?: string;
+  installCommand?: "npx" | "uvx";
+  githubUrl?: string;
+  docsUrl?: string;
+  pricingModel?: string;
+  pricingPrice?: number;
+  pricingUnit?: string;
+  envVars?: Array<{ name: string; description: string; required: boolean; placeholder?: string }>;
+}
+
+export async function postToolSubmission(
+  body: ToolSubmissionBody,
+  apiKey: string
+): Promise<{ ok: true; data: unknown } | { ok: false; status: number; message: string }> {
+  const url = `${getApiUrl()}/api/tools/submit`;
+  const response = await fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${apiKey}`,
+    },
+    body: JSON.stringify(body),
+  });
+
+  const json = await response.json();
+
+  if (!response.ok) {
+    return {
+      ok: false,
+      status: response.status,
+      message: json.error || response.statusText,
+    };
+  }
+
+  return { ok: true, data: json };
+}
