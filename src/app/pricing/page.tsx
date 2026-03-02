@@ -148,15 +148,6 @@ export default function PricingPage() {
           </div>
         </div>
 
-        {/* FAQ-style bottom */}
-        <div className="mx-auto mt-24 max-w-2xl text-center">
-          <p className="text-sm text-gray-500">
-            Need a private marketplace or custom setup for your team?{" "}
-            <a href="mailto:hello@hive.sh" className="text-violet-400 hover:text-violet-300">
-              Get in touch
-            </a>
-          </p>
-        </div>
       </div>
     </div>
   );
