@@ -6,7 +6,7 @@ export const SITE_CONFIG = {
     "The marketplace for MCP-compatible tools. Discover, connect, and power your AI agents with 60+ ready-to-use integrations.",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://hive-mcp.vercel.app",
   hiveUrl: "https://hive.sh",
-  ogImage: "/og-image.png",
+  ogImage: "/hive_market.png",
   creator: "@hivemarketplace",
 } as const;
 
