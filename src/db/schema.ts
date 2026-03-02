@@ -213,7 +213,7 @@ export const apiKeys = pgTable(
       .notNull()
       .references(() => profiles.id, { onDelete: "cascade" }),
     keyHash: text("key_hash").notNull(),
-    keyPrefix: varchar("key_prefix", { length: 16 }).notNull(),
+    keyPrefix: varchar("key_prefix", { length: 20 }).notNull(),
     name: varchar("name", { length: 255 }).notNull(),
     status: apiKeyStatusEnum("status").notNull().default("active"),
     createdAt: timestamp("created_at", { mode: "string" }).notNull().defaultNow(),
