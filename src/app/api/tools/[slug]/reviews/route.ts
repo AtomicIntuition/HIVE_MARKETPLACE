@@ -3,6 +3,12 @@ import { createClient as createSupabaseClient } from "@supabase/supabase-js";
 import { getToolBySlug } from "@/lib/data";
 import { apiSuccess, apiError, handleCors } from "@/lib/api-utils";
 import { createClient } from "@/lib/supabase/server";
+import { validateApiKey } from "@/lib/api-keys";
+import {
+  reviewRateLimiter,
+  REVIEW_RATE_LIMIT,
+  REVIEW_RATE_WINDOW_MS,
+} from "@/lib/rate-limiter";
 
 /** Admin client that bypasses RLS — used for agent-submitted reviews */
 function createAdminClient() {
@@ -110,7 +116,31 @@ export async function POST(
         "anonymous";
       reviewerId = user.id;
     } else {
-      // Agent review — requires authorName and authorUsername in body
+      // Agent review — requires valid API key
+      const authHeader = request.headers.get("authorization");
+      const keyResult = await validateApiKey(authHeader);
+
+      if (!keyResult.valid || !keyResult.userId || !keyResult.keyId) {
+        return apiError(
+          "Authentication required. Provide a Supabase session or Authorization: Bearer hm_sk_... API key.",
+          401
+        );
+      }
+
+      // Rate limit check
+      const rateLimitResult = reviewRateLimiter.check(
+        keyResult.keyId,
+        REVIEW_RATE_LIMIT,
+        REVIEW_RATE_WINDOW_MS
+      );
+
+      if (!rateLimitResult.allowed) {
+        return apiError(
+          `Rate limit exceeded. Try again after ${new Date(rateLimitResult.resetAt).toISOString()}`,
+          429
+        );
+      }
+
       if (!authorName || !authorUsername || typeof authorName !== "string" || typeof authorUsername !== "string") {
         return apiError(
           "Agent reviews require authorName and authorUsername fields",
@@ -128,8 +158,8 @@ export async function POST(
 
       reviewAuthorName = authorName;
       reviewAuthorUsername = authorUsername;
-      // Generate a deterministic ID for agent reviewers so they can only review once per tool
-      reviewerId = `agent-${authorUsername}`;
+      // Tie agent reviews to the API key owner so they can only review once per tool
+      reviewerId = `agent-${keyResult.userId}-${authorUsername}`;
     }
 
     const admin = createAdminClient();

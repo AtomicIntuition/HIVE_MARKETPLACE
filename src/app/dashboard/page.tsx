@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { Plus, CheckCircle2, Clock, XCircle, Pencil, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ApiKeysSection } from "@/components/dashboard/api-keys-section";
 import { createMetadata } from "@/lib/metadata";
 import { createClient } from "@/lib/supabase/server";
 
@@ -214,6 +215,9 @@ export default async function DashboardPage() {
             </div>
           )}
         </div>
+
+        {/* API Keys */}
+        <ApiKeysSection />
 
         {/* Connected Tools */}
         <div className="mt-8">

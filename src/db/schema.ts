@@ -50,6 +50,11 @@ export const analyticsSourceEnum = pgEnum("analytics_source", [
   "api",
 ]);
 
+export const apiKeyStatusEnum = pgEnum("api_key_status", [
+  "active",
+  "revoked",
+]);
+
 // Types for JSONB columns
 export interface ToolAuthorJson {
   name: string;
@@ -197,6 +202,26 @@ export const userConnections = pgTable(
   },
   (table) => [
     uniqueIndex("user_connections_pk").on(table.userId, table.toolId),
+  ]
+);
+
+export const apiKeys = pgTable(
+  "api_keys",
+  {
+    id: text("id").primaryKey(),
+    userId: text("user_id")
+      .notNull()
+      .references(() => profiles.id, { onDelete: "cascade" }),
+    keyHash: text("key_hash").notNull(),
+    keyPrefix: varchar("key_prefix", { length: 16 }).notNull(),
+    name: varchar("name", { length: 255 }).notNull(),
+    status: apiKeyStatusEnum("status").notNull().default("active"),
+    createdAt: timestamp("created_at", { mode: "string" }).notNull().defaultNow(),
+    lastUsedAt: timestamp("last_used_at", { mode: "string" }),
+  },
+  (table) => [
+    uniqueIndex("api_keys_key_hash_idx").on(table.keyHash),
+    index("api_keys_user_id_idx").on(table.userId),
   ]
 );
 
