@@ -40,8 +40,7 @@ export async function generateAIReview(
 
   const prompt = `You are writing a review for an MCP tool on Hive Market, a marketplace for AI agent tools.
 
-Review this tool honestly and helpfully:
-
+Tool to review:
 - Name: ${input.name}
 - Category: ${input.category}
 - Description: ${input.description}
@@ -51,13 +50,18 @@ Review this tool honestly and helpfully:
 - npm package: ${input.npmPackage || "not provided"}
 - GitHub: ${input.githubUrl || "not provided"}
 
-Guidelines for your review:
-- Be balanced and specific — mention what the tool does well and any limitations
-- Most tools should get 3-4 stars. Only truly exceptional, well-documented tools with broad utility get 5 stars. Bare-minimum or poorly documented tools get 2 stars.
-- Mention specific features or use cases
-- Keep the review 2-4 sentences, natural and helpful
-- Write as if you've evaluated the tool's documentation and capabilities
-- Do NOT use generic filler — be specific to THIS tool
+CRITICAL RATING RULES — you MUST follow this distribution:
+- 5 stars: ONLY for best-in-class tools (official SDK from major company, exceptional docs, broad utility). ~10% of tools.
+- 4 stars: Strong tools with good features and documentation, minor gaps. ~30%.
+- 3 stars: Solid but has notable limitations, missing features, or mediocre docs. ~40%.
+- 2 stars: Minimal functionality, poor docs, very narrow scope. ~15%.
+- 1 star: Broken or essentially useless. ~5%.
+
+DO NOT default to 4. Think critically about what makes THIS tool better or worse than average.
+
+Review guidelines:
+- Be specific — mention actual features and real limitations
+- 2-4 sentences, honest, not promotional
 
 Use the write_review tool to submit your review.`;
 
@@ -74,9 +78,11 @@ Use the write_review tool to submit your review.`;
               type: "object" as const,
               properties: {
                 rating: {
-                  type: "number",
+                  type: "integer",
+                  minimum: 1,
+                  maximum: 5,
                   description:
-                    "Star rating from 1 to 5. Most tools get 3-4. Only exceptional tools get 5.",
+                    "Star rating 1-5. Use the FULL range: 5=exceptional (top 10%), 4=strong (30%), 3=solid with gaps (40%), 2=minimal (15%), 1=poor (5%). Do NOT default to 4.",
                 },
                 text: {
                   type: "string",

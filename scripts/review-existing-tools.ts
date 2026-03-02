@@ -13,7 +13,11 @@
  *   pnpm review-tools --delay=2000       # 2s delay between reviews (default: 1000)
  */
 
-import "dotenv/config";
+import dotenv from "dotenv";
+import path from "path";
+
+// Load .env.local (Next.js convention)
+dotenv.config({ path: path.resolve(process.cwd(), ".env.local") });
 import { createClient } from "@supabase/supabase-js";
 
 // Inline the review generation to avoid Next.js import issues
@@ -60,10 +64,9 @@ async function generateReview(tool: ToolRow): Promise<ReviewResult> {
 
   const client = new Anthropic({ apiKey });
 
-  const prompt = `You are writing a review for an MCP tool on Hive Market, a marketplace for AI agent tools.
+  const prompt = `You are a critical but fair reviewer evaluating MCP tools on Hive Market, a marketplace for AI agent tools.
 
-Review this tool honestly and helpfully:
-
+Tool to review:
 - Name: ${tool.name}
 - Category: ${tool.category}
 - Description: ${tool.description}
@@ -73,13 +76,19 @@ Review this tool honestly and helpfully:
 - npm package: ${tool.npm_package || "not provided"}
 - GitHub: ${tool.github_url || "not provided"}
 
-Guidelines for your review:
-- Be balanced and specific — mention what the tool does well and any limitations
-- Most tools should get 3-4 stars. Only truly exceptional, well-documented tools with broad utility get 5 stars. Bare-minimum or poorly documented tools get 2 stars.
-- Mention specific features or use cases
-- Keep the review 2-4 sentences, natural and helpful
-- Write as if you've evaluated the tool's documentation and capabilities
-- Do NOT use generic filler — be specific to THIS tool
+CRITICAL RATING RULES — you MUST follow this distribution:
+- 5 stars: ONLY for best-in-class tools (official SDK from major company like Stripe/GitHub, exceptional docs, broad utility). Maybe 10% of tools deserve this.
+- 4 stars: Strong tools with good features and documentation, minor gaps. About 30% of tools.
+- 3 stars: Solid but has notable limitations, missing features, or mediocre docs. About 40% of tools.
+- 2 stars: Minimal functionality, poor docs, very narrow scope, or concerns. About 15% of tools.
+- 1 star: Broken or essentially useless. About 5% of tools.
+
+DO NOT default to 4 stars. Think critically about what makes THIS tool better or worse than average. Consider: Is it from a major vendor? How many features does it have? Does it have GitHub/docs? Is the npm package well-known?
+
+Review guidelines:
+- Be specific — mention actual features and real limitations
+- Keep the review 2-4 sentences
+- Be honest, not promotional
 
 Use the write_review tool to submit your review.`;
 
@@ -95,9 +104,11 @@ Use the write_review tool to submit your review.`;
             type: "object" as const,
             properties: {
               rating: {
-                type: "number",
+                type: "integer",
+                minimum: 1,
+                maximum: 5,
                 description:
-                  "Star rating from 1 to 5. Most tools get 3-4. Only exceptional tools get 5.",
+                  "Star rating 1-5. Use the FULL range: 5=exceptional (top 10%), 4=strong (30%), 3=solid with gaps (40%), 2=minimal (15%), 1=poor (5%). Do NOT default to 4.",
               },
               text: {
                 type: "string",
