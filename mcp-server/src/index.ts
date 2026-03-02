@@ -15,7 +15,7 @@ import { submitToolSchema, submitToolHandler } from "./tools/submit-tool.js";
 
 const server = new McpServer({
   name: "hive-market",
-  version: "1.2.0",
+  version: "1.3.0",
 });
 
 server.tool(
@@ -210,6 +210,24 @@ server.tool(
 );
 
 async function main() {
+  // Detect interactive terminal (not piped by an MCP client)
+  if (process.stdin.isTTY) {
+    process.stderr.write(`
+  Hive Market MCP Server v1.3.0
+
+  This server communicates via the MCP protocol over stdio.
+  To use it, add it to your AI client:
+
+    Claude Code:    claude mcp add hive-market -- npx -y hive-market-mcp
+    Claude Desktop: Add to ~/Library/Application Support/Claude/claude_desktop_config.json
+    Cursor:         Add to ~/.cursor/mcp.json
+
+  Docs: https://hive-mcp.vercel.app/docs/connecting-tools
+
+  Waiting for MCP client connection...
+`);
+  }
+
   const transport = new StdioServerTransport();
   await server.connect(transport);
 }
