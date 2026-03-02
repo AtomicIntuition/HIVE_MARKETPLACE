@@ -1,6 +1,6 @@
 import type { Tool, Category, Stack } from "../types.js";
 
-const DEFAULT_API_URL = "https://market.hive.sh";
+const DEFAULT_API_URL = "https://hive-mcp.vercel.app";
 
 function getApiUrl(): string {
   return process.env.HIVE_MARKET_API_URL || DEFAULT_API_URL;

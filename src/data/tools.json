@@ -3,7 +3,7 @@
     "id": "stripe-mcp",
     "name": "Stripe MCP",
     "slug": "stripe-mcp",
-    "description": "Full Stripe API access — payments, invoices, subscriptions, and customer management for AI agents.",
+    "description": "Full Stripe API access \u2014 payments, invoices, subscriptions, and customer management for AI agents.",
     "longDescription": "The Stripe MCP server provides comprehensive access to the Stripe API, enabling AI agents to process payments, create and manage subscriptions, generate invoices, handle refunds, and manage customer data. Built for production use with proper error handling, idempotency support, and PCI compliance considerations.\n\n## Key Capabilities\n- Create and process payments (one-time and recurring)\n- Manage subscriptions and billing cycles\n- Generate and send invoices\n- Handle refunds and disputes\n- Customer CRUD operations\n- Webhook event processing\n- Connect account management\n\n## Security\n- API keys are never exposed to the AI model\n- All operations use scoped permissions\n- PCI-compliant data handling",
     "category": "payments",
     "author": {
@@ -65,8 +65,8 @@
     "id": "shopify-mcp",
     "name": "Shopify MCP",
     "slug": "shopify-mcp",
-    "description": "Manage your Shopify store — products, orders, inventory, and customers through AI agents.",
-    "longDescription": "The Shopify MCP server connects your AI agents to Shopify's Admin API, enabling full store management capabilities. Create products, process orders, track inventory, manage customers, and handle fulfillment — all through natural language commands.\n\n## Key Capabilities\n- Product CRUD with variants and images\n- Order management and fulfillment\n- Inventory tracking across locations\n- Customer management and segmentation\n- Discount and promotion creation\n- Analytics and reporting",
+    "description": "Manage your Shopify store \u2014 products, orders, inventory, and customers through AI agents.",
+    "longDescription": "The Shopify MCP server connects your AI agents to Shopify's Admin API, enabling full store management capabilities. Create products, process orders, track inventory, manage customers, and handle fulfillment \u2014 all through natural language commands.\n\n## Key Capabilities\n- Product CRUD with variants and images\n- Order management and fulfillment\n- Inventory tracking across locations\n- Customer management and segmentation\n- Discount and promotion creation\n- Analytics and reporting",
     "category": "payments",
     "author": {
       "name": "Shopify",
@@ -132,7 +132,7 @@
     "name": "PayPal MCP",
     "slug": "paypal-mcp",
     "description": "PayPal checkout, invoicing, and payment processing for AI-powered workflows.",
-    "longDescription": "Integrate PayPal payment processing into your AI agent workflows. Handle checkouts, send invoices, process refunds, and manage disputes — all through the MCP protocol.\n\n## Key Capabilities\n- Create and capture payments\n- Send professional invoices\n- Process refunds\n- Manage disputes and chargebacks\n- Payout to sellers and partners",
+    "longDescription": "Integrate PayPal payment processing into your AI agent workflows. Handle checkouts, send invoices, process refunds, and manage disputes \u2014 all through the MCP protocol.\n\n## Key Capabilities\n- Create and capture payments\n- Send professional invoices\n- Process refunds\n- Manage disputes and chargebacks\n- Payout to sellers and partners",
     "category": "payments",
     "author": {
       "name": "PayPal Dev",
@@ -312,7 +312,7 @@
     "id": "gmail-mcp",
     "name": "Gmail MCP",
     "slug": "gmail-mcp",
-    "description": "Read, compose, send, and manage email through Gmail — AI-powered email automation.",
+    "description": "Read, compose, send, and manage email through Gmail \u2014 AI-powered email automation.",
     "longDescription": "Give your AI agents the ability to manage email through Gmail. Read incoming messages, compose and send emails, manage labels, search through mail, and handle attachments.\n\n## Key Capabilities\n- Read and search emails\n- Compose and send messages\n- Reply and forward\n- Label and organize\n- Attachment handling\n- Draft management\n- Thread operations",
     "category": "communication",
     "author": {
@@ -489,7 +489,7 @@
     "id": "sendgrid-mcp",
     "name": "SendGrid MCP",
     "slug": "sendgrid-mcp",
-    "description": "Transactional and marketing email at scale — templates, campaigns, and deliverability.",
+    "description": "Transactional and marketing email at scale \u2014 templates, campaigns, and deliverability.",
     "longDescription": "Send transactional emails, manage marketing campaigns, handle email templates, and track deliverability through AI agents connected to SendGrid.\n\n## Key Capabilities\n- Send transactional emails\n- Marketing campaign management\n- Template creation and management\n- Contact list management\n- Deliverability analytics\n- Bounce and spam management",
     "category": "communication",
     "author": {
@@ -546,7 +546,7 @@
     "id": "email-smtp-mcp",
     "name": "Email SMTP MCP",
     "slug": "email-smtp-mcp",
-    "description": "Send emails via any SMTP server — Gmail, Outlook, custom mail servers, and more.",
+    "description": "Send emails via any SMTP server \u2014 Gmail, Outlook, custom mail servers, and more.",
     "longDescription": "A universal email MCP server that works with any SMTP provider. Send emails through Gmail, Outlook, Amazon SES, or your own mail server.\n\n## Key Capabilities\n- Send emails via SMTP\n- HTML and plain text support\n- Attachment handling\n- Multiple recipient types (to, cc, bcc)\n- Template rendering\n- Connection pooling",
     "category": "communication",
     "author": {
@@ -678,7 +678,7 @@
     "id": "supabase-mcp",
     "name": "Supabase MCP",
     "slug": "supabase-mcp",
-    "description": "Full Supabase backend access — database, auth, storage, and edge functions from AI agents.",
+    "description": "Full Supabase backend access \u2014 database, auth, storage, and edge functions from AI agents.",
     "longDescription": "The Supabase MCP server provides complete access to Supabase projects. Manage your database, handle authentication, upload files to storage, and invoke edge functions.\n\n## Key Capabilities\n- Database operations (CRUD, RPC, realtime)\n- Authentication management\n- Storage file operations\n- Edge function invocation\n- Row-level security management\n- Realtime subscriptions",
     "category": "data",
     "author": {
@@ -744,7 +744,7 @@
     "id": "mongodb-mcp",
     "name": "MongoDB MCP",
     "slug": "mongodb-mcp",
-    "description": "Document database operations — CRUD, aggregation, indexing for MongoDB through AI agents.",
+    "description": "Document database operations \u2014 CRUD, aggregation, indexing for MongoDB through AI agents.",
     "longDescription": "Connect your AI agents to MongoDB for document database operations. Insert, query, update, and delete documents, run aggregation pipelines, manage indexes, and monitor performance.\n\n## Key Capabilities\n- CRUD operations on documents\n- Aggregation pipeline execution\n- Index management\n- Collection operations\n- Change streams\n- Atlas search integration",
     "category": "data",
     "author": {
@@ -794,7 +794,7 @@
     "id": "redis-mcp",
     "name": "Redis MCP",
     "slug": "redis-mcp",
-    "description": "In-memory data store operations — caching, pub/sub, queues, and key-value operations.",
+    "description": "In-memory data store operations \u2014 caching, pub/sub, queues, and key-value operations.",
     "longDescription": "Use Redis through your AI agents for caching, message queuing, real-time data processing, and key-value operations.\n\n## Key Capabilities\n- Key-value operations (GET, SET, DEL)\n- Hash, list, set, and sorted set operations\n- Pub/sub messaging\n- Stream processing\n- Cache management with TTL\n- Lua script execution",
     "category": "data",
     "author": {
@@ -852,7 +852,7 @@
     "id": "sqlite-mcp",
     "name": "SQLite MCP",
     "slug": "sqlite-mcp",
-    "description": "Lightweight embedded SQL database — query, manage, and analyze local SQLite databases.",
+    "description": "Lightweight embedded SQL database \u2014 query, manage, and analyze local SQLite databases.",
     "longDescription": "Connect your AI agents to SQLite databases for lightweight data operations. Perfect for local development, prototyping, and embedded applications.\n\n## Key Capabilities\n- Execute SQL queries\n- Schema management\n- Data import/export\n- In-memory databases\n- WAL mode support\n- Full-text search",
     "category": "data",
     "author": {
@@ -902,7 +902,7 @@
     "id": "neon-mcp",
     "name": "Neon MCP",
     "slug": "neon-mcp",
-    "description": "Serverless Postgres — branch databases, autoscale, and manage Neon projects from AI agents.",
+    "description": "Serverless Postgres \u2014 branch databases, autoscale, and manage Neon projects from AI agents.",
     "longDescription": "Connect your AI agents to Neon's serverless Postgres platform. Create database branches, manage projects, run queries, and leverage Neon's unique branching model.\n\n## Key Capabilities\n- Create and manage projects\n- Database branching\n- SQL query execution\n- Autoscaling configuration\n- Connection pooling\n- Compute endpoint management",
     "category": "data",
     "author": {
@@ -961,7 +961,7 @@
     "id": "tinybird-mcp",
     "name": "Tinybird MCP",
     "slug": "tinybird-mcp",
-    "description": "Real-time analytics APIs — ingest events, query data, and build analytics endpoints.",
+    "description": "Real-time analytics APIs \u2014 ingest events, query data, and build analytics endpoints.",
     "longDescription": "Connect your AI agents to Tinybird for real-time analytics. Ingest events at scale, query data with SQL, and manage analytics API endpoints.\n\n## Key Capabilities\n- Event ingestion\n- SQL query execution\n- API endpoint management\n- Data source operations\n- Pipe management\n- Real-time dashboards",
     "category": "data",
     "author": {
@@ -1018,7 +1018,7 @@
     "id": "github-mcp",
     "name": "GitHub MCP",
     "slug": "github-mcp",
-    "description": "Full GitHub access — repos, issues, pull requests, actions, and code search for AI agents.",
+    "description": "Full GitHub access \u2014 repos, issues, pull requests, actions, and code search for AI agents.",
     "longDescription": "The GitHub MCP server provides comprehensive access to GitHub's platform. Manage repositories, create and review pull requests, handle issues, trigger workflows, search code, and manage releases.\n\n## Key Capabilities\n- Repository management (create, clone, fork)\n- Pull request operations (create, review, merge)\n- Issue tracking (create, label, assign, close)\n- GitHub Actions (trigger, monitor workflows)\n- Code search across repositories\n- Release and tag management\n- Gist operations\n- Organization and team management",
     "category": "devtools",
     "author": {
@@ -1081,7 +1081,7 @@
     "id": "linear-mcp",
     "name": "Linear MCP",
     "slug": "linear-mcp",
-    "description": "Project management with Linear — create issues, manage sprints, and track progress via AI agents.",
+    "description": "Project management with Linear \u2014 create issues, manage sprints, and track progress via AI agents.",
     "longDescription": "Connect your AI agents to Linear for streamlined project management. Create and update issues, manage cycles and projects, track team progress, and automate workflow transitions.\n\n## Key Capabilities\n- Issue CRUD with rich metadata\n- Cycle and project management\n- Team workload visibility\n- Label and priority management\n- Workflow state transitions\n- Comment and attachment operations",
     "category": "devtools",
     "author": {
@@ -1138,7 +1138,7 @@
     "id": "sentry-mcp",
     "name": "Sentry MCP",
     "slug": "sentry-mcp",
-    "description": "Error tracking and performance monitoring — investigate and resolve issues with AI agents.",
+    "description": "Error tracking and performance monitoring \u2014 investigate and resolve issues with AI agents.",
     "longDescription": "Give your AI agents access to Sentry for intelligent error tracking and performance monitoring. Query errors, analyze stack traces, investigate performance bottlenecks, and manage issue resolution.\n\n## Key Capabilities\n- Query and filter error events\n- Stack trace analysis\n- Performance transaction monitoring\n- Issue assignment and resolution\n- Release tracking\n- Alert management",
     "category": "devtools",
     "author": {
@@ -1257,7 +1257,7 @@
     "id": "docker-mcp",
     "name": "Docker MCP",
     "slug": "docker-mcp",
-    "description": "Container management — build, run, stop, and orchestrate Docker containers from AI agents.",
+    "description": "Container management \u2014 build, run, stop, and orchestrate Docker containers from AI agents.",
     "longDescription": "Manage Docker containers through your AI agents. Build images, run containers, manage volumes and networks, and orchestrate multi-container applications.\n\n## Key Capabilities\n- Container lifecycle management\n- Image build and management\n- Volume and network operations\n- Docker Compose support\n- Container logs and exec\n- Registry operations",
     "category": "devtools",
     "author": {
@@ -1306,7 +1306,7 @@
     "id": "filesystem-mcp",
     "name": "Filesystem MCP",
     "slug": "filesystem-mcp",
-    "description": "Read, write, and manage local files and directories — essential for any AI coding workflow.",
+    "description": "Read, write, and manage local files and directories \u2014 essential for any AI coding workflow.",
     "longDescription": "The Filesystem MCP server gives your AI agent safe, controlled access to your local filesystem. Read and write files, create directories, search for files, and manage project structures.\n\n## Key Capabilities\n- Read and write files\n- Create and delete directories\n- Move and copy files\n- Search files by pattern\n- Get file metadata\n- Directory tree listing\n\n## Security\n- Configurable allowed directories\n- No access outside allowed paths",
     "category": "devtools",
     "author": {
@@ -1357,7 +1357,7 @@
     "id": "playwright-mcp",
     "name": "Playwright MCP",
     "slug": "playwright-mcp",
-    "description": "Browser automation and testing — navigate pages, fill forms, take screenshots, and run E2E tests.",
+    "description": "Browser automation and testing \u2014 navigate pages, fill forms, take screenshots, and run E2E tests.",
     "longDescription": "Automate web browsers through your AI agents using Playwright. Navigate websites, interact with elements, take screenshots, and run end-to-end tests.\n\n## Key Capabilities\n- Browser navigation and interaction\n- Form filling and submission\n- Screenshot and PDF capture\n- Element selection and clicking\n- Multi-browser support (Chromium, Firefox, WebKit)\n- Network interception",
     "category": "devtools",
     "author": {
@@ -1407,7 +1407,7 @@
     "id": "context7-mcp",
     "name": "Context7 MCP",
     "slug": "context7-mcp",
-    "description": "Up-to-date library documentation — resolve packages, query docs, and get real code examples.",
+    "description": "Up-to-date library documentation \u2014 resolve packages, query docs, and get real code examples.",
     "longDescription": "Context7 gives your AI agent access to current, verified library documentation instead of hallucinated APIs. Resolve library IDs, query documentation, and get real code examples.\n\n## Key Capabilities\n- Resolve package names to library IDs\n- Query up-to-date documentation\n- Get real code examples\n- Version-specific docs\n- Multiple language support\n- Ranked by relevance",
     "category": "devtools",
     "author": {
@@ -1458,7 +1458,7 @@
     "id": "sequential-thinking-mcp",
     "name": "Sequential Thinking MCP",
     "slug": "sequential-thinking-mcp",
-    "description": "Structured reasoning — break down complex problems step by step with revision and branching.",
+    "description": "Structured reasoning \u2014 break down complex problems step by step with revision and branching.",
     "longDescription": "A thinking tool for AI agents that enables structured, multi-step reasoning. Break down problems, revise previous thoughts, branch into alternative approaches, and verify solutions.\n\n## Key Capabilities\n- Step-by-step problem decomposition\n- Thought revision and correction\n- Branch exploration\n- Hypothesis generation and verification\n- Adjustable depth\n- Solution synthesis",
     "category": "ai-ml",
     "author": {
@@ -1508,7 +1508,7 @@
     "id": "memory-mcp",
     "name": "Memory MCP",
     "slug": "memory-mcp",
-    "description": "Persistent knowledge graph — create entities, build relations, and remember context across sessions.",
+    "description": "Persistent knowledge graph \u2014 create entities, build relations, and remember context across sessions.",
     "longDescription": "The Memory MCP server provides a persistent knowledge graph for your AI agents. Create entities, define relationships, add observations, and search across your knowledge base.\n\n## Key Capabilities\n- Create and manage entities\n- Build relationships between entities\n- Add observations\n- Search by query\n- Persistent storage\n- Graph traversal",
     "category": "ai-ml",
     "author": {
@@ -1558,7 +1558,7 @@
     "id": "brave-search-mcp",
     "name": "Brave Search MCP",
     "slug": "brave-search-mcp",
-    "description": "Web search and local search — query the web, find businesses, and get real-time results.",
+    "description": "Web search and local search \u2014 query the web, find businesses, and get real-time results.",
     "longDescription": "Search the web and find local businesses through your AI agents using the Brave Search API. Get real-time search results, local business info, and more.\n\n## Key Capabilities\n- Web search with filters\n- Local business search\n- News search\n- Image search\n- Real-time results\n- Privacy-focused",
     "category": "devtools",
     "author": {
@@ -1616,7 +1616,7 @@
     "id": "fetch-mcp",
     "name": "Fetch MCP",
     "slug": "fetch-mcp",
-    "description": "HTTP client — fetch web pages, call APIs, and retrieve content from any URL.",
+    "description": "HTTP client \u2014 fetch web pages, call APIs, and retrieve content from any URL.",
     "longDescription": "A simple HTTP client MCP server for fetching web content. Retrieve web pages, call REST APIs, and download content from any URL.\n\n## Key Capabilities\n- Fetch web pages as markdown\n- Call REST APIs\n- Handle redirects\n- Custom headers\n- Content type detection\n- Robots.txt compliance",
     "category": "devtools",
     "author": {
@@ -1840,7 +1840,7 @@
     "id": "airtable-mcp",
     "name": "Airtable MCP",
     "slug": "airtable-mcp",
-    "description": "Spreadsheet-database hybrid — manage bases, records, and automations through AI agents.",
+    "description": "Spreadsheet-database hybrid \u2014 manage bases, records, and automations through AI agents.",
     "longDescription": "Connect your AI agents to Airtable for powerful spreadsheet-database operations. Create and query records, manage views, handle automations, and build data workflows.\n\n## Key Capabilities\n- Record CRUD operations\n- View and filter management\n- Field type handling\n- Automation triggers\n- Attachment management\n- Webhook configuration",
     "category": "productivity",
     "author": {
@@ -1897,7 +1897,7 @@
     "id": "obsidian-mcp",
     "name": "Obsidian MCP",
     "slug": "obsidian-mcp",
-    "description": "Manage your Obsidian vault — read, write, search notes, and navigate your knowledge graph.",
+    "description": "Manage your Obsidian vault \u2014 read, write, search notes, and navigate your knowledge graph.",
     "longDescription": "Connect your AI agents to your Obsidian vault. Read and write notes, search across your knowledge base, manage tags, and traverse note links.\n\n## Key Capabilities\n- Read and write notes\n- Search across vault\n- Tag management\n- Link traversal\n- Template rendering\n- Frontmatter operations",
     "category": "productivity",
     "author": {
@@ -1954,7 +1954,7 @@
     "id": "openai-mcp",
     "name": "OpenAI MCP",
     "slug": "openai-mcp",
-    "description": "Access GPT models, DALL-E, Whisper, and embeddings — AI capabilities for your agents.",
+    "description": "Access GPT models, DALL-E, Whisper, and embeddings \u2014 AI capabilities for your agents.",
     "longDescription": "Give your AI agents access to OpenAI's suite of models. Generate text with GPT, create images with DALL-E, transcribe audio with Whisper, and compute embeddings.\n\n## Key Capabilities\n- Text generation (GPT-4, GPT-3.5)\n- Image generation (DALL-E 3)\n- Audio transcription (Whisper)\n- Text embeddings\n- Fine-tuning management\n- Moderation API",
     "category": "ai-ml",
     "author": {
@@ -2017,7 +2017,7 @@
     "id": "anthropic-mcp",
     "name": "Anthropic MCP",
     "slug": "anthropic-mcp",
-    "description": "Claude API access — text generation, analysis, and conversation through the MCP protocol.",
+    "description": "Claude API access \u2014 text generation, analysis, and conversation through the MCP protocol.",
     "longDescription": "Connect to the Anthropic API through MCP for access to Claude models. Generate text, analyze documents, have multi-turn conversations, and leverage Claude's capabilities.\n\n## Key Capabilities\n- Text generation with Claude\n- Document analysis\n- Multi-turn conversations\n- Tool use orchestration\n- System prompt management\n- Streaming responses",
     "category": "ai-ml",
     "author": {
@@ -2078,7 +2078,7 @@
     "id": "huggingface-mcp",
     "name": "Hugging Face MCP",
     "slug": "huggingface-mcp",
-    "description": "Run inference on thousands of ML models — NLP, vision, audio, and multimodal.",
+    "description": "Run inference on thousands of ML models \u2014 NLP, vision, audio, and multimodal.",
     "longDescription": "Access Hugging Face's vast model hub through your AI agents. Run inference on pre-trained models for text, image, audio, and multimodal tasks.\n\n## Key Capabilities\n- Text classification and generation\n- Image classification and generation\n- Audio transcription and classification\n- Sentence embeddings\n- Model search and discovery\n- Spaces API access",
     "category": "ai-ml",
     "author": {
@@ -2139,7 +2139,7 @@
     "id": "replicate-mcp",
     "name": "Replicate MCP",
     "slug": "replicate-mcp",
-    "description": "Run open-source ML models in the cloud — Stable Diffusion, LLaMA, and thousands more.",
+    "description": "Run open-source ML models in the cloud \u2014 Stable Diffusion, LLaMA, and thousands more.",
     "longDescription": "Run machine learning models through Replicate's cloud infrastructure via your AI agents. Access thousands of open-source models including image generators, language models, and audio tools.\n\n## Key Capabilities\n- Run any Replicate model\n- Image generation (Stable Diffusion, FLUX)\n- Language model inference\n- Audio and music generation\n- Video generation\n- Custom model deployment",
     "category": "ai-ml",
     "author": {
@@ -2254,7 +2254,7 @@
     "id": "cloudinary-mcp",
     "name": "Cloudinary MCP",
     "slug": "cloudinary-mcp",
-    "description": "Image and video management — upload, transform, optimize, and deliver media at scale.",
+    "description": "Image and video management \u2014 upload, transform, optimize, and deliver media at scale.",
     "longDescription": "Manage images and videos through Cloudinary via your AI agents. Upload, transform, optimize, and deliver media assets with powerful manipulation capabilities.\n\n## Key Capabilities\n- Image upload and management\n- On-the-fly transformations\n- Video processing\n- AI-powered tagging\n- CDN delivery optimization\n- Responsive image generation",
     "category": "content",
     "author": {
@@ -2315,7 +2315,7 @@
     "id": "youtube-mcp",
     "name": "YouTube MCP",
     "slug": "youtube-mcp",
-    "description": "YouTube data access — search videos, get transcripts, manage playlists, and analyze channels.",
+    "description": "YouTube data access \u2014 search videos, get transcripts, manage playlists, and analyze channels.",
     "longDescription": "Access YouTube data through your AI agents. Search videos, retrieve transcripts, manage playlists, analyze channel stats, and monitor comments.\n\n## Key Capabilities\n- Video search and metadata\n- Transcript/subtitle retrieval\n- Playlist management\n- Channel analytics\n- Comment operations\n- Trending and recommendation data",
     "category": "content",
     "author": {
@@ -2373,7 +2373,7 @@
     "id": "firecrawl-mcp",
     "name": "Firecrawl MCP",
     "slug": "firecrawl-mcp",
-    "description": "Web scraping at scale — crawl websites, extract structured data, and convert pages to markdown.",
+    "description": "Web scraping at scale \u2014 crawl websites, extract structured data, and convert pages to markdown.",
     "longDescription": "Crawl and scrape websites at scale through your AI agents using Firecrawl. Convert pages to clean markdown, extract structured data, and handle JavaScript-rendered content.\n\n## Key Capabilities\n- Full site crawling\n- Page to markdown conversion\n- Structured data extraction\n- JavaScript rendering\n- Sitemap discovery\n- Rate limiting and retries",
     "category": "content",
     "author": {
@@ -2431,7 +2431,7 @@
     "id": "exa-search-mcp",
     "name": "Exa Search MCP",
     "slug": "exa-search-mcp",
-    "description": "AI-native semantic search — find content by meaning, not just keywords.",
+    "description": "AI-native semantic search \u2014 find content by meaning, not just keywords.",
     "longDescription": "Search the web semantically using Exa's AI-native search API. Find content by meaning and intent, not just keyword matching.\n\n## Key Capabilities\n- Semantic search\n- Neural search queries\n- Content retrieval\n- Similar page discovery\n- Category filtering\n- Date range filtering",
     "category": "devtools",
     "author": {
@@ -2489,7 +2489,7 @@
     "id": "puppeteer-mcp",
     "name": "Puppeteer MCP",
     "slug": "puppeteer-mcp",
-    "description": "Headless Chrome automation — navigate, screenshot, scrape, and automate web pages.",
+    "description": "Headless Chrome automation \u2014 navigate, screenshot, scrape, and automate web pages.",
     "longDescription": "Control headless Chrome through your AI agents using Puppeteer. Navigate web pages, take screenshots, extract data, and automate browser interactions.\n\n## Key Capabilities\n- Page navigation\n- Screenshots and PDFs\n- DOM manipulation\n- Form submission\n- Network interception\n- Cookie management",
     "category": "devtools",
     "author": {
@@ -2539,7 +2539,7 @@
     "id": "browserbase-mcp",
     "name": "Browserbase MCP",
     "slug": "browserbase-mcp",
-    "description": "Cloud browser automation — run headless browsers at scale without infrastructure management.",
+    "description": "Cloud browser automation \u2014 run headless browsers at scale without infrastructure management.",
     "longDescription": "Run headless browsers in the cloud through Browserbase. Scale browser automation without managing infrastructure.\n\n## Key Capabilities\n- Cloud browser sessions\n- Screenshot capture\n- Content extraction\n- Session management\n- Proxy support\n- Auto-scaling",
     "category": "devtools",
     "author": {
@@ -2601,7 +2601,7 @@
     "id": "cloudflare-mcp",
     "name": "Cloudflare MCP",
     "slug": "cloudflare-mcp",
-    "description": "Manage Workers, KV, R2, D1, and DNS — edge computing and infrastructure from AI agents.",
+    "description": "Manage Workers, KV, R2, D1, and DNS \u2014 edge computing and infrastructure from AI agents.",
     "longDescription": "Control your Cloudflare infrastructure through AI agents. Deploy Workers, manage KV storage, R2 buckets, D1 databases, and configure DNS.\n\n## Key Capabilities\n- Workers deployment\n- KV storage operations\n- R2 bucket management\n- D1 database queries\n- DNS record management\n- Zone configuration",
     "category": "devtools",
     "author": {
@@ -2658,7 +2658,7 @@
     "id": "posthog-mcp",
     "name": "PostHog MCP",
     "slug": "posthog-mcp",
-    "description": "Product analytics — track events, analyze funnels, manage feature flags, and run experiments.",
+    "description": "Product analytics \u2014 track events, analyze funnels, manage feature flags, and run experiments.",
     "longDescription": "Connect your AI agents to PostHog for product analytics and experimentation. Track events, analyze user funnels, manage feature flags, and run A/B tests.\n\n## Key Capabilities\n- Event tracking and capture\n- Funnel analysis\n- User session recording queries\n- Feature flag management\n- A/B test configuration\n- Cohort analysis",
     "category": "analytics",
     "author": {
@@ -2723,7 +2723,7 @@
     "id": "google-analytics-mcp",
     "name": "Google Analytics MCP",
     "slug": "google-analytics-mcp",
-    "description": "Query GA4 data — traffic, engagement, conversions, and custom reports for AI agents.",
+    "description": "Query GA4 data \u2014 traffic, engagement, conversions, and custom reports for AI agents.",
     "longDescription": "Access Google Analytics 4 data through your AI agents. Query traffic reports, analyze user engagement, track conversions, and generate custom reports.\n\n## Key Capabilities\n- Traffic and acquisition reports\n- User engagement metrics\n- Conversion tracking\n- Custom report generation\n- Real-time data access\n- Audience analysis",
     "category": "analytics",
     "author": {
@@ -2785,7 +2785,7 @@
     "id": "mixpanel-mcp",
     "name": "Mixpanel MCP",
     "slug": "mixpanel-mcp",
-    "description": "Event analytics — track user actions, build funnels, analyze retention, and segment users.",
+    "description": "Event analytics \u2014 track user actions, build funnels, analyze retention, and segment users.",
     "longDescription": "Connect your AI agents to Mixpanel for event-based analytics. Track user actions, build conversion funnels, analyze retention, and create user segments.\n\n## Key Capabilities\n- Event tracking and querying\n- Funnel construction and analysis\n- Retention analysis\n- User segmentation\n- Flow analysis\n- Custom JQL queries",
     "category": "analytics",
     "author": {
@@ -2846,7 +2846,7 @@
   {
     "slug": "github-official-mcp",
     "name": "GitHub Official MCP",
-    "description": "GitHub's official MCP Server — repos, issues, PRs, code search, actions, and more with native GitHub authentication.",
+    "description": "GitHub's official MCP Server \u2014 repos, issues, PRs, code search, actions, and more with native GitHub authentication.",
     "category": "devtools",
     "author": {
       "name": "GitHub",
@@ -2854,15 +2854,15 @@
       "verified": true
     },
     "githubUrl": "https://github.com/github/github-mcp-server",
-    "npmPackage": "@github/mcp-server",
+    "npmPackage": null,
     "installCommand": "npx",
     "features": [
-      "Repository management",
-      "Issue and PR operations",
-      "Code search",
-      "GitHub Actions",
-      "Branch management",
-      "Native GitHub auth"
+      "Repository management and code search",
+      "Issue and pull request operations",
+      "GitHub Actions workflow control",
+      "Security and Dependabot alerts",
+      "Projects and Discussions",
+      "Read-only mode for safe exploration"
     ],
     "tags": [
       "github",
@@ -2874,35 +2874,49 @@
     ],
     "compatibility": [
       "Claude",
-      "GPT",
-      "Gemini",
-      "Open Source"
+      "Cursor",
+      "VS Code",
+      "Windsurf",
+      "JetBrains"
     ],
     "pricing": {
       "model": "free"
     },
     "stars": 27389,
-    "id": "1",
+    "id": "github-official-mcp",
     "rating": 0,
     "reviewCount": 0,
     "installs": 0,
-    "trending": false,
-    "featured": false,
-    "version": "1.0.0",
-    "longDescription": "GitHub's official MCP Server — repos, issues, PRs, code search, actions, and more with native GitHub authentication.",
-    "docsUrl": "https://github.com/github/github-mcp-server",
-    "envVars": [],
+    "trending": true,
+    "featured": true,
+    "version": "0.31.0",
+    "longDescription": "The GitHub MCP Server is GitHub's official Model Context Protocol server, giving AI agents native access to the entire GitHub platform. Agents can browse and search repositories, manage issues and pull requests, trigger and monitor GitHub Actions workflows, review Dependabot and code security alerts, access GitHub Projects and Discussions, and perform Git operations.\n\nOrganized into configurable toolsets (repos, issues, pull_requests, actions, code_security, discussions, projects, gists, notifications, orgs), so you enable only what your agent needs. A read-only mode restricts all operations to safe reads. GitHub Enterprise Server and GHE Cloud are supported.\n\nDistributed as a Docker image (ghcr.io/github/github-mcp-server). For MCP clients, configure with docker command.",
+    "docsUrl": "https://github.com/github/github-mcp-server#readme",
+    "envVars": [
+      {
+        "name": "GITHUB_PERSONAL_ACCESS_TOKEN",
+        "description": "GitHub personal access token for API authentication",
+        "required": true,
+        "placeholder": "ghp_..."
+      },
+      {
+        "name": "GITHUB_HOST",
+        "description": "Hostname for GitHub Enterprise Server (optional)",
+        "required": false,
+        "placeholder": "https://github.mycompany.com"
+      }
+    ],
     "lastUpdated": "2026-03-02T18:05:25.404Z",
     "createdAt": "2026-03-02T18:05:25.404Z",
     "installCount": 0,
     "weeklyInstalls": 0,
-    "iconBg": "#1a1a2e",
-    "verified": false
+    "iconBg": "#24292e",
+    "verified": true
   },
   {
     "slug": "chrome-devtools-mcp",
     "name": "Chrome DevTools MCP",
-    "description": "Chrome DevTools for coding agents — inspect, debug, and interact with web pages directly from your AI client.",
+    "description": "Chrome DevTools for coding agents \u2014 inspect, debug, and interact with web pages directly from your AI client.",
     "category": "devtools",
     "author": {
       "name": "Chrome DevTools",
@@ -2944,7 +2958,7 @@
     "trending": false,
     "featured": false,
     "version": "1.0.0",
-    "longDescription": "Chrome DevTools for coding agents — inspect, debug, and interact with web pages directly from your AI client.",
+    "longDescription": "Chrome DevTools for coding agents \u2014 inspect, debug, and interact with web pages directly from your AI client.",
     "docsUrl": "https://github.com/ChromeDevTools/chrome-devtools-mcp",
     "envVars": [],
     "lastUpdated": "2026-03-02T18:05:25.404Z",
@@ -2957,7 +2971,7 @@
   {
     "slug": "aws-mcp",
     "name": "AWS MCP",
-    "description": "Official MCP servers for AWS — interact with AWS services including S3, Lambda, DynamoDB, CloudFormation, and more.",
+    "description": "Official MCP servers for AWS \u2014 interact with AWS services including S3, Lambda, DynamoDB, CloudFormation, and more.",
     "category": "devtools",
     "author": {
       "name": "AWS Labs",
@@ -2965,14 +2979,14 @@
       "verified": true
     },
     "githubUrl": "https://github.com/awslabs/mcp",
-    "installCommand": "npx",
+    "installCommand": "uvx",
     "features": [
-      "S3 operations",
-      "Lambda management",
-      "DynamoDB access",
-      "CloudFormation stacks",
-      "IAM management",
-      "CloudWatch logs"
+      "69+ specialized AWS service servers",
+      "Role-based activation bundles",
+      "S3, Lambda, DynamoDB, IAM operations",
+      "CloudFormation and CDK management",
+      "CloudWatch monitoring and logs",
+      "Intelligent prompt understanding"
     ],
     "tags": [
       "aws",
@@ -2984,30 +2998,54 @@
     ],
     "compatibility": [
       "Claude",
-      "GPT",
-      "Gemini",
-      "Open Source"
+      "Cursor",
+      "VS Code",
+      "Windsurf",
+      "Kiro"
     ],
     "pricing": {
       "model": "free"
     },
     "stars": 8297,
-    "id": "4",
+    "id": "aws-mcp",
     "rating": 0,
     "reviewCount": 0,
     "installs": 0,
     "trending": false,
-    "featured": false,
-    "version": "1.0.0",
-    "longDescription": "Official MCP servers for AWS — interact with AWS services including S3, Lambda, DynamoDB, CloudFormation, and more.",
-    "docsUrl": "https://github.com/awslabs/mcp",
-    "envVars": [],
+    "featured": true,
+    "version": "1.0.23",
+    "longDescription": "The AWS Core MCP Server is the intelligent orchestrator for the entire AWS MCP ecosystem \u2014 69+ specialized servers covering every major AWS service. Rather than configuring each server individually, set role-based environment variables (e.g., serverless-architecture, solutions-architect, finops) and the Core server dynamically imports all relevant specialized servers for that role.\n\nCovers S3, Lambda, DynamoDB, CloudFormation, IAM, CloudWatch, EKS, ECS, Bedrock, SageMaker, RDS, Neptune, and dozens more. Includes a prompt_understanding tool that helps models translate goals into the right AWS services.\n\nPython-based, installed via uvx. Requires AWS credentials configured locally.",
+    "docsUrl": "https://awslabs.github.io/mcp/",
+    "envVars": [
+      {
+        "name": "AWS_REGION",
+        "description": "Default AWS region (e.g., us-east-1)",
+        "required": false,
+        "placeholder": "us-east-1"
+      },
+      {
+        "name": "AWS_FOUNDATION",
+        "description": "Enable AWS knowledge and API servers",
+        "required": false
+      },
+      {
+        "name": "DEV_TOOLS",
+        "description": "Enable development tool servers",
+        "required": false
+      },
+      {
+        "name": "SERVERLESS_ARCHITECTURE",
+        "description": "Enable Lambda, SAM serverless servers",
+        "required": false
+      }
+    ],
     "lastUpdated": "2026-03-02T18:05:25.404Z",
     "createdAt": "2026-03-02T18:05:25.404Z",
     "installCount": 0,
     "weeklyInstalls": 0,
-    "iconBg": "#1a1a2e",
-    "verified": false
+    "iconBg": "#FF9900",
+    "verified": true,
+    "npmPackage": "awslabs.core-mcp-server"
   },
   {
     "slug": "browser-tools-mcp",
@@ -3066,7 +3104,7 @@
   {
     "slug": "unity-mcp",
     "name": "Unity MCP",
-    "description": "Bridge between AI assistants and Unity Editor — manage assets, control scenes, edit scripts, and automate tasks in Unity.",
+    "description": "Bridge between AI assistants and Unity Editor \u2014 manage assets, control scenes, edit scripts, and automate tasks in Unity.",
     "category": "devtools",
     "author": {
       "name": "Coplay Dev",
@@ -3107,7 +3145,7 @@
     "trending": false,
     "featured": false,
     "version": "1.0.0",
-    "longDescription": "Bridge between AI assistants and Unity Editor — manage assets, control scenes, edit scripts, and automate tasks in Unity.",
+    "longDescription": "Bridge between AI assistants and Unity Editor \u2014 manage assets, control scenes, edit scripts, and automate tasks in Unity.",
     "docsUrl": "https://github.com/CoplayDev/unity-mcp",
     "envVars": [],
     "lastUpdated": "2026-03-02T18:05:25.404Z",
@@ -3120,7 +3158,7 @@
   {
     "slug": "figma-mcp",
     "name": "Figma MCP",
-    "description": "MCP integration between AI agents and Figma — read designs, extract layout info, and modify them programmatically.",
+    "description": "MCP integration between AI agents and Figma \u2014 read designs, extract layout info, and modify them programmatically.",
     "category": "devtools",
     "author": {
       "name": "Grab",
@@ -3161,7 +3199,7 @@
     "trending": false,
     "featured": false,
     "version": "1.0.0",
-    "longDescription": "MCP integration between AI agents and Figma — read designs, extract layout info, and modify them programmatically.",
+    "longDescription": "MCP integration between AI agents and Figma \u2014 read designs, extract layout info, and modify them programmatically.",
     "docsUrl": "https://github.com/grab/cursor-talk-to-figma-mcp",
     "envVars": [],
     "lastUpdated": "2026-03-02T18:05:25.404Z",
@@ -3174,7 +3212,7 @@
   {
     "slug": "xcodebuild-mcp",
     "name": "XcodeBuild MCP",
-    "description": "MCP server and CLI for iOS and macOS development — build, test, and manage Xcode projects from your AI agent.",
+    "description": "MCP server and CLI for iOS and macOS development \u2014 build, test, and manage Xcode projects from your AI agent.",
     "category": "devtools",
     "author": {
       "name": "Sentry",
@@ -3216,7 +3254,7 @@
     "trending": false,
     "featured": false,
     "version": "1.0.0",
-    "longDescription": "MCP server and CLI for iOS and macOS development — build, test, and manage Xcode projects from your AI agent.",
+    "longDescription": "MCP server and CLI for iOS and macOS development \u2014 build, test, and manage Xcode projects from your AI agent.",
     "docsUrl": "https://github.com/getsentry/XcodeBuildMCP",
     "envVars": [],
     "lastUpdated": "2026-03-02T18:05:25.404Z",
@@ -3229,7 +3267,7 @@
   {
     "slug": "deep-research-mcp",
     "name": "Deep Research MCP",
-    "description": "Use any LLM for deep research — multi-step investigation, source synthesis, and comprehensive analysis via MCP.",
+    "description": "Use any LLM for deep research \u2014 multi-step investigation, source synthesis, and comprehensive analysis via MCP.",
     "category": "ai-ml",
     "author": {
       "name": "u14app",
@@ -3269,7 +3307,7 @@
     "trending": false,
     "featured": false,
     "version": "1.0.0",
-    "longDescription": "Use any LLM for deep research — multi-step investigation, source synthesis, and comprehensive analysis via MCP.",
+    "longDescription": "Use any LLM for deep research \u2014 multi-step investigation, source synthesis, and comprehensive analysis via MCP.",
     "docsUrl": "https://github.com/u14app/deep-research",
     "envVars": [],
     "lastUpdated": "2026-03-02T18:05:25.404Z",
@@ -3282,7 +3320,7 @@
   {
     "slug": "antv-chart-mcp",
     "name": "AntV Chart MCP",
-    "description": "Generate 25+ types of visual charts using AntV — bar, line, pie, scatter, heatmap, treemap, and more from your AI agent.",
+    "description": "Generate 25+ types of visual charts using AntV \u2014 bar, line, pie, scatter, heatmap, treemap, and more from your AI agent.",
     "category": "analytics",
     "author": {
       "name": "AntV",
@@ -3324,7 +3362,7 @@
     "trending": false,
     "featured": false,
     "version": "1.0.0",
-    "longDescription": "Generate 25+ types of visual charts using AntV — bar, line, pie, scatter, heatmap, treemap, and more from your AI agent.",
+    "longDescription": "Generate 25+ types of visual charts using AntV \u2014 bar, line, pie, scatter, heatmap, treemap, and more from your AI agent.",
     "docsUrl": "https://github.com/antvis/mcp-server-chart",
     "envVars": [],
     "lastUpdated": "2026-03-02T18:05:25.404Z",
@@ -3337,7 +3375,7 @@
   {
     "slug": "ida-pro-mcp",
     "name": "IDA Pro MCP",
-    "description": "AI-powered reverse engineering assistant — bridge IDA Pro with language models for binary analysis, decompilation, and vulnerability research.",
+    "description": "AI-powered reverse engineering assistant \u2014 bridge IDA Pro with language models for binary analysis, decompilation, and vulnerability research.",
     "category": "devtools",
     "author": {
       "name": "mrexodia",
@@ -3376,7 +3414,7 @@
     "trending": false,
     "featured": false,
     "version": "1.0.0",
-    "longDescription": "AI-powered reverse engineering assistant — bridge IDA Pro with language models for binary analysis, decompilation, and vulnerability research.",
+    "longDescription": "AI-powered reverse engineering assistant \u2014 bridge IDA Pro with language models for binary analysis, decompilation, and vulnerability research.",
     "docsUrl": "https://github.com/mrexodia/ida-pro-mcp",
     "envVars": [],
     "lastUpdated": "2026-03-02T18:05:25.404Z",
@@ -3385,5 +3423,176 @@
     "weeklyInstalls": 0,
     "iconBg": "#1a1a2e",
     "verified": false
+  },
+  {
+    "id": "figma-context-mcp",
+    "name": "Figma Context MCP",
+    "slug": "figma-context-mcp",
+    "description": "Give your AI coding agent direct access to Figma design data \u2014 implement designs accurately in one shot, any framework.",
+    "longDescription": "Framelink Figma Context MCP fetches structured layout and styling metadata directly from the Figma API and compresses it into a concise, code-focused representation. AI agents receive precise spacing, typography, color, and component hierarchy data, enabling pixel-accurate UI implementation in a single pass across any frontend framework.\n\nTwo tools are exposed: get_figma_data for retrieving node metadata with optional depth traversal, and download_figma_images for exporting SVG/PNG assets. Setup requires only a Figma personal access token and a single npx command.\n\nUnlike passing screenshots to an LLM, this approach gives the model real structured data instead of pixel guessing \u2014 dramatically better results.",
+    "category": "devtools",
+    "author": {
+      "name": "GLips",
+      "username": "GLips",
+      "verified": false
+    },
+    "pricing": {
+      "model": "free"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "installCount": 0,
+    "weeklyInstalls": 0,
+    "version": "0.6.4",
+    "lastUpdated": "2025-10-06",
+    "createdAt": "2025-03-01",
+    "tags": [
+      "figma",
+      "design",
+      "ui",
+      "frontend",
+      "design-to-code",
+      "css"
+    ],
+    "features": [
+      "Structured Figma design data extraction",
+      "SVG and PNG asset downloads",
+      "Token-efficient compressed output",
+      "Named style and design system support",
+      "One-shot design-to-code implementation",
+      "Works with any frontend framework"
+    ],
+    "githubUrl": "https://github.com/GLips/Figma-Context-MCP",
+    "docsUrl": "https://github.com/GLips/Figma-Context-MCP#readme",
+    "iconBg": "#A259FF",
+    "verified": false,
+    "trending": true,
+    "featured": true,
+    "compatibility": [
+      "Claude",
+      "Cursor",
+      "VS Code",
+      "Windsurf",
+      "Zed"
+    ],
+    "npmPackage": "figma-developer-mcp",
+    "installCommand": "npx",
+    "envVars": [
+      {
+        "name": "FIGMA_API_KEY",
+        "description": "Figma personal access token (read-only scope)",
+        "required": true,
+        "placeholder": "figd_..."
+      }
+    ]
+  },
+  {
+    "id": "mcp-chrome",
+    "name": "Chrome MCP",
+    "slug": "mcp-chrome",
+    "description": "Chrome extension MCP server \u2014 automate your real browser session with AI agents, including semantic tab search and network capture.",
+    "longDescription": "Chrome MCP Server is a Chrome extension-based Model Context Protocol server that gives AI assistants direct access to your existing Chrome browser. Unlike Playwright or Puppeteer, it connects to your running Chrome instance \u2014 preserving all cookies, sessions, extensions, and login states.\n\nExposes 20+ tools covering window/tab management, page navigation, screenshot capture, network monitoring, DOM interaction, content extraction, and semantic search. The semantic search uses a built-in vector database with WebAssembly SIMD acceleration to search across all open tabs intelligently.\n\nRequires installing the npm bridge package globally and sideloading the Chrome extension from GitHub releases.",
+    "category": "devtools",
+    "author": {
+      "name": "hangwin",
+      "username": "hangwin",
+      "verified": false
+    },
+    "pricing": {
+      "model": "free"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "installCount": 0,
+    "weeklyInstalls": 0,
+    "version": "1.0.29",
+    "lastUpdated": "2026-01-15",
+    "createdAt": "2025-06-01",
+    "tags": [
+      "chrome",
+      "browser",
+      "automation",
+      "screenshots",
+      "web-scraping",
+      "dom"
+    ],
+    "features": [
+      "Real browser session automation",
+      "Semantic tab search with vector DB",
+      "Full-page and element screenshots",
+      "Network traffic capture and replay",
+      "DOM interaction and script injection",
+      "Console capture and history access"
+    ],
+    "githubUrl": "https://github.com/hangwin/mcp-chrome",
+    "docsUrl": "https://github.com/hangwin/mcp-chrome#readme",
+    "iconBg": "#4285F4",
+    "verified": false,
+    "trending": true,
+    "featured": false,
+    "compatibility": [
+      "Claude",
+      "Cursor",
+      "Windsurf",
+      "Open Source"
+    ],
+    "npmPackage": "mcp-chrome-bridge",
+    "installCommand": "npx",
+    "envVars": []
+  },
+  {
+    "id": "git-mcp",
+    "name": "Git MCP",
+    "slug": "git-mcp",
+    "description": "Free remote MCP server that turns any public GitHub repo into a live documentation and code search endpoint \u2014 zero install, no hallucinations.",
+    "longDescription": "GitMCP is a free, open-source, remotely hosted Model Context Protocol server that transforms any public GitHub repository into a live documentation and code intelligence endpoint for AI agents. It eliminates code hallucinations by giving models real-time access to actual source and documentation.\n\nNo installation required. Configure your MCP client to point to gitmcp.io/{owner}/{repo} for a specific library, or gitmcp.io/docs for a generic endpoint where the agent resolves the repository at query time. GitMCP prioritizes llms.txt (the emerging standard for AI-readable docs), falling back to README and GitHub Pages content.\n\nThree tools exposed: fetch_docs (primary documentation), search_docs (semantic documentation search), and code_search (source code search).",
+    "category": "devtools",
+    "author": {
+      "name": "Ido Salomon",
+      "username": "idosal",
+      "verified": false
+    },
+    "pricing": {
+      "model": "free"
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "installCount": 0,
+    "weeklyInstalls": 0,
+    "version": "1.0.0",
+    "lastUpdated": "2026-02-01",
+    "createdAt": "2025-04-01",
+    "tags": [
+      "github",
+      "documentation",
+      "code-search",
+      "remote",
+      "llms-txt",
+      "no-install"
+    ],
+    "features": [
+      "Zero-install remote MCP server",
+      "Live documentation from any GitHub repo",
+      "Semantic documentation search",
+      "Source code search across repos",
+      "llms.txt priority with smart fallbacks",
+      "Generic endpoint for dynamic repo selection"
+    ],
+    "githubUrl": "https://github.com/idosal/git-mcp",
+    "docsUrl": "https://gitmcp.io",
+    "iconBg": "#F05032",
+    "verified": false,
+    "trending": true,
+    "featured": false,
+    "compatibility": [
+      "Claude",
+      "Cursor",
+      "VS Code",
+      "Windsurf",
+      "Cline"
+    ],
+    "npmPackage": null,
+    "installCommand": "npx",
+    "envVars": []
   }
 ]
