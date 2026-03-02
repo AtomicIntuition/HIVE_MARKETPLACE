@@ -21,9 +21,9 @@ export default async function HomePage() {
   return (
     <>
       <Hero />
+      <McpConnect />
       <FeaturedTools trendingTools={trendingTools} featuredTools={featuredTools} />
       <CategoryGrid categories={categories} />
-      <McpConnect />
       <StacksPreview />
     </>
   );
