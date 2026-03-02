@@ -67,7 +67,7 @@ async function getReviewsData(toolId: string) {
 
     const { data: reviews } = await supabase
       .from("reviews")
-      .select("id, author_name, author_username, rating, text, created_at, user_id, profiles!reviews_user_id_fkey(avatar_url)")
+      .select("id, author_name, author_username, rating, text, created_at, user_id, profiles(avatar_url)")
       .eq("tool_id", toolId)
       .order("created_at", { ascending: false });
 
