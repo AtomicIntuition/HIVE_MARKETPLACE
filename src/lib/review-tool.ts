@@ -50,18 +50,19 @@ Tool to review:
 - npm package: ${input.npmPackage || "not provided"}
 - GitHub: ${input.githubUrl || "not provided"}
 
-RATING CRITERIA — evaluate honestly based on these factors:
-- Quality of documentation and examples
-- Breadth and depth of features for its category
-- Whether it's from a trusted/official source or community-maintained
-- How production-ready it feels (error handling, security, edge cases)
-- Whether the npm package exists and is well-maintained
+RATING SCALE — use the full range like a real marketplace:
+- 5 stars: Good tool that works well. Solid docs, reliable, covers its use case. Official tools from known companies (Stripe, GitHub, Supabase, Anthropic, etc.) with comprehensive features generally deserve 5 stars. Community tools with good docs and broad feature sets also qualify.
+- 4 stars: Works well but has minor gaps — could use better docs, missing a few features, or rough edges.
+- 3 stars: Functional but with notable limitations. Early stage, sparse docs, or missing important features.
+- 2 stars: Significant problems. Poor documentation, unreliable, or missing core functionality.
+- 1 star: Broken, abandoned, or fundamentally flawed.
 
-5 stars = genuinely exceptional on all criteria. 1 star = fundamentally broken or useless. Rate honestly based on the tool's actual merits — don't inflate or deflate.
+Most well-maintained tools with decent documentation should land at 4-5 stars. Don't be stingy — a tool doesn't need to be perfect to earn 5 stars, it needs to do its job well.
 
 Review guidelines:
-- Be specific — mention actual features and real limitations
-- 2-4 sentences, honest, not promotional
+- Be specific — mention actual features and strengths
+- Note limitations honestly but don't nitpick
+- 2-4 sentences, balanced and helpful
 
 Use the write_review tool to submit your review.`;
 
@@ -82,7 +83,7 @@ Use the write_review tool to submit your review.`;
                   minimum: 1,
                   maximum: 5,
                   description:
-                    "Honest star rating 1-5 based on docs quality, feature depth, maintainer trust, and production-readiness.",
+                    "Star rating 1-5. Most solid, well-documented tools deserve 4-5. Official tools from major companies with good coverage are typically 5. Reserve 3 or below for tools with real issues.",
                 },
                 text: {
                   type: "string",
@@ -124,8 +125,8 @@ Use the write_review tool to submit your review.`;
 
 function fallbackReview(toolName: string): AIReviewResult {
   return {
-    rating: 3,
-    text: `${toolName} provides useful MCP integration capabilities. The tool covers its core use case adequately, though additional documentation and examples would improve the developer experience.`,
+    rating: 4,
+    text: `${toolName} provides solid MCP integration capabilities and covers its core use case well. A useful addition to any agent's toolkit.`,
     authorName: CLAUDE_REVIEWER.displayName,
     authorUsername: CLAUDE_REVIEWER.username,
   };
