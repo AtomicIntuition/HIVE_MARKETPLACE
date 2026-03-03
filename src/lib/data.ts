@@ -144,4 +144,19 @@ export async function getAllCategoriesWithCounts() {
   return counts;
 }
 
+export async function getMarketplaceStats(): Promise<{
+  toolCount: number;
+  categoryCount: number;
+}> {
+  const db = await getDb();
+  const { tools } = await import("@/db/schema");
+  const { count } = await import("drizzle-orm");
+  const result = await db.select({ count: count() }).from(tools);
+  const toolCount = result[0]?.count ?? 0;
+  return {
+    toolCount,
+    categoryCount: CATEGORIES.length,
+  };
+}
+
 // sortTools and filterTools moved to @/lib/tool-utils.ts for client component compatibility
