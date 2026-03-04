@@ -14,6 +14,7 @@ const NAV_LINKS = [
   { href: "/tools", label: "Browse Tools" },
   { href: "/stacks", label: "Stacks" },
   { href: "/categories", label: "Categories" },
+  { href: "/desktop", label: "Desktop" },
   { href: "/pricing", label: "Pricing" },
   { href: "/docs", label: "Docs" },
 ];
