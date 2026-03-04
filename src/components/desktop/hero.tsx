@@ -119,7 +119,7 @@ export function DesktopHero() {
             transition={{ duration: 0.3, delay: 0.3 }}
             className="mt-4 text-xs text-gray-600"
           >
-            macOS (Apple Silicon + Intel) — v0.2.0 — MIT License
+            macOS (Apple Silicon + Intel) — v0.2.1 — MIT License
           </motion.p>
 
           {/* App preview */}
