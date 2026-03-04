@@ -119,8 +119,28 @@ export function DesktopHero() {
             transition={{ duration: 0.3, delay: 0.3 }}
             className="mt-4 text-xs text-gray-600"
           >
-            macOS (Apple Silicon + Intel) — v0.2.1 — MIT License
+            macOS (Apple Silicon + Intel) — v0.3.0 — MIT License
           </motion.p>
+
+          {/* Gatekeeper bypass */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.3, delay: 0.35 }}
+            className="mx-auto mt-4 max-w-md rounded-lg border border-amber-500/20 bg-amber-500/[0.04] px-4 py-3"
+          >
+            <p className="text-xs text-amber-300/90 font-medium mb-1.5">
+              First launch on macOS?
+            </p>
+            <p className="text-[11px] text-gray-400 mb-2">
+              The app is not Apple-signed yet. After installing, run this in Terminal to bypass Gatekeeper:
+            </p>
+            <div className="group relative">
+              <code className="block rounded-md bg-gray-900/80 border border-white/[0.06] px-3 py-2 font-mono text-xs text-gray-300 select-all">
+                xattr -cr &quot;/Applications/Hive Desktop.app&quot;
+              </code>
+            </div>
+          </motion.div>
 
           {/* App preview */}
           <motion.div
