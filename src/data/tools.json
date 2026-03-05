@@ -57,7 +57,8 @@
         "name": "STRIPE_SECRET_KEY",
         "description": "Your Stripe secret API key",
         "required": true,
-        "placeholder": "sk_live_..."
+        "placeholder": "sk_live_...",
+        "docsUrl": "https://dashboard.stripe.com/apikeys"
       }
     ]
   },
@@ -117,7 +118,8 @@
         "name": "SHOPIFY_ACCESS_TOKEN",
         "description": "Shopify Admin API access token",
         "required": true,
-        "placeholder": "shpat_..."
+        "placeholder": "shpat_...",
+        "docsUrl": "https://shopify.dev/docs/apps/auth/admin-app-access-tokens"
       },
       {
         "name": "SHOPIFY_STORE_URL",
@@ -299,7 +301,8 @@
         "name": "SLACK_BOT_TOKEN",
         "description": "Slack bot OAuth token",
         "required": true,
-        "placeholder": "xoxb-..."
+        "placeholder": "xoxb-...",
+        "docsUrl": "https://api.slack.com/tutorials/tracks/getting-a-token"
       },
       {
         "name": "SLACK_TEAM_ID",
@@ -476,12 +479,14 @@
       {
         "name": "TWILIO_ACCOUNT_SID",
         "description": "Twilio account SID",
-        "required": true
+        "required": true,
+        "docsUrl": "https://console.twilio.com/"
       },
       {
         "name": "TWILIO_AUTH_TOKEN",
         "description": "Twilio auth token",
-        "required": true
+        "required": true,
+        "docsUrl": "https://console.twilio.com/"
       }
     ]
   },
@@ -538,7 +543,8 @@
         "name": "SENDGRID_API_KEY",
         "description": "SendGrid API key",
         "required": true,
-        "placeholder": "SG...."
+        "placeholder": "SG....",
+        "docsUrl": "https://app.sendgrid.com/settings/api_keys"
       }
     ]
   },
@@ -731,12 +737,14 @@
         "name": "SUPABASE_URL",
         "description": "Supabase project URL",
         "required": true,
-        "placeholder": "https://xxx.supabase.co"
+        "placeholder": "https://xxx.supabase.co",
+        "docsUrl": "https://supabase.com/dashboard/project/_/settings/api"
       },
       {
         "name": "SUPABASE_SERVICE_ROLE_KEY",
         "description": "Supabase service role key",
-        "required": true
+        "required": true,
+        "docsUrl": "https://supabase.com/dashboard/project/_/settings/api"
       }
     ]
   },
@@ -1073,7 +1081,8 @@
         "name": "GITHUB_PERSONAL_ACCESS_TOKEN",
         "description": "GitHub personal access token",
         "required": true,
-        "placeholder": "ghp_..."
+        "placeholder": "ghp_...",
+        "docsUrl": "https://github.com/settings/tokens"
       }
     ]
   },
@@ -1130,7 +1139,8 @@
       {
         "name": "LINEAR_API_KEY",
         "description": "Linear API key",
-        "required": true
+        "required": true,
+        "docsUrl": "https://linear.app/settings/api"
       }
     ]
   },
@@ -1187,7 +1197,8 @@
       {
         "name": "SENTRY_AUTH_TOKEN",
         "description": "Sentry auth token",
-        "required": true
+        "required": true,
+        "docsUrl": "https://sentry.io/settings/auth-tokens/"
       },
       {
         "name": "SENTRY_ORG",
@@ -1608,7 +1619,8 @@
       {
         "name": "BRAVE_API_KEY",
         "description": "Brave Search API key",
-        "required": true
+        "required": true,
+        "docsUrl": "https://brave.com/search/api/"
       }
     ]
   },
@@ -1775,7 +1787,8 @@
         "name": "NOTION_API_KEY",
         "description": "Notion integration token",
         "required": true,
-        "placeholder": "ntn_..."
+        "placeholder": "ntn_...",
+        "docsUrl": "https://www.notion.so/my-integrations"
       }
     ]
   },
@@ -2009,7 +2022,8 @@
         "name": "OPENAI_API_KEY",
         "description": "OpenAI API key",
         "required": true,
-        "placeholder": "sk-..."
+        "placeholder": "sk-...",
+        "docsUrl": "https://platform.openai.com/api-keys"
       }
     ]
   },
@@ -2070,7 +2084,8 @@
       {
         "name": "ANTHROPIC_API_KEY",
         "description": "Anthropic API key",
-        "required": true
+        "required": true,
+        "docsUrl": "https://console.anthropic.com/settings/keys"
       }
     ]
   },
@@ -2897,7 +2912,8 @@
         "name": "GITHUB_PERSONAL_ACCESS_TOKEN",
         "description": "GitHub personal access token for API authentication",
         "required": true,
-        "placeholder": "ghp_..."
+        "placeholder": "ghp_...",
+        "docsUrl": "https://github.com/settings/tokens"
       },
       {
         "name": "GITHUB_HOST",
